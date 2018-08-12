@@ -4,32 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/cogs/text.py" line="88" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6407fb93-1db4-423e-a29b-b48c10419958" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/cogs/coins.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cogs/copypasta.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cogs/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/YukikoBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/YukikoBot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dice/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dice/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dice/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dice/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dice/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dice/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dice/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dice/4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dice/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dice/5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dice/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/dice/6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/dice/dice.pdn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/experimental.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/fun.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/image.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/info.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/moderation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/owner.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/owner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/text.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/text.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dank.pyw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend.pyw" beforeDir="false" afterPath="$PROJECT_DIR$/frontend.pyw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yuki.py" beforeDir="false" afterPath="$PROJECT_DIR$/yuki.py" afterDir="false" />
-    </list>
+    <list default="true" id="6407fb93-1db4-423e-a29b-b48c10419958" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -200,8 +175,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1111" />
-    <option name="y" value="257" />
+    <option name="x" value="868" />
+    <option name="y" value="246" />
     <option name="width" value="1367" />
     <option name="height" value="791" />
   </component>
