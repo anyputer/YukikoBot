@@ -25,7 +25,8 @@ class Owner:
 
         allowedUsers = (
             self.bot.owner_id,
-            357641367507435531 # Slick9000#7159
+            357641367507435531, # Slick9000#7159
+            314885561552994305  # SimonMKWii#1234
         )
         if ctx.author.id not in allowedUsers:
             await ctx.send("You don't have access to this command.")
