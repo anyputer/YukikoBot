@@ -1,5 +1,9 @@
 trash/
 test.py
+config.ini
+
+.floo
+.flooignore
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
