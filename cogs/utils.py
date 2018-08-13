@@ -259,10 +259,10 @@ class Utilities:
             answer = "Ask me something next time"
 
         embed = discord.Embed(color = ykColor)
-        embed.set_author(name = "8-ball", icon_url = "https://image.ibb.co/drgwj8/8ball.png")
+        embed.set_author(name = "8-ball") # "https://image.ibb.co/drgwj8/8ball.png"
         embed.set_thumbnail(url = "https://image.ibb.co/drgwj8/8ball.png")
-        embed.add_field(name = "Question", value = "".join(text), inline = False)
-        embed.add_field(name = "Answer", value = answer, inline = True)
+        embed.add_field(name = u"\U00002753 Question", value = "".join(text), inline = False)
+        embed.add_field(name = u"\U0001f3b1 Answer", value = answer, inline = True)
         embed.set_footer(text = "Put a ? for it to count as a question!")
 
         # await ctx.send(u"\U0001F3B1" + f" The 8-ball said ``{answer}``")
