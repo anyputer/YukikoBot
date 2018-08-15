@@ -138,5 +138,36 @@ class Experimental:
                 await msg.clear_reactions()
                 return
 
+    @commands.command(aliases = [u"\U0001f4cc"])
+    @commands.has_permissions(manage_messages = True)
+    async def pin(self, ctx, messageid: int = None):
+        """Pins a message by either reacting to the message or specifying the id."""
+
+        if messageid:
+            try:
+                message = await ctx.get_message(id = messageid)
+            except:
+                message = None
+                errorMessage = "Message doesn't exist."
+
+            if message and message.pinned:
+                errorMessage = "Message is already pinned."
+            else:
+                try:
+                    await message.pin()
+                    return
+                except:
+                    errorMessage = "Couldn't pin message."
+
+            embed = discord.Embed(description = u"\U000026a0 **{}**".format(errorMessage), color = ykColor)
+            await ctx.send(embed = embed)
+        else:
+            check = lambda r, u: u == ctx.author and r == "\N{PUSHPIN}"
+
+            try:
+                reaction, user = await self.bot.wait_for("reaction_add", check = check)
+            except asyncio.TimeoutError:
+                await ctx.send("Ran out of time to pin message.")
+
 def setup(bot):
     bot.add_cog(Experimental(bot))

@@ -4,7 +4,7 @@ from yuki import color as ykColor
 
 import logging
 
-class Moderation:
+class Guild:
     def __init__(self, bot):
         self.bot = bot
     
@@ -122,12 +122,12 @@ class Moderation:
             await ctx.send(embed = embed)
         except:
             if len(gld.channels) < 100:
-                errorMessage = u"\U000026a0 **No space left to create #{name}.**"
+                errorMessage = f"No space left to create #{name}."
             else:
-                errorMessage = u"\U000026a0 **Couldn't create channel #{name}.**"
+                errorMessage = f"Couldn't create channel #{name}."
 
-            embed = discord.Embed(description = errorMessage, color = ykColor)
+            embed = discord.Embed(description = u"\U000026a0 **{}**".format(errorMessage), color = ykColor)
             await ctx.send(embed = embed)
 
 def setup(bot):
-    bot.add_cog(Moderation(bot))
+    bot.add_cog(Guild(bot))

@@ -139,7 +139,7 @@ class Utilities:
         optionsList = [option.strip() for option in optionsList]
         # fOptionsList = [f"**{option}**" for option in optionsList]
 
-        output = "\N{THINKING FACE} From ``{}`` I choose **{}**!".format(
+        output = "\N{THINKING FACE} From ``{}`` I choose **{}**".format(
             ", ".join(optionsList),
             random.choice(optionsList)
         )

@@ -23,7 +23,7 @@ initial_extensions = (
     "cogs.owner",
     "cogs.image",
     "cogs.text",
-    "cogs.mod",
+    "cogs.guild",
     "cogs.info",
     "cogs.tests",
     "cogs.utils",

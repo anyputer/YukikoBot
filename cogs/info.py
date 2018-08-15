@@ -54,7 +54,7 @@ class Info:
             "Experimental": "\N{CONSTRUCTION SIGN} Experimental",
             "Images":       "\N{FRAME WITH PICTURE} Image",
             "Info":         "\N{INFORMATION SOURCE} Info",
-            "Moderation":   "Moderation",
+            "Guild":        "\N{HOUSE WITH GARDEN} Server",
             "Text":         "\N{KEYBOARD} Text",
             "Utilities":    "\N{HAMMER AND WRENCH} Utils"
         }
@@ -73,7 +73,7 @@ class Info:
                         cmds += f"``{prefix}{command.name}`` "
 
                 if not cmds == "":
-                    embed.add_field(name = cogDisplayDict[cogName], value = cmds, inline = False)
+                    embed.add_field(name = cogDisplayDict.get(cogName, cogName), value = cmds, inline = False)
             embed.set_footer(text = f"Type {prefix}help <command> for info on a command.")
 
             await ctx.send(embed = embed)
@@ -85,6 +85,7 @@ class Info:
                 description = cmd.help,
                 color = ykColor
             )
+            embed.set_footer(text = cogDisplayDict.get(cmd.cog_name, cmd.cog_name))
 
             path = f"assets/usage/{cmd.name}.png"
             filename = f"{cmd.name}.png"
