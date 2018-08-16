@@ -44,7 +44,7 @@
       <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cogs/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-299">
+            <state relative-caret-position="2278">
               <caret line="143" column="36" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
             </state>
           </provider>
@@ -231,7 +231,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -248,6 +247,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -398,18 +398,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="782" y="0" width="1095" height="1047" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.84153" visible="true" weight="0.23462631" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.84" visible="true" weight="0.23462631" />
       <window_info anchor="bottom" id="TODO" order="5" sideWeight="0.49927112" weight="0.33114755" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.16034986" side_tool="true" weight="0.21492921" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8666181" weight="0.31632653" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32900432" />
       <window_info anchor="bottom" id="Python Console" order="6" sideWeight="0.49854228" weight="0.3306544" />
       <window_info anchor="bottom" id="Floobits" order="10" weight="0.32900432" />
-      <window_info id="Structure" order="1" sideWeight="0.15846995" side_tool="true" visible="true" weight="0.23462631" />
+      <window_info id="Structure" order="1" sideWeight="0.16" side_tool="true" visible="true" weight="0.23462631" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3255814" />
-      <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.83965015" weight="0.28961748" />
+      <window_info active="true" anchor="bottom" id="Debug" order="11" sideWeight="0.83965015" visible="true" weight="0.28961748" />
       <window_info id="Favorites" order="2" sideWeight="0.50073206" side_tool="true" weight="0.19305019" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -424,22 +423,22 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49926794" visible="true" weight="0.18660647" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8666181" weight="0.31632653" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Floobits" order="11" weight="0.32900432" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49927112" weight="0.33114755" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.49854228" weight="0.3306544" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32900432" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.83965015" visible="true" weight="0.12611276" />
       <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="3" side_tool="true" weight="0.3565417" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32659933" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.16034986" side_tool="true" weight="0.21492921" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32900432" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50073206" side_tool="true" weight="0.19305019" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.49854228" weight="0.3306544" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -626,7 +625,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cogs/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-299">
+        <state relative-caret-position="2278">
           <caret line="143" column="36" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
         </state>
       </provider>
