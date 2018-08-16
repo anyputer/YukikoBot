@@ -4,14 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/cogs/text.py" line="88" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6407fb93-1db4-423e-a29b-b48c10419958" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/info.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/mod.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yuki.py" beforeDir="false" afterPath="$PROJECT_DIR$/yuki.py" afterDir="false" />
-    </list>
+    <list default="true" id="6407fb93-1db4-423e-a29b-b48c10419958" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -407,7 +400,7 @@
     <frame x="782" y="0" width="1095" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.84153" visible="true" weight="0.23462631" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.84153" visible="true" weight="0.23462631" />
       <window_info anchor="bottom" id="TODO" order="5" sideWeight="0.49927112" weight="0.33114755" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.16034986" side_tool="true" weight="0.21492921" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8666181" weight="0.31632653" />
