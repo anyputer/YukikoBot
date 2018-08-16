@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 from yuki import color as ykColor
 
+import yuki
+
 import aiohttp
 from PIL import Image, ImageFont, ImageDraw, ImageEnhance
 import PIL.ImageOps
@@ -19,31 +21,6 @@ class Images:
     def __init__(self, bot):
         self.bot = bot
 
-    async def getImage(self, link, ctx):
-        if link == None: # If no link is passed
-            if len(ctx.message.attachments) >= 1:
-                # Attachment
-                link = ctx.message.attachments[0].url
-            else:
-                # Last Attachment
-
-                a = []
-                async for message in ctx.message.channel.history(limit = 10):
-                    try:
-                        a.append(message.attachments[-1])
-                    except IndexError:
-                        pass
-                link = a[-1].url # Set link to the last attachment url in the list
-
-        elif link.startswith("<:"): # (Custom) Emoji
-            id = link.split(':')[2][:-1]
-            link = self.bot.get_emoji(id).url
-            print(id, link)
-
-        async with aiohttp.ClientSession() as clientSession: # Link
-            async with clientSession.get(link) as response:
-                return await response.read()
-
     @commands.command()
     async def flip(self, ctx, xy : str, link: str = None):
         """Flips image horizontally, or vertically."""
@@ -51,7 +28,7 @@ class Images:
         # messages = await ctx.message.channel.history().flatten()
 
         async with ctx.typing():
-            imgBytes = await self.getImage(link, ctx)
+            imgBytes = await yuki.getImage(link, ctx)
             with Image.open(BytesIO(imgBytes)) as img:
                 if xy.lower() in ('x', 'h', 'horizontal', 'horizontally'):
                     img = img.transpose(Image.FLIP_LEFT_RIGHT)
@@ -146,7 +123,7 @@ class Images:
         """Thonkifies the image you provide."""
 
         async with ctx.typing():
-            imgBytes = await self.getImage(link, ctx)
+            imgBytes = await yuki.getImage(link, ctx)
             with Image.open(BytesIO(imgBytes)) as img:
                 imgThonk = Image.open("assets/thonk.png")
                 imgThonk = imgThonk.resize(img.size, Image.ANTIALIAS)
@@ -187,7 +164,7 @@ class Images:
         # TODO: Blocks a huge amount, fix it.
 
         async with ctx.typing():
-            imgBytes = await self.getImage(link, ctx)
+            imgBytes = await yuki.getImage(link, ctx)
             with Image.open(BytesIO(imgBytes)) as img:
                 layer1 = Image.open("assets/thonk3.png")
                 layer1 = layer1.resize((int(img.width * 2.5), int(img.width * 2.5)), Image.ANTIALIAS)
@@ -226,7 +203,7 @@ class Images:
         # messages = await ctx.message.channel.history().flatten()
 
         async with ctx.typing():
-            imgBytes = await self.getImage(link, ctx)
+            imgBytes = await yuki.getImage(link, ctx)
             with Image.open(BytesIO(imgBytes)) as img:
                 if img.mode == "RGBA":
                     r, g, b, a = img.split()

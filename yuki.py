@@ -8,6 +8,9 @@ import webcolors
 from os.path import isfile
 from configparser import RawConfigParser
 
+import aiohttp
+import asyncio
+
 description = '''A multi-purpose bot with fun commands'''
 prefix = ".yk "
 
@@ -54,7 +57,7 @@ async def on_guild_join(guild):
 async def on_guild_remove(guild):
     await bot.change_presence(activity = discord.Game(name = f"on {len(bot.guilds)} servers. | {prefix}help"))
 
-@bot.event 
+@bot.event
 async def on_message(msg):
     if msg.author == bot.user:
         return
@@ -63,6 +66,28 @@ async def on_message(msg):
         return
 
     await bot.process_commands(msg)
+
+async def getImage(link, ctx):
+    if link == None: # If no link is passed
+        if len(ctx.message.attachments) >= 1:
+            # Attachment
+            usedLink = ctx.message.attachments[0].url
+        else:
+            # Last Attachment
+
+            a = []
+            async for message in ctx.channel.history(limit = 10):
+                if len(message.attachments >= 1):
+                    a.append(message.attachments[-1])
+            usedLink = a[-1].url # Set link to the last attachment url in the list
+    elif link.startswith("<:"): # (Custom) Emoji
+        id = link.split(':')[2][:-1]
+        usedLink = bot.get_emoji(id).url
+        print(id, usedLink)
+
+    async with aiohttp.ClientSession() as clientSession:  # Link
+        async with clientSession.get(usedLink) as response:
+            return await response.read()
 
 async def startTyping(channelID):
     cha = await bot.get_channel(id = int(channelID))

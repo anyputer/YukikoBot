@@ -4,14 +4,13 @@ from yuki import color as ykColor
 
 import upsidedown
 from translate import Translator
-# import re
-# import emoji
-
 from pyfiglet import Figlet
-
 import cowsay
+
 import sys
 from io import StringIO
+# import re
+# import emoji
 
 class Text:
     def __init__(self, bot):
@@ -45,12 +44,10 @@ class Text:
 
     @commands.command()
     async def dank(self, ctx, *, text: str):
-        """Outputs text in  d a n k  l e t t e r s."""
+        """Outputs text in **``d a n k  l e t t e r s``**."""
 
-        between = ' ' * 1
-        a = "**```\n" + between.join("".join(text)) + "```**"
-
-        await ctx.send(a)
+        dankText = (' ' * 1).join("".join(text))
+        await ctx.send(f"**```{dankText}```**")
 
     @commands.command(aliases = ["uppercase", "caps"])
     async def upper(self, ctx, *, text: str):
@@ -150,9 +147,8 @@ class Text:
         """Outputs text in FIGlet letters."""
 
         f = Figlet(font = "standard")
-        output = "```" + f.renderText("".join(text)) + "```"
-        if output == "``````":
-            output = "No output."
+        renderedText = f.renderText("".join(text))
+        output = f"```{renderedText}```" if renderedText != "" else "No output."
 
         await ctx.send(output)
 

@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from yuki import color as ykColor
+import yuki
 
 import logging
 
@@ -43,7 +44,7 @@ class Guild:
         embed.add_field(name = "ID", value = mem.id, inline = True)
 
         await ctx.send(embed = embed)
-        await mem.ban()
+        await mem.ban(f"{ctx.author} used the ban command.")
         await ctx.message.delete()
 
     """@commands.command(pass_context = True)
@@ -78,7 +79,7 @@ class Guild:
         # embed.set_author(name = str(mem), icon_url = mem.avatar_url)
 
         await ctx.send(embed = embed)
-        await mem.kick()
+        await mem.kick(reason = f"{ctx.author} used the kick command.")
         await ctx.message.delete()
 
     @commands.command(aliases = ["nickname", "changenick", "changenickname"])
@@ -94,7 +95,7 @@ class Guild:
         """
         mem = member
         try:
-            await mem.edit(nick = nickname)
+            await mem.edit(nick = nickname, reason = f"{ctx.author} used the nick command.")
             embed = discord.Embed(description = "", color = ykColor)
             embed.set_author(
                 name = f"Successfully changed nickname of {str(mem)}.",
@@ -105,15 +106,19 @@ class Guild:
             embed = discord.Embed(description = u"\U000026a0 **Couldn't change nickname of {str(mem)}.**", color = ykColor)
             await ctx.send(embed = embed)
 
-    @commands.command(aliases = ["createcha"])
+    @commands.group(invoke_without_command = True)
+    async def create(self, ctx):
+        pass
+
+    @create.command(aliases = ["cha"])
     @commands.has_permissions(manage_channels = True)
-    async def createchannel(self, ctx, *name: str):
+    async def channel(self, ctx, *name: str):
         """Creates a channel."""
 
         gld = ctx.guild
-        name = "-".join(name).lower()
+        name = '-'.join(name).lower()
         try:
-            await gld.create_text_channel(name = name)
+            await gld.create_text_channel(name = name, reason = f"{ctx.author} used the create channel command.")
             embed = discord.Embed(description = "", color = ykColor)
             embed.set_author(
                 name = f"Successfully created channel #{name}.",
@@ -125,6 +130,28 @@ class Guild:
                 errorMessage = f"No space left to create #{name}."
             else:
                 errorMessage = f"Couldn't create channel #{name}."
+
+            embed = discord.Embed(description = u"\U000026a0 **{}**".format(errorMessage), color = ykColor)
+            await ctx.send(embed = embed)
+
+    @create.command(aliases = ["emo", "e"])
+    @commands.has_permissions(manage_emojis = True)
+    async def emoji(self, ctx, name: str, link: str = None):
+        imgBytes = await yuki.getImage(link, ctx)
+        try:
+            emo = await ctx.guild.create_custom_emoji(
+                name = '_'.join(name.split()),
+                image = imgBytes,
+                reason = f"{ctx.author} used the create emoji command."
+            )
+
+            embed = discord.Embed(title = f"Successfully created emoji {emo}.", color = ykColor)
+            await ctx.send(embed = embed)
+        except:
+            if len(ctx.guild.emojis) > 50:
+                errorMessage = "No space left to create emoji."
+            else:
+                errorMessage = "Couldn't create emoji."
 
             embed = discord.Embed(description = u"\U000026a0 **{}**".format(errorMessage), color = ykColor)
             await ctx.send(embed = embed)

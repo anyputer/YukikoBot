@@ -66,11 +66,10 @@ class Info:
 
             for cogName in sorted(self.bot.cogs):
                 cmds = ""
-                commandNames = [command.name for command in self.bot.get_cog_commands(cogName)]
-                for commandName, command in zip(sorted(commandNames), self.bot.get_cog_commands(cogName)):
+                for cmd in self.bot.get_cog_commands(cogName):
                     # lastAlias = "" if len(command.aliases) == 0 else '|' + command.aliases[-1]
-                    if not command.hidden:
-                        cmds += f"``{prefix}{command.name}`` "
+                    if not cmd.hidden:
+                        cmds += f"``{prefix}{cmd.name}`` "
 
                 if not cmds == "":
                     embed.add_field(name = cogDisplayDict.get(cogName, cogName), value = cmds, inline = False)
@@ -80,24 +79,40 @@ class Info:
         else:
             cmd = self.bot.all_commands[command.lower()]
 
-            embed = discord.Embed(
-                title = prefix + cmd.signature.replace('[', '<').replace(']', '>'),
-                description = cmd.help,
-                color = ykColor
-            )
-            embed.set_footer(text = cogDisplayDict.get(cmd.cog_name, cmd.cog_name))
+            if not isinstance(cmd, commands.Group):
+                embed = discord.Embed(
+                    title = "{}{}".format(prefix, cmd.signature.replace('[', '<').replace(']', '>')),
+                    description = cmd.help,
+                    color = ykColor
+                )
+                embed.set_footer(text = cogDisplayDict.get(cmd.cog_name, cmd.cog_name))
 
-            path = f"assets/usage/{cmd.name}.png"
-            filename = f"{cmd.name}.png"
-            if isfile(path):
-                file = discord.File(path, filename = filename)
-                embed.set_image(url = f"attachment://{filename}")
+                path = f"assets/usage/{cmd.name}.png"
+                filename = f"{cmd.name}.png"
+                if isfile(path):
+                    file = discord.File(path, filename = filename)
+                    embed.set_image(url = f"attachment://{filename}")
 
-                await ctx.send(embed = embed, file = file)
+                    await ctx.send(embed = embed, file = file)
+                else:
+                    await ctx.send(embed = embed)
             else:
+                embed = discord.Embed(title = f"{prefix}{cmd.name}", description = cmd.help, color = ykColor)
+
+                for command in cmd.commands:
+                    if not command.hidden:
+                        embed.add_field(
+                            name = "{} {}".format(
+                                command.name,
+                                command.signature.split(' ', 1)[1].replace('[', '<').replace(']', '>')
+                            ),
+                            value = command.help
+                        )
+                embed.set_footer(text = cogDisplayDict.get(cmd.cog_name, cmd.cog_name))
+
                 await ctx.send(embed = embed)
 
-    @commands.command(aliases = ["invite", "support"])
+    @commands.command(aliases = ["support"])
     async def about(self, ctx):
         """Gives info about the bot."""
 
@@ -117,7 +132,7 @@ class Info:
         embed.set_author(
             name = "Yukiko",
             url = "https://discordbots.org/bot/447493600167591936",
-            icon_url = "https://orig00.deviantart.net/0d78/f/2015/183/3/6/p4d_amagi_yukiko_by_kr0npr1nz-d8zm0as.jpg"
+            icon_url = self.bot.user.avatar_url
         )
         embed.add_field(
             name = "Bot Invite:",
@@ -137,6 +152,18 @@ class Info:
         embed.set_thumbnail(url = self.bot.user.avatar_url)
 
         await ctx.send("Enable embeds!", embed = embed)
+
+    @commands.command()
+    async def invite(self, ctx):
+        """Gives the bot's invite link."""
+
+        embed = discord.Embed(title = "", color = ykColor)
+        embed.set_author(
+            name = f"Click here to invite {self.bot.user.name} to your server.",
+            url = "https://discordapp.com/oauth2/authorize?client_id=447493600167591936&permissions=8&scope=bot",
+            icon_url = self.bot.user.avatar_url
+        )
+        await ctx.send(embed = embed)
 
     @commands.command(aliases = ["pfp", u"\U0001f464"])
     async def avatar(self, ctx, member: discord.Member = None):
