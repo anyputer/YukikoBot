@@ -84,7 +84,7 @@ class Guild:
 
     @commands.command(aliases = ["nickname", "changenick", "changenickname"])
     @commands.has_permissions(manage_nicknames = True)
-    async def nick(self, ctx, member: discord.Member, nickname: str):
+    async def nick(self, ctx, member: discord.Member, nickname: str = None):
         """Changes other member's nickname."""
 
         """if member == None:
@@ -98,12 +98,12 @@ class Guild:
             await mem.edit(nick = nickname, reason = f"{ctx.author} used the nick command.")
             embed = discord.Embed(description = "", color = ykColor)
             embed.set_author(
-                name = f"Successfully changed nickname of {str(mem)}.",
+                name = f"Successfully changed nickname of {mem}.",
                 icon_url = "https://cdn.discordapp.com/attachments/447500690932367361/476214759071678474/nickname_icon.png"
             )
             await ctx.send(embed = embed)
         except:
-            embed = discord.Embed(description = u"\U000026a0 **Couldn't change nickname of {str(mem)}.**", color = ykColor)
+            embed = discord.Embed(description = u"\U000026a0 **Couldn't change nickname of {}.**".format(mem), color = ykColor)
             await ctx.send(embed = embed)
 
     @commands.group(invoke_without_command = True)
