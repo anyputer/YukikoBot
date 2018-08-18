@@ -36,20 +36,20 @@ class Utilities:
             "My sources say yes"
         )
 
-    """@commands.command(aliases = [u"\U0001f3d3"])
+    @commands.command(aliases = [u"\U0001f3d3"])
     async def ping(self, ctx):
-        Gives the bot's ping.
+        """Outputs the bot's ping."""
 
         t1 = time.perf_counter()
         await ctx.trigger_typing() # Tell Discord that the bot is typing.
         t2 = time.perf_counter()
-        timeDelta = abs(round((t1 - t2) * 1000)) # Calculate the time.
+        timeDelta = abs(round((t1 - t2) * 1000, 2)) # Calculate the time.
 
-        await ctx.send(content = f"{self.pingEmoji} Pong! That took **{timeDelta} ms**.")"""
+        await ctx.send(content = f"{self.pingEmoji} Pong! That took **{timeDelta} ms**.")
 
-    @commands.command(aliases = [u"\U0001f3d3"])
+    """@commands.command(aliases = [u"\U0001f3d3"])
     async def ping(self, ctx):
-        """Outputs the bot's ping."""
+        Outputs the bot's ping.
 
         start = time.perf_counter()
         message = await ctx.send(f"_{self.pingEmoji}_")
@@ -57,7 +57,7 @@ class Utilities:
         duration = (end - start) * 1000
 
         output = "{} Pong! That took **{:.2f} ms**.".format(self.pingEmoji, duration)
-        await message.edit(content = output)
+        await message.edit(content = output)"""
 
     @commands.command()
     async def poll(self, ctx, question: str = "What game should we play?", *options: str):
