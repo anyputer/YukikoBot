@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6407fb93-1db4-423e-a29b-b48c10419958" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/cogs/guild.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/guild.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/info.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/info.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,12 +29,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1882" />
+          <entry key="py" value="1936" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1882" />
+          <entry key="Python" value="1936" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -86,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cogs/info.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="91" column="32" lean-forward="true" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
+            <state relative-caret-position="344">
+              <caret line="184" column="48" selection-start-line="184" selection-start-column="48" selection-end-line="184" selection-end-column="48" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -143,11 +144,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cogs/guild.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="105" column="108" selection-start-line="105" selection-start-column="108" selection-end-line="105" selection-end-column="108" />
+            <state relative-caret-position="238">
+              <caret line="71" column="21" lean-forward="true" selection-start-line="71" selection-start-column="21" selection-end-line="72" selection-end-column="28" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
                 <marker date="1534535460842" expanded="true" signature="4274:4279" ph="..." />
@@ -243,9 +244,9 @@
         <option value="$PROJECT_DIR$/trash/commands_archive.py" />
         <option value="$PROJECT_DIR$/cogs/image.py" />
         <option value="$PROJECT_DIR$/cogs/text.py" />
-        <option value="$PROJECT_DIR$/cogs/info.py" />
         <option value="$PROJECT_DIR$/yuki.py" />
         <option value="$PROJECT_DIR$/cogs/guild.py" />
+        <option value="$PROJECT_DIR$/cogs/info.py" />
       </list>
     </option>
   </component>
@@ -261,8 +262,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="326" />
-    <option name="y" value="102" />
+    <option name="x" value="814" />
+    <option name="y" value="84" />
     <option name="width" value="1258" />
     <option name="height" value="862" />
   </component>
@@ -463,7 +464,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="326" y="102" width="1258" height="862" extended-state="0" />
+    <frame x="814" y="84" width="1258" height="862" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8362235" visible="true" weight="0.2111853" />
@@ -645,16 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cogs/info.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="91" column="32" lean-forward="true" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yuki.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="496">
@@ -694,11 +685,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cogs/guild.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="105" column="108" selection-start-line="105" selection-start-column="108" selection-end-line="105" selection-end-column="108" />
+        <state relative-caret-position="238">
+          <caret line="71" column="21" lean-forward="true" selection-start-line="71" selection-start-column="21" selection-end-line="72" selection-end-column="28" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
             <marker date="1534535460842" expanded="true" signature="4274:4279" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cogs/info.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="184" column="48" selection-start-line="184" selection-start-column="48" selection-end-line="184" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>

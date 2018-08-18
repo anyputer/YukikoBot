@@ -182,7 +182,7 @@ class Info:
             name = str(mem),
             icon_url = mem.avatar_url
         )
-        embed.set_image(url = mem.avatar_url_as(static_format = "png"))
+        embed.set_image(url = mem.avatar_url_as(static_format = "png")[:-4] + "4096")
 
         await ctx.send(embed = embed)
 
