@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6407fb93-1db4-423e-a29b-b48c10419958" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/guild.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/guild.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/info.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/info.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cogs/owner.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/owner.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,12 +29,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2874" />
+          <entry key="py" value="2958" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2874" />
+          <entry key="Python" value="2958" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -81,7 +78,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cogs/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
+            <state relative-caret-position="576">
               <caret line="167" column="65" selection-start-line="167" selection-start-column="65" selection-end-line="167" selection-end-column="65" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
@@ -99,10 +96,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/yuki.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
+            <state relative-caret-position="341">
               <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
@@ -126,17 +123,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cogs/owner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="193" column="34" selection-start-line="193" selection-start-column="34" selection-end-line="193" selection-end-column="34" />
+            <state relative-caret-position="647">
+              <caret line="198" column="66" selection-start-line="198" selection-start-column="66" selection-end-line="198" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cogs/info.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="385" column="54" selection-start-line="385" selection-start-column="54" selection-end-line="385" selection-end-column="54" />
+            <state relative-caret-position="395">
+              <caret line="392" column="49" selection-start-line="392" selection-start-column="49" selection-end-line="392" selection-end-column="49" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -246,8 +243,8 @@
         <option value="$PROJECT_DIR$/cogs/utils.py" />
         <option value="$USER_HOME$/Desktop/litebot.py" />
         <option value="$PROJECT_DIR$/cogs/guild.py" />
-        <option value="$PROJECT_DIR$/cogs/owner.py" />
         <option value="$PROJECT_DIR$/cogs/info.py" />
+        <option value="$PROJECT_DIR$/cogs/owner.py" />
       </list>
     </option>
   </component>
@@ -262,11 +259,10 @@
       <path value="$PROJECT_DIR$/venv/Lib/site-packages/pre_commit/resources/empty_template/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="63" />
-    <option name="y" value="303" />
-    <option name="width" value="1575" />
-    <option name="height" value="863" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="953" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -465,10 +461,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="63" y="303" width="1575" height="863" extended-state="1" />
+    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.83653843" visible="true" weight="0.1669967" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.83653843" visible="true" weight="0.27680525" />
       <window_info id="Structure" order="1" sideWeight="0.16346154" side_tool="true" weight="0.2033762" />
       <window_info id="Favorites" order="2" sideWeight="0.50073206" side_tool="true" weight="0.19305019" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -484,7 +480,7 @@
       <window_info anchor="bottom" id="Floobits" order="10" weight="0.32822758" />
       <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.83965015" weight="0.28767124" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="File Transfer" order="13" visible="true" weight="0.1369863" />
+      <window_info anchor="bottom" id="File Transfer" order="13" visible="true" weight="0.10940919" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -652,32 +648,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yuki.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/litebot.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cogs/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="167" column="65" selection-start-line="167" selection-start-column="65" selection-end-line="167" selection-end-column="65" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -703,17 +679,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cogs/owner.py">
+    <entry file="file://$PROJECT_DIR$/cogs/info.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="193" column="34" selection-start-line="193" selection-start-column="34" selection-end-line="193" selection-end-column="34" />
+        <state relative-caret-position="395">
+          <caret line="392" column="49" selection-start-line="392" selection-start-column="49" selection-end-line="392" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cogs/info.py">
+    <entry file="file://$PROJECT_DIR$/cogs/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="385" column="54" selection-start-line="385" selection-start-column="54" selection-end-line="385" selection-end-column="54" />
+        <state relative-caret-position="576">
+          <caret line="167" column="65" selection-start-line="167" selection-start-column="65" selection-end-line="167" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cogs/owner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="647">
+          <caret line="198" column="66" selection-start-line="198" selection-start-column="66" selection-end-line="198" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yuki.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>

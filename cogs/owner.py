@@ -175,7 +175,7 @@ class Owner:
 
         """await ctx.author.send_friend_request()"""
 
-        rules = (
+        """rules = (
             "Hate speech, Harassment of a user is not allowed.",
             "Respect everyone. No matter what gender, age, religion, status. We are trying to make a positive community where people feel welcome.",
             "You may promote yourself in <#447502809634701312>.",
@@ -184,7 +184,7 @@ class Owner:
             "Please, no spamming the chats except <#447502305751859211>.",
             "Comply with [the Discord TOS](https://discordapp.com/terms)."
         )
-
+        
         gld = ctx.guild
 
         embed = discord.Embed(title = "Rules", color = ykColor)
@@ -194,7 +194,9 @@ class Owner:
         embed.set_thumbnail(url = gld.icon_url)
         embed.set_footer(text = "Have fun!")
 
-        await ctx.send(embed = embed)
+        await ctx.send(embed = embed)"""
+
+        await ctx.send("<a:succ_nsfw:480755220926693376> :relaxed:")
 
 def setup(bot):
     bot.add_cog(Owner(bot))
