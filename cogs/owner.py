@@ -164,7 +164,7 @@ class Owner:
     async def test(self, ctx):
         """<:drip:477596602899496970> __**Test**__ *command*."""
 
-        await ctx.send("<a:loading:462365810891948043>")
+        # await ctx.send("<a:loading:462365810891948043>")
         """if ctx.me.permissions_in(ctx.channel).embed_links:
             await ctx.send("You have EMBED_LINKS enabled.")
         else:
@@ -174,6 +174,27 @@ class Owner:
         await ctx.send(embed = embed)"""
 
         """await ctx.author.send_friend_request()"""
+
+        rules = (
+            "Hate speech, Harassment of a user is not allowed.",
+            "Respect everyone. No matter what gender, age, religion, status. We are trying to make a positive community where people feel welcome.",
+            "You may promote yourself in <#447502809634701312>.",
+            "Don't express your opinion as a fact. Everyone thinks differently!",
+            "Keep discussion on point in certain chats.",
+            "Please, no spamming the chats except <#447502305751859211>.",
+            "Comply with [the Discord TOS](https://discordapp.com/terms)."
+        )
+
+        gld = ctx.guild
+
+        embed = discord.Embed(title = "Rules", color = ykColor)
+        embed.set_author(name = gld.name, icon_url = gld.icon_url)
+        for i, rule in zip(range(7), rules):
+            embed.add_field(name = f"Rule {i + 1}", value = rule, inline = False)
+        embed.set_thumbnail(url = gld.icon_url)
+        embed.set_footer(text = "Have fun!")
+
+        await ctx.send(embed = embed)
 
 def setup(bot):
     bot.add_cog(Owner(bot))

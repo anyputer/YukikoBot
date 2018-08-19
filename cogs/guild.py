@@ -134,7 +134,7 @@ class Guild:
             embed = discord.Embed(description = u"\U000026a0 **{}**".format(errorMessage), color = ykColor)
             await ctx.send(embed = embed)
 
-    @create.command(aliases = ["emo", "e"])
+    @create.command(aliases = ["emo"])
     @commands.has_permissions(manage_emojis = True)
     async def emoji(self, ctx, name: str, link: str = None):
         imgBytes = await yuki.getImage(link, ctx)

@@ -106,9 +106,10 @@ class Info:
                                 command.name,
                                 command.signature.split(' ', 1)[1].replace('[', '<').replace(']', '>')
                             ),
-                            value = command.help
+                            value = command.help if command.help else "No help info.",
+                            inline = False
                         )
-                embed.set_footer(text = cogDisplayDict.get(cmd.cog_name, cmd.cog_name))
+                        embed.set_footer(text = cogDisplayDict.get(cmd.cog_name, cmd.cog_name))
 
                 await ctx.send(embed = embed)
 
@@ -126,7 +127,7 @@ class Info:
 
         embed = discord.Embed(
             title = "About Yukiko",
-            description = f"{self.bot.description}\n**Warning: Enable embeds or most commands won't show up!**",
+            description = self.bot.description,
             color = ykColor
         )
         embed.set_author(
@@ -146,12 +147,12 @@ class Info:
         )
         embed.add_field(
             name = "Vote",
-            value = "[Thanks alot!](https://discordbots.org/bot/447493600167591936/vote)",
+            value = "[It would be appreciated! \N{BLUE HEART}](https://discordbots.org/bot/447493600167591936/vote)",
             inline = True
         )
         embed.set_thumbnail(url = self.bot.user.avatar_url)
 
-        await ctx.send("Enable embeds!", embed = embed)
+        await ctx.send(embed = embed)
 
     @commands.command()
     async def invite(self, ctx):
@@ -382,7 +383,7 @@ class Info:
 
         rolesList = []
         if False:  # len(gld.roles) > 10
-            rolesList.append(str(len(gld.roles)) + " roles.")
+            rolesList.append(f"{len(gld.roles)} roles.")
         else:
             for role in emo.roles[1:]:
                 rolesList.append(role.mention)
