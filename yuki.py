@@ -74,15 +74,13 @@ async def getImage(link, ctx):
             usedLink = ctx.message.attachments[0].url
         else:
             # Last Attachment
-
-            a = []
             async for message in ctx.channel.history(limit = 10):
                 if len(message.attachments) >= 1:
-                    a.append(message.attachments[-1])
-            if len(a) != 0:
-                usedLink = a[-1].url # Set link to the last attachment url in the list
-            else:
-                usedLink = link
+                    usedLink = message.attachments[-1].url
+                    break
+                elif len(message.embeds) >= 1:
+                    usedLink = message.embeds[-1].image.url
+                    break
     elif link.startswith("<:"): # (Custom) Emoji
         id = link.split(':')[2][:-1]
         usedLink = bot.get_emoji(id).url
