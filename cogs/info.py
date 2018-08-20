@@ -3,8 +3,8 @@ from discord.ext import commands
 from yuki import color as ykColor
 from yuki import prefix
 
-"""import aiohttp
-from io import BytesIO"""
+import aiohttp
+from io import BytesIO
 
 from os.path import isfile
 
@@ -102,10 +102,7 @@ class Info:
                 for command in cmd.commands:
                     if not command.hidden:
                         embed.add_field(
-                            name = "{} {}".format(
-                                command.name,
-                                command.signature.split(' ', 1)[1].replace('[', '<').replace(']', '>')
-                            ),
+                            name = command.signature.split(' ', 1)[1].replace('[', '<').replace(']', '>'),
                             value = command.help if command.help else "No help info.",
                             inline = False
                         )
@@ -374,7 +371,7 @@ class Info:
         await ctx.send(embed = embed)
 
     @commands.command(aliases = ["emoji", "emote", "emoteinfo", u"\U0001f61c"])
-    async def emojiinfo(self, ctx, *, emoji: discord.Emoji = None):
+    async def emojiinfo(self, ctx, emoji: discord.Emoji = None):
         """Gives info about the emoji."""
 
         # emoID = int(emoji.split(":")[2][:-1])
@@ -452,19 +449,22 @@ class Info:
 
         await ctx.send(embed = embed)
 
-    """@commands.command(pass_context = True, aliases = ["bot", u"\U0001f916"])
+    @commands.command(pass_context = True, aliases = ["bot", "dbl", "dblinfo", u"\U0001f916"])
     async def botinfo(self, ctx, bot: discord.Member = None):
+        """Gives info about the bot using DiscordBots."""
+
         if bot.bot:
             async with aiohttp.ClientSession() as clientSession:
-                async with clientSession.get(f"https://discordbots.org/api/widget/{bot.id}.svg") as response:
+                async with clientSession.get(f"https://discordbots.org/api/widget/{bot.id}.png") as response:
                     imgBytes = await response.read()
 
-            file = discord.File(filename = f"{bot.id}.svg", fp = BytesIO(imgBytes))
+            file = discord.File(filename = f"{bot.id}.png", fp = BytesIO(imgBytes))
 
             await ctx.send(file = file)
 
         else:
-            await ctx.send("They aren't a bot.")"""
+            embed = discord.Embed(description = u"\U000026a0 **User isn't a bot.**", color = ykColor)
+            await ctx.send(embed = embed)
 
 def setup(bot):
     bot.add_cog(Info(bot))

@@ -106,7 +106,7 @@ class Guild:
             embed = discord.Embed(description = u"\U000026a0 **Couldn't change nickname of {}.**".format(mem), color = ykColor)
             await ctx.send(embed = embed)
 
-    @commands.group(invoke_without_command = True)
+    @commands.group()
     async def create(self, ctx):
         pass
 

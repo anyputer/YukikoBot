@@ -92,6 +92,10 @@ async def getImage(link, ctx):
         async with clientSession.get(usedLink) as response:
             return await response.read()
 
+async def sendError(error, ctx):
+    embed = discord.Embed(description = u"\U000026a0 **{}**".format(error), color = color)
+    await ctx.send(embed = embed)
+
 async def startTyping(channelID):
     cha = await bot.get_channel(id = int(channelID))
     await cha.trigger_typing()

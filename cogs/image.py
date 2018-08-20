@@ -5,7 +5,7 @@ from yuki import color as ykColor
 import yuki
 
 import aiohttp
-from PIL import Image, ImageFont, ImageDraw, ImageEnhance
+from PIL import Image, ImageFont, ImageDraw, ImageFilter, ImageEnhance
 import PIL.ImageOps
 from io import BytesIO
 # import tinify
@@ -60,8 +60,7 @@ class Images:
         """
 
         if False:
-            embed = discord.Embed(description = u"\U000026a0 **Only Kanto Pokémon are supported.**", color = ykColor)
-            await ctx.send(embed = embed)
+            await yuki.sendError("Only Kanto Pokémon are supported.", ctx)
             return
 
         async with ctx.typing():
@@ -196,7 +195,11 @@ class Images:
 
             await ctx.send(embed = embed, file = file)
 
-    @commands.command()
+    @commands.group(aliases = ["f", u"\U0001f578"])
+    async def filter(self, ctx):
+        pass
+
+    @filter.command()
     async def invert(self, ctx, link: str = None):
         """Inverts image."""
 
@@ -219,6 +222,66 @@ class Images:
                 outputBuffer.seek(0)
 
             embed = discord.Embed(title = "Inverted", color = ykColor)
+            file = discord.File(filename = "result.png", fp = outputBuffer)
+            embed.set_image(url = "attachment://result.png")
+
+            await ctx.send(embed = embed, file = file)
+
+    @filter.command()
+    async def blur(self, ctx, radius: int = 2, link: str = None):
+        """Blurs image."""
+
+        if radius > 100:
+            await yuki.sendError("Radius is limited to 100.", ctx)
+        else:
+            async with ctx.typing():
+                imgBytes = await yuki.getImage(link, ctx)
+                with Image.open(BytesIO(imgBytes)) as img:
+                    img = img.filter(ImageFilter.GaussianBlur(radius = radius))
+
+                    outputBuffer = BytesIO()
+                    img.save(outputBuffer, "png")
+                    outputBuffer.seek(0)
+
+                embed = discord.Embed(title = "Blurred", color = ykColor)
+                file = discord.File(filename = "result.png", fp = outputBuffer)
+                embed.set_image(url = "attachment://result.png")
+
+                await ctx.send(embed = embed, file = file)
+
+    @filter.command()
+    async def emboss(self, ctx, link: str = None):
+        """Applies emboss filter to image."""
+
+        async with ctx.typing():
+            imgBytes = await yuki.getImage(link, ctx)
+            with Image.open(BytesIO(imgBytes)) as img:
+                img = img.filter(ImageFilter.EMBOSS)
+
+                outputBuffer = BytesIO()
+                img.save(outputBuffer, "png")
+                outputBuffer.seek(0)
+
+            embed = discord.Embed(title = "Emboss", color = ykColor)
+            file = discord.File(filename = "result.png", fp = outputBuffer)
+            embed.set_image(url = "attachment://result.png")
+
+            await ctx.send(embed = embed, file = file)
+
+    @filter.command()
+    async def contour(self, ctx, link: str = None):
+        """Applies contour filter to image."""
+
+        async with ctx.typing():
+            imgBytes = await yuki.getImage(link, ctx)
+            with Image.open(BytesIO(imgBytes)) as img:
+                img = img.filter(ImageFilter.CONTOUR)
+
+                outputBuffer = BytesIO()
+                img.save(outputBuffer, "png")
+                outputBuffer.seek(0)
+
+            embed = discord.Embed(title = "Contour", color = ykColor)
             file = discord.File(filename = "result.png", fp = outputBuffer)
             embed.set_image(url = "attachment://result.png")
 
