@@ -289,7 +289,7 @@ class Images:
 
     @filter.command()
     async def mosaic(self, ctx, link: str = None):
-        """Applies contour filter to image."""
+        """Applies mosaic filter to image."""
 
         async with ctx.typing():
             imgBytes = await yuki.getImage(link, ctx)
