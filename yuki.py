@@ -75,7 +75,8 @@ async def getImage(link, ctx):
         else:
             # Last Attachment
             async for message in ctx.channel.history(limit = 10):
-                if len(message.attachments) >= 1:
+                # If it has a height value it's an image
+                if len(message.attachments) >= 1 and message.attachments[-1].height:
                     usedLink = message.attachments[-1].url
                     break
                 elif len(message.embeds) >= 1:
