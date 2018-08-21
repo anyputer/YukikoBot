@@ -287,6 +287,35 @@ class Images:
 
             await ctx.send(embed = embed, file = file)
 
+    @filter.command()
+    async def mosaic(self, ctx, link: str = None):
+        """Applies contour filter to image."""
+
+        async with ctx.typing():
+            imgBytes = await yuki.getImage(link, ctx)
+            with Image.open(BytesIO(imgBytes)) as img:
+                output = Image.new("RGBA", img.size, color = (0, 0, 0, 0))
+                quarterImg = img.resize((int(img.width / 2), int(img.height / 2)), resample = Image.BICUBIC)
+                locations = (
+                    (0, 0),
+                    (int(img.width / 2), 0),
+                    (0, int(img.height / 2)),
+                    (int(img.width / 2), int(img.height / 2))
+                )
+
+                for location in locations:
+                    output.paste(quarterImg, location)
+
+                outputBuffer = BytesIO()
+                output.save(outputBuffer, "png")
+                outputBuffer.seek(0)
+
+            embed = discord.Embed(title = "Mosaic", color = ykColor)
+            file = discord.File(filename = "result.png", fp = outputBuffer)
+            embed.set_image(url = "attachment://result.png")
+
+            await ctx.send(embed = embed, file = file)
+
     """@commands.command(pass_context = True)
     async def tiny(self, ctx, link: str):
         Makes image smaller using tinypng.
