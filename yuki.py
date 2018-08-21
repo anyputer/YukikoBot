@@ -79,7 +79,7 @@ async def getImage(link, ctx):
                 if len(message.attachments) >= 1 and message.attachments[-1].height:
                     usedLink = message.attachments[-1].url
                     break
-                elif len(message.embeds) >= 1:
+                elif len(message.embeds) >= 1 and message.embeds[-1].image:
                     usedLink = message.embeds[-1].image.url
                     break
     elif link.startswith("<:"): # (Custom) Emoji
