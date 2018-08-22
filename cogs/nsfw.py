@@ -28,9 +28,7 @@ class NSFW:
             "<a:succ_nsfw:480755220926693376>",
             "<a:milky_nsfw:480755218552848385>"
         )
-        print(tags.split('+'))
         tags = ['_'.join(tag.strip().split()) for tag in tags.split('+')]
-        print(tags)
 
         async with ctx.typing():
             r34 = Rule34(asyncio.get_event_loop())
