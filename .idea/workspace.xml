@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6407fb93-1db4-423e-a29b-b48c10419958" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/cogs/nsfw.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/nsfw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/owner.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/owner.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,12 +30,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="5392" />
+          <entry key="py" value="5615" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="5392" />
+          <entry key="Python" value="5615" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -91,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cogs/owner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="198" column="24" selection-start-line="198" selection-start-column="24" selection-end-line="198" selection-end-column="56" />
+            <state relative-caret-position="689">
+              <caret line="201" column="17" selection-start-line="201" selection-start-column="17" selection-end-line="201" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -101,7 +102,7 @@
         <entry file="file://$PROJECT_DIR$/cogs/image.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="478">
-              <caret line="328" column="4" lean-forward="true" selection-start-line="328" selection-start-column="4" selection-end-line="329" selection-end-column="53" />
+              <caret line="328" column="4" selection-start-line="328" selection-start-column="4" selection-end-line="329" selection-end-column="53" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
                 <marker date="1534870253838" expanded="true" signature="8277:8282" ph="..." />
@@ -126,7 +127,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/yuki.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1038">
+            <state relative-caret-position="-946">
               <caret line="21" selection-start-line="21" selection-end-line="21" selection-end-column="26" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
@@ -151,7 +152,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cogs/info.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
+            <state relative-caret-position="850">
               <caret line="59" column="47" selection-start-line="59" selection-start-column="47" selection-end-line="59" selection-end-column="47" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
@@ -164,8 +165,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cogs/nsfw.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+            <state relative-caret-position="533">
+              <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -256,13 +257,13 @@
         <option value="$PROJECT_DIR$/frontend.pyw" />
         <option value="$PROJECT_DIR$/cogs/utils.py" />
         <option value="$USER_HOME$/Desktop/litebot.py" />
-        <option value="$PROJECT_DIR$/cogs/owner.py" />
         <option value="$PROJECT_DIR$/cogs/guild.py" />
         <option value="$PROJECT_DIR$/cogs/image.py" />
         <option value="$PROJECT_DIR$/trash/commands_archive.py" />
         <option value="$PROJECT_DIR$/yuki.py" />
         <option value="$PROJECT_DIR$/cogs/info.py" />
         <option value="$PROJECT_DIR$/cogs/text.py" />
+        <option value="$PROJECT_DIR$/cogs/owner.py" />
         <option value="$PROJECT_DIR$/cogs/nsfw.py" />
       </list>
     </option>
@@ -279,9 +280,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="733" />
+    <option name="x" value="1004" />
     <option name="y" value="96" />
-    <option name="width" value="1112" />
+    <option name="width" value="841" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
@@ -481,9 +482,35 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="733" y="96" width="1112" height="1040" extended-state="0" />
+    <frame x="1004" y="96" width="841" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.83653843" weight="0.040874526" />
+      <window_info id="Structure" order="1" sideWeight="0.16346154" side_tool="true" weight="0.2033762" />
+      <window_info id="Favorites" order="2" sideWeight="0.50073206" side_tool="true" weight="0.19305019" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8666181" weight="0.31632653" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="5" sideWeight="0.49927112" weight="0.33041576" />
+      <window_info anchor="bottom" id="Python Console" order="6" sideWeight="0.49854228" weight="0.33041576" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3249453" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32900432" />
+      <window_info anchor="bottom" id="Floobits" order="9" weight="0.32822758" />
+      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.83840305" weight="0.28886437" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="File Transfer" order="12" weight="0.10940919" />
+      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.16159695" side_tool="true" weight="0.28886437" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="3" side_tool="true" weight="0.3565417" />
+      <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+    </layout>
+    <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.83653843" visible="true" weight="0.040874526" />
       <window_info id="Structure" order="1" sideWeight="0.16346154" side_tool="true" weight="0.2033762" />
       <window_info id="Favorites" order="2" sideWeight="0.50073206" side_tool="true" weight="0.19305019" />
@@ -502,32 +529,6 @@
       <window_info anchor="bottom" id="File Transfer" order="12" weight="0.10940919" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.16159695" side_tool="true" visible="true" weight="0.28886437" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="3" side_tool="true" weight="0.3565417" />
-      <window_info anchor="right" id="SciView" order="4" />
-      <window_info anchor="right" id="Database" order="5" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.83653843" visible="true" weight="0.2033762" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.16346154" side_tool="true" visible="true" weight="0.2033762" />
-      <window_info id="Favorites" order="2" sideWeight="0.50073206" side_tool="true" weight="0.19305019" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8666181" weight="0.31632653" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="5" sideWeight="0.49927112" weight="0.33041576" />
-      <window_info anchor="bottom" id="Python Console" order="6" sideWeight="0.49854228" weight="0.33041576" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3249453" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32900432" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.16034986" side_tool="true" weight="0.21492921" />
-      <window_info anchor="bottom" id="Floobits" order="10" weight="0.32822758" />
-      <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.83965015" visible="true" weight="0.28767124" />
-      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="File Transfer" order="13" weight="0.41289437" />
-      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -677,7 +678,7 @@
     <entry file="file://$PROJECT_DIR$/cogs/image.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="478">
-          <caret line="328" column="4" lean-forward="true" selection-start-line="328" selection-start-column="4" selection-end-line="329" selection-end-column="53" />
+          <caret line="328" column="4" selection-start-line="328" selection-start-column="4" selection-end-line="329" selection-end-column="53" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
             <marker date="1534870253838" expanded="true" signature="8277:8282" ph="..." />
@@ -696,13 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cogs/owner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="198" column="24" selection-start-line="198" selection-start-column="24" selection-end-line="198" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cogs/text.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="458">
@@ -715,7 +709,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cogs/info.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
+        <state relative-caret-position="850">
           <caret line="59" column="47" selection-start-line="59" selection-start-column="47" selection-end-line="59" selection-end-column="47" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
@@ -726,7 +720,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/yuki.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1038">
+        <state relative-caret-position="-946">
           <caret line="21" selection-start-line="21" selection-end-line="21" selection-end-column="26" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
@@ -735,10 +729,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cogs/owner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="689">
+          <caret line="201" column="17" selection-start-line="201" selection-start-column="17" selection-end-line="201" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cogs/nsfw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+        <state relative-caret-position="533">
+          <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>

@@ -196,7 +196,12 @@ class Owner:
 
         await ctx.send(embed = embed)"""
 
-        await ctx.send("<a:succ_nsfw:480755220926693376> :relaxed:")
+        # await ctx.send("<a:succ_nsfw:480755220926693376> :relaxed:")
+
+        """pins = await ctx.channel.pins()
+        await ctx.send("\\" + pins[0].author.mention)"""
+
+        pass
 
 def setup(bot):
     bot.add_cog(Owner(bot))
