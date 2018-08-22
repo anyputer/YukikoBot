@@ -20,70 +20,70 @@ class Text:
     async def say(self, ctx, *, text: str):
         """Outputs text deleting the original message."""
 
-        await ctx.send("".join(text))
+        await ctx.send(text)
         await ctx.message.delete()
 
     @commands.command(aliases = ["talk", "speak", u"\U0001f5e3"])
     async def tts(self, ctx, *, text: str):
         """Text-to-speech text."""
 
-        await ctx.send("".join(text), tts = True)
+        await ctx.send(text, tts = True)
         # await ctx.message.delete()
 
     @commands.command()
     async def echo(self, ctx, *, text: str):
         """Outputs text."""
 
-        await ctx.send("".join(text))
+        await ctx.send(text)
 
     @commands.command(aliases = ["upside", "upsidedown", u"\U0001f643"])
     async def updown(self, ctx, *, text: str):
         """Outputs text upside down."""
 
-        await ctx.send(upsidedown.transform("".join(text)))
+        await ctx.send(upsidedown.transform(text))
 
     @commands.command()
     async def dank(self, ctx, *, text: str):
         """Outputs text in **``d a n k  l e t t e r s``**."""
 
-        dankText = (' ' * 1).join("".join(text))
+        dankText = (' ' * 1).join(text)
         await ctx.send(f"**```{dankText}```**")
 
     @commands.command(aliases = ["uppercase", "caps"])
     async def upper(self, ctx, *, text: str):
         """Outputs text in uppercase letters."""
 
-        await ctx.send("".join(text).upper())
+        await ctx.send(text.upper())
 
     @commands.command(aliases = ["lowercase"])
     async def lower(self, ctx, *, text: str):
         """Outputs text in lowercase letters."""
 
-        await ctx.send("".join(text).lower())
+        await ctx.send(text.lower())
 
     @commands.command()
     async def title(self, ctx, *, text: str):
         """Outputs text Like A Title."""
 
-        await ctx.send("".join(text).title())
+        await ctx.send(text.title())
 
     @commands.command()
     async def capitalize(self, ctx, *, text: str):
         """Outputs text that's Capitalized."""
 
-        await ctx.send("".join(text).capitalize())
+        await ctx.send(text.capitalize())
 
     @commands.command()
     async def swapcase(self, ctx, *, text: str):
         """Outputs text iN sWAPCASE."""
 
-        await ctx.send("".join(text).swapcase())
+        await ctx.send(text.swapcase())
 
     @commands.command()
     async def reverse(self, ctx, *, text: str):
         """Outputs text in reverse."""
 
-        await ctx.send("".join(text)[::-1])
+        await ctx.send(text[::-1])
 
     @commands.command(aliases = ["\U0001f44f"])
     async def clap(self, ctx, *text: str):
@@ -110,7 +110,7 @@ class Text:
 
         output = ""
         upper = False
-        for char in "".join(text):
+        for char in text:
             if upper:
                 output += char.upper()
             else:
@@ -147,7 +147,7 @@ class Text:
         """Outputs text in FIGlet letters."""
 
         f = Figlet(font = "standard")
-        renderedText = f.renderText("".join(text))
+        renderedText = f.renderText(text)
         output = f"```{renderedText}```" if renderedText != "" else "No output."
 
         await ctx.send(output)
@@ -208,7 +208,7 @@ class Text:
             "and ": "& "
         }
 
-        a = "".join(text)
+        a = text
         for word, translation in translations.items():
             a = a.replace(word, translation)
 
@@ -221,7 +221,7 @@ class Text:
         old_stdout = sys.stdout
         sys.stdout = redir_stdout = StringIO()
 
-        cowsay.cow("".join(text))
+        cowsay.cow(text)
 
         out = redir_stdout.getvalue()
         sys.stdout = old_stdout

@@ -56,7 +56,8 @@ class Info:
             "Info":         "\N{INFORMATION SOURCE} Info",
             "Guild":        "\N{HOUSE WITH GARDEN} Server",
             "Text":         "\N{KEYBOARD} Text",
-            "Utilities":    "\N{HAMMER AND WRENCH} Utils"
+            "Utilities":    "\N{HAMMER AND WRENCH} Utils",
+            "NSFW":         "\N{AUBERGINE} NSFW"
         }
 
         if not command:

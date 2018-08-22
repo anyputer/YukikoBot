@@ -31,7 +31,8 @@ initial_extensions = (
     "cogs.tests",
     "cogs.utils",
     "cogs.coins",
-    "cogs.copypasta"
+    "cogs.copypasta",
+    "cogs.nsfw"
 )
 for extension in initial_extensions:
     try:

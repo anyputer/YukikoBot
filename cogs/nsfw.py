@@ -1,0 +1,52 @@
+import discord
+from discord.ext import commands
+from yuki import color as ykColor
+import yuki
+
+import aiohttp
+import asyncio
+
+from rule34 import Rule34
+from random import choice
+
+class NSFW:
+    def __init__(self, bot):
+        self.bot = bot
+
+    @commands.group(aliases = ["r34"])
+    async def rule34(self, ctx):
+        pass
+
+    @rule34.group(aliases = ["rand", "r"])
+    async def random(self, ctx, *, tags: str):
+        """Outputs a random image from Rule 34."""
+
+        nsfwEmojis = (
+            "<:grip_nsfw:481828361069658147>",
+            "<:lenny_nsfw:481828458230579200>",
+            "<:fruitsex_nsfw:480755216505896972>",
+            "<a:succ_nsfw:480755220926693376>",
+            "<a:milky_nsfw:480755218552848385>"
+        )
+        print(tags.split('+'))
+        tags = ['_'.join(tag.strip().split()) for tag in tags.split('+')]
+        print(tags)
+
+        async with ctx.typing():
+            r34 = Rule34(asyncio.get_event_loop())
+            results = await r34.getImageURLS(*tags)
+
+            if results:
+                result = choice(results)
+                emoji = choice(nsfwEmojis)
+
+                embed = discord.Embed(title = f"{emoji} Rule34", color = ykColor)
+                embed.set_image(url = result)
+                embed.set_footer(text = "Tag(s): {}".format(", ".join(tags)))
+
+                await ctx.send(embed = embed)
+            else:
+                await yuki.sendError("No results found.", ctx)
+
+def setup(bot):
+    bot.add_cog(NSFW(bot))
