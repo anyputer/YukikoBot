@@ -38,7 +38,7 @@ class NSFW:
                 result = choice(results)
                 emoji = choice(self.nsfwEmojis)
 
-                embed = discord.Embed(title = f"{emoji} Rule34", color = ykColor)
+                embed = discord.Embed(description = f"{emoji} Rule34", color = ykColor)
                 embed.set_image(url = result)
                 embed.set_footer(text = "Tag(s): {}".format(", ".join(tags)))
 
