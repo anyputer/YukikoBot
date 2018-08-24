@@ -70,8 +70,8 @@ class Images:
             soup = BeautifulSoup(html, "lxml")
             print(soup.findAll("pk_img"))"""
             """fusedLink = "http://images.alexonsager.net/pokemon/fused/" + str(body) + "/" + str(body) + "." + str(head) + ".png"
-            async with aiohttp.ClientSession() as clientSession:
-                async with clientSession.get(fusedLink) as response:
+            async with aiohttp.ClientSession() as session:
+                async with session.get(fusedLink) as response:
                     imgBytes = await response.read()
 
             with Image.open(BytesIO(imgBytes)) as img:
@@ -80,8 +80,8 @@ class Images:
                 outputBuffer.seek(0)"""
 
             fusedLink = f"http://images.alexonsager.net/pokemon/fused/{body}/{body}.{head}.png"
-            async with aiohttp.ClientSession() as clientSession:
-                async with clientSession.get(fusedLink) as response:
+            async with aiohttp.ClientSession() as session:
+                async with session.get(fusedLink) as response:
                     imgBytes = await response.read()
 
             embed = discord.Embed(title = "Pokémon Fusion", color = ykColor)
@@ -98,7 +98,7 @@ class Images:
             if text == None:
                 txt = "This emoji doesn't work here because it's from a different server. Discord Nitro can solve all of that, check User Settings > Nitro for details"
             else:
-                txt = "".join(text).replace("\n", " ")
+                txt = text.replace("\n", " ")
 
             img = Image.open("assets/clyde.png").convert("RGBA")
 
@@ -321,8 +321,8 @@ class Images:
         Makes image smaller using tinypng.
 
         tinify.key = "OPZshtp759q5skZ0Cdie5ILiXhTKTKKc"
-        async with aiohttp.ClientSession() as clientSession:
-            async with clientSession.get(link) as response:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(link) as response:
                 imgBytes = await BytesIO(response.read)
     """
 

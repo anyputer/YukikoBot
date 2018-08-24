@@ -455,8 +455,8 @@ class Info:
         """Gives info about the bot using DiscordBots."""
 
         if bot.bot:
-            async with aiohttp.ClientSession() as clientSession:
-                async with clientSession.get(f"https://discordbots.org/api/widget/{bot.id}.png") as response:
+            async with aiohttp.ClientSession() as session:
+                async with session.get(f"https://discordbots.org/api/widget/{bot.id}.png") as response:
                     imgBytes = await response.read()
 
             file = discord.File(filename = f"{bot.id}.png", fp = BytesIO(imgBytes))

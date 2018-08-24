@@ -90,8 +90,8 @@ async def getImage(link, ctx):
     else:
         usedLink = link
 
-    async with aiohttp.ClientSession() as clientSession:  # Link
-        async with clientSession.get(usedLink) as response:
+    async with aiohttp.ClientSession() as session:  # Link
+        async with session.get(usedLink) as response:
             return await response.read()
 
 async def sendError(error, ctx):
@@ -103,14 +103,28 @@ async def startTyping(channelID):
     await cha.trigger_typing()
 
 def runBot():
-    if isfile("config.ini"):
-        config = RawConfigParser()
-        config.read("config.ini")
+    config = RawConfigParser()
+    config.read("config.ini")
+    try:
         token = config["Secret"]["bot_token"]
-    else:
-        config = RawConfigParser()
+    except KeyError:
         token = input("Type in your bot token: ")
-        config.add_section("Secret")
+        try:
+            config["Secret"]
+        except KeyError:
+            config.add_section("Secret")
+        config["Secret"]["bot_token"] = token
+        with open("config.ini", "w") as f:
+            config.write(f)
+
+    try:
+        mashapeKey = config["Secret"]["mashape_key"]
+    except KeyError:
+        mashapeKey = input("Type in your Mashape API key (Press enter if you don't have one): ")
+        try:
+            config["Secret"]
+        except KeyError:
+            config.add_section("Secret")
         config["Secret"]["bot_token"] = token
         with open("config.ini", "w") as f:
             config.write(f)
