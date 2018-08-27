@@ -145,7 +145,8 @@ class Info:
         )
         embed.add_field(
             name = "Vote",
-            value = "[It would be appreciated! \N{BLUE HEART}](https://discordbots.org/bot/447493600167591936/vote)",
+            value = "[Discord Bots](https://discordbots.org/bot/447493600167591936/vote)\n"
+                    "[Discord Bot List](https://discordbotlist.com/bots/447493600167591936)",
             inline = True
         )
         embed.set_thumbnail(url = self.bot.user.avatar_url)
@@ -158,7 +159,7 @@ class Info:
 
         embed = discord.Embed(title = "", color = ykColor)
         embed.set_author(
-            name = f"Click here to invite {self.bot.user.name} to your server.",
+            name = "Click here to invite Yukiko to your server.",
             url = "https://discordapp.com/oauth2/authorize?client_id=447493600167591936&permissions=8&scope=bot",
             icon_url = self.bot.user.avatar_url
         )
@@ -450,7 +451,7 @@ class Info:
 
         await ctx.send(embed = embed)
 
-    @commands.command(pass_context = True, aliases = ["bot", "dbl", "dblinfo", u"\U0001f916"])
+    @commands.command(pass_context = True, aliases = ["bot", "dbs", "dbsinfo", u"\U0001f916"])
     async def botinfo(self, ctx, bot: discord.Member = None):
         """Gives info about the bot using DiscordBots."""
 

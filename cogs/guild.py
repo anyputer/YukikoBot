@@ -94,11 +94,12 @@ class Guild:
             mem = member
         """
         mem = member
+        oldName = mem.display_name
         try:
             await mem.edit(nick = nickname, reason = f"{ctx.author} used the nick command.")
             embed = discord.Embed(description = "", color = ykColor)
             embed.set_author(
-                name = f"Successfully changed nickname of {mem}.",
+                name = f"Successfully changed nickname of {mem}, from {oldName} to {nickname}.",
                 icon_url = "https://cdn.discordapp.com/attachments/447500690932367361/476214759071678474/nickname_icon.png"
             )
             await ctx.send(embed = embed)

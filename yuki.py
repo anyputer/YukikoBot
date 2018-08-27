@@ -44,7 +44,7 @@ for extension in initial_extensions:
 @bot.event  
 async def on_ready():
     logging.info("Logged in as")
-    logging.info(bot.user.name)
+    logging.info(bot.user)
     logging.info(bot.user.id)
     logging.info("------")
 
@@ -117,6 +117,7 @@ def runBot():
         with open("config.ini", "w") as f:
             config.write(f)
 
+    """
     try:
         mashapeKey = config["Secret"]["mashape_key"]
     except KeyError:
@@ -128,6 +129,7 @@ def runBot():
         config["Secret"]["bot_token"] = token
         with open("config.ini", "w") as f:
             config.write(f)
+    """
 
     bot.run(token, bot = True, reconnect = True)
 
