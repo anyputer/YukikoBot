@@ -94,14 +94,13 @@ class Images:
     async def clyde(self, ctx, *, text: str = None):
         """Gives you an image that mocks clyde."""
 
+        if text == None:
+            txt = "This emoji doesn't work here because it's from a different server. Discord Nitro can solve all of that, check User Settings > Nitro for details"
+        else:
+            txt = text.replace("\n", " ")
+
         async with ctx.typing():
-            if text == None:
-                txt = "This emoji doesn't work here because it's from a different server. Discord Nitro can solve all of that, check User Settings > Nitro for details"
-            else:
-                txt = text.replace("\n", " ")
-
-            img = Image.open("assets/clyde.png").convert("RGBA")
-
+            img = Image.open("assets/clyde.png")
             font = ImageFont.truetype("assets/fonts/discord/normal.woff", 15)
             draw = ImageDraw.Draw(img)
             draw.text((88, 46), txt, font = font, fill = (192, 193, 194))
@@ -110,12 +109,9 @@ class Images:
             img.save(outputBuffer, "png")
             outputBuffer.seek(0)
 
-            # await ctx.send(file = discord.File("cache/clyde.png"))
-            embed = discord.Embed(title = "Clyde", color = discord.Color.blurple())
             file = discord.File(filename = "result.png", fp = outputBuffer)
-            embed.set_image(url = "attachment://result.png")
 
-            await ctx.send(embed = embed, file = file)
+            await ctx.send(file = file)
 
     @commands.command(aliases = [u"\U0001f914"])
     async def thonk(self, ctx, link: str = None):
@@ -148,8 +144,6 @@ class Images:
                     "<:blobthonkang:416430096291987467>"
                 )
             )
-
-            file = discord.File(filename = "result.png", fp = outputBuffer)
 
             embed = discord.Embed(title = f"{a}{b} {c}", color = 0xFFCC4D)
             file = discord.File(filename = "result.png", fp = outputBuffer)
@@ -189,11 +183,7 @@ class Images:
 
             file = discord.File(filename = "result.png", fp = outputBuffer)
 
-            embed = discord.Embed(title = "Thoughting", color = 0xFFCC4D)
-            file = discord.File(filename = "result.png", fp = outputBuffer)
-            embed.set_image(url = "attachment://result.png")
-
-            await ctx.send(embed = embed, file = file)
+            await ctx.send(file = file)
 
     @commands.group(aliases = ["f", u"\U0001f578"])
     async def filter(self, ctx):
@@ -221,11 +211,9 @@ class Images:
                 img.save(outputBuffer, "png")
                 outputBuffer.seek(0)
 
-            embed = discord.Embed(title = "Inverted", color = ykColor)
             file = discord.File(filename = "result.png", fp = outputBuffer)
-            embed.set_image(url = "attachment://result.png")
 
-            await ctx.send(embed = embed, file = file)
+            await ctx.send(file = file)
 
     @filter.command()
     async def blur(self, ctx, radius: int = 2, link: str = None):
@@ -243,11 +231,9 @@ class Images:
                     img.save(outputBuffer, "png")
                     outputBuffer.seek(0)
 
-                embed = discord.Embed(title = "Blurred", color = ykColor)
                 file = discord.File(filename = "result.png", fp = outputBuffer)
-                embed.set_image(url = "attachment://result.png")
 
-                await ctx.send(embed = embed, file = file)
+                await ctx.send(content = f"``Radius: {radius}``", file = file)
 
     @filter.command()
     async def emboss(self, ctx, link: str = None):
@@ -262,11 +248,9 @@ class Images:
                 img.save(outputBuffer, "png")
                 outputBuffer.seek(0)
 
-            embed = discord.Embed(title = "Emboss", color = ykColor)
             file = discord.File(filename = "result.png", fp = outputBuffer)
-            embed.set_image(url = "attachment://result.png")
 
-            await ctx.send(embed = embed, file = file)
+            await ctx.send(file = file)
 
     @filter.command()
     async def contour(self, ctx, link: str = None):
@@ -281,11 +265,9 @@ class Images:
                 img.save(outputBuffer, "png")
                 outputBuffer.seek(0)
 
-            embed = discord.Embed(title = "Contour", color = ykColor)
             file = discord.File(filename = "result.png", fp = outputBuffer)
-            embed.set_image(url = "attachment://result.png")
 
-            await ctx.send(embed = embed, file = file)
+            await ctx.send(file = file)
 
     @filter.command()
     async def mosaic(self, ctx, link: str = None):
@@ -310,21 +292,9 @@ class Images:
                 output.save(outputBuffer, "png")
                 outputBuffer.seek(0)
 
-            embed = discord.Embed(title = "Mosaic", color = ykColor)
             file = discord.File(filename = "result.png", fp = outputBuffer)
-            embed.set_image(url = "attachment://result.png")
 
-            await ctx.send(embed = embed, file = file)
-
-    """@commands.command(pass_context = True)
-    async def tiny(self, ctx, link: str):
-        Makes image smaller using tinypng.
-
-        tinify.key = "OPZshtp759q5skZ0Cdie5ILiXhTKTKKc"
-        async with aiohttp.ClientSession() as session:
-            async with session.get(link) as response:
-                imgBytes = await BytesIO(response.read)
-    """
+            await ctx.send(file = file)
 
     @commands.command(aliases = ["qr", u"\U0001f4d3"])
     async def qrcode(self, ctx, *, text: str = None):
@@ -351,7 +321,7 @@ class Images:
 
     @commands.command(aliases = [u"\U0001f47e"])
     async def rashot(self, ctx):
-        """Gives you a random RetroArch screenshot that hyarsan took."""
+        """Gives you a random RetroArch screenshot."""
 
         async with ctx.typing():
             screenshotsPath = "C:/Users/yarsa/AppData/Roaming/RetroArch/screenshots"

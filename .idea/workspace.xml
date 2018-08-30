@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6407fb93-1db4-423e-a29b-b48c10419958" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/guild.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/guild.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/info.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yuki.py" beforeDir="false" afterPath="$PROJECT_DIR$/yuki.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cogs/image.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/image.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,41 +15,43 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/YukikoBot$frontend_pyw.coverage" NAME="frontend.pyw Coverage Results" MODIFIED="1535394608828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/YukikoBot$frontend_pyw.coverage" NAME="frontend.pyw Coverage Results" MODIFIED="1535575881298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-762038745">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="2" />
+          <entry key="project.open.time.24" value="1" />
+          <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.29" value="3" />
           <entry key="project.open.time.30" value="2" />
           <entry key="project.open.time.33" value="1" />
           <entry key="project.open.time.38" value="1" />
           <entry key="project.open.time.43" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="6420" />
+          <entry key="py" value="6514" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="6420" />
+          <entry key="Python" value="6514" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="14" />
+          <entry key="py" value="16" />
           <entry key="pyw" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="16" />
+          <entry key="Python" value="18" />
         </counts>
       </usages-collector>
     </session>
@@ -61,18 +61,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cogs/tests.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="838">
-              <caret line="167" column="65" selection-start-line="167" selection-start-column="65" selection-end-line="167" selection-end-column="65" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cogs/utils.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -92,19 +80,6 @@
               <caret line="223" column="23" selection-start-line="223" selection-start-column="23" selection-end-line="223" selection-end-column="23" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cogs/image.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1411">
-              <caret line="100" column="22" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-                <marker date="1535151230053" expanded="true" signature="8244:8249" ph="..." />
               </folding>
             </state>
           </provider>
@@ -134,8 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cogs/info.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="447" column="66" lean-forward="true" selection-start-line="447" selection-start-column="66" selection-end-line="447" selection-end-column="66" />
+            <state relative-caret-position="7463">
+              <caret line="447" column="66" selection-start-line="447" selection-start-column="66" selection-end-line="447" selection-end-column="66" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
                 <marker date="1535391800907" expanded="true" signature="16991:16997" ph="..." />
@@ -147,7 +122,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cogs/nsfw.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
+            <state relative-caret-position="527">
               <caret line="40" column="62" selection-start-line="40" selection-start-column="62" selection-end-line="40" selection-end-column="62" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
@@ -159,21 +134,43 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cogs/owner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2147">
+            <state relative-caret-position="2686">
               <caret line="173" column="40" selection-start-line="173" selection-start-column="40" selection-end-line="173" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cogs/guild.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="101" column="92" selection-start-line="101" selection-start-column="92" selection-end-line="101" selection-end-column="92" />
+            <state relative-caret-position="1530">
+              <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
                 <marker date="1535400419673" expanded="true" signature="4310:4315" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cogs/image.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="306" selection-start-line="306" selection-end-line="306" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+                <marker date="1535570156604" expanded="true" signature="7678:7683" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trash/commands_archive.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="9690">
+              <caret line="570" column="7" selection-start-line="570" selection-start-column="7" selection-end-line="570" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -264,12 +261,12 @@
         <option value="$PROJECT_DIR$/cogs/text.py" />
         <option value="$PROJECT_DIR$/cogs/nsfw.py" />
         <option value="$PROJECT_DIR$/cogs/utils.py" />
-        <option value="$PROJECT_DIR$/trash/commands_archive.py" />
-        <option value="$PROJECT_DIR$/cogs/image.py" />
         <option value="$PROJECT_DIR$/yuki.py" />
         <option value="$PROJECT_DIR$/cogs/info.py" />
         <option value="$PROJECT_DIR$/cogs/owner.py" />
         <option value="$PROJECT_DIR$/cogs/guild.py" />
+        <option value="$PROJECT_DIR$/trash/commands_archive.py" />
+        <option value="$PROJECT_DIR$/cogs/image.py" />
       </list>
     </option>
   </component>
@@ -285,43 +282,20 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="848" />
-    <option name="y" value="51" />
-    <option name="width" value="967" />
+    <option name="x" value="62" />
+    <option name="y" value="245" />
+    <option name="width" value="1257" />
     <option name="height" value="969" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="YukikoBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="YukikoBot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="YukikoBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="YukikoBot" type="462c0819:PsiDirectoryNode" />
-              <item name="cogs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="YukikoBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="YukikoBot" type="462c0819:PsiDirectoryNode" />
-              <item name="trash" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -487,7 +461,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="848" y="51" width="967" height="969" extended-state="0" />
+    <frame x="62" y="245" width="1257" height="969" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.83653843" weight="0.01652452" />
@@ -503,7 +477,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3249453" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32900432" />
       <window_info anchor="bottom" id="Floobits" order="9" weight="0.32822758" />
-      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.83840305" weight="0.28602383" />
+      <window_info active="true" anchor="bottom" id="Debug" order="10" sideWeight="0.83840305" visible="true" weight="0.284689" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="File Transfer" order="12" visible="true" weight="0.118421055" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
@@ -514,6 +488,7 @@
       <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="3" side_tool="true" weight="0.3565417" />
       <window_info anchor="right" id="SciView" order="4" />
       <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Cargo" order="6" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.83653843" visible="true" weight="0.01652452" />
@@ -646,20 +621,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trash/commands_archive.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="553" column="36" selection-start-line="553" selection-start-column="36" selection-end-line="553" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cogs/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="838">
+        <state relative-caret-position="2788">
           <caret line="167" column="65" selection-start-line="167" selection-start-column="65" selection-end-line="167" selection-end-column="65" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -683,17 +648,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cogs/image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="100" column="22" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <marker date="1535151230053" expanded="true" signature="8244:8249" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yuki.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -711,9 +665,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cogs/info.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7463">
+          <caret line="447" column="66" selection-start-line="447" selection-start-column="66" selection-end-line="447" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1535391800907" expanded="true" signature="16991:16997" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cogs/nsfw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="527">
           <caret line="40" column="62" selection-start-line="40" selection-start-column="62" selection-end-line="40" selection-end-column="62" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
@@ -723,29 +688,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cogs/owner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2147">
+        <state relative-caret-position="2686">
           <caret line="173" column="40" selection-start-line="173" selection-start-column="40" selection-end-line="173" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cogs/info.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="447" column="66" lean-forward="true" selection-start-line="447" selection-start-column="66" selection-end-line="447" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <marker date="1535391800907" expanded="true" signature="16991:16997" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cogs/guild.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="101" column="92" selection-start-line="101" selection-start-column="92" selection-end-line="101" selection-end-column="92" />
+        <state relative-caret-position="1530">
+          <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
             <marker date="1535400419673" expanded="true" signature="4310:4315" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trash/commands_archive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9690">
+          <caret line="570" column="7" selection-start-line="570" selection-start-column="7" selection-end-line="570" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cogs/image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="306" selection-start-line="306" selection-end-line="306" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1535570156604" expanded="true" signature="7678:7683" ph="..." />
           </folding>
         </state>
       </provider>
