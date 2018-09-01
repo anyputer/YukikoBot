@@ -21,6 +21,7 @@ class NSFW:
             "<a:milky_nsfw:480755218552848385>"
         )
     @commands.group(aliases = ["r34"])
+    @commands.is_nsfw()
     async def rule34(self, ctx):
         pass
 

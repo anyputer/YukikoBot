@@ -215,7 +215,7 @@ class Images:
 
             await ctx.send(file = file)
 
-    @filter.command()
+    @filter.command(aliases = [u"\U0001f4a7"])
     async def blur(self, ctx, radius: int = 2, link: str = None):
         """Blurs image."""
 
@@ -231,9 +231,12 @@ class Images:
                     img.save(outputBuffer, "png")
                     outputBuffer.seek(0)
 
+                embed = discord.Embed(color = 0x36393F)
                 file = discord.File(filename = "result.png", fp = outputBuffer)
+                embed.set_image(url = "attachment://result.png")
+                embed.set_footer(text = f"Radius: {radius}")
 
-                await ctx.send(content = f"``Radius: {radius}``", file = file)
+                await ctx.send(embed = embed, file = file)
 
     @filter.command()
     async def emboss(self, ctx, link: str = None):

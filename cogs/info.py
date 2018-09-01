@@ -451,7 +451,7 @@ class Info:
 
         await ctx.send(embed = embed)
 
-    @commands.command(pass_context = True, aliases = ["bot", "dbs", "dbsinfo", u"\U0001f916"])
+    @commands.command(aliases = ["bot", "dbs", "dbsinfo", u"\U0001f916"])
     async def botinfo(self, ctx, bot: discord.Member = None):
         """Gives info about the bot using DiscordBots."""
 
@@ -467,6 +467,9 @@ class Info:
         else:
             embed = discord.Embed(description = u"\U000026a0 **User isn't a bot.**", color = ykColor)
             await ctx.send(embed = embed)
+
+    """"@commands.command(aliases = ["urbandict", u"\U0001f916"])
+    async def urban(self, ctx, word: str = None):"""or
 
 def setup(bot):
     bot.add_cog(Info(bot))
