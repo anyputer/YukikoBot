@@ -469,7 +469,7 @@ class Info:
             await ctx.send(embed = embed)
 
     """"@commands.command(aliases = ["urbandict", u"\U0001f916"])
-    async def urban(self, ctx, word: str = None):"""or
+    async def urban(self, ctx, word: str = None):"""
 
 def setup(bot):
     bot.add_cog(Info(bot))

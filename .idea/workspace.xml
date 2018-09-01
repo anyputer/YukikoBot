@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6407fb93-1db4-423e-a29b-b48c10419958" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/image.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/image.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cogs/info.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/nsfw.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/nsfw.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/YukikoBot$frontend_pyw.coverage" NAME="frontend.pyw Coverage Results" MODIFIED="1535678530473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/YukikoBot$frontend_pyw.coverage" NAME="frontend.pyw Coverage Results" MODIFIED="1535813983285" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-762038745">
@@ -32,8 +29,9 @@
           <entry key="project.open.time.33" value="2" />
           <entry key="project.open.time.38" value="1" />
           <entry key="project.open.time.43" value="1" />
+          <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.692" value="1" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -153,11 +151,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cogs/nsfw.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="32" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="24" selection-end-column="32" />
+            <state relative-caret-position="-87">
+              <caret line="27" column="42" lean-forward="true" selection-start-line="26" selection-end-line="27" selection-end-column="42" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -165,14 +163,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cogs/info.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="916">
-              <caret line="471" column="54" selection-start-line="471" selection-start-column="54" selection-end-line="471" selection-end-column="54" />
+            <state relative-caret-position="763">
+              <caret line="471" column="52" selection-start-line="471" selection-start-column="52" selection-end-line="471" selection-end-column="52" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
-                <marker date="1535756516494" expanded="true" signature="16991:16997" ph="..." />
+                <marker date="1535816566984" expanded="true" signature="16991:16997" ph="..." />
               </folding>
             </state>
           </provider>
@@ -268,8 +266,8 @@
         <option value="$PROJECT_DIR$/cogs/guild.py" />
         <option value="$PROJECT_DIR$/trash/commands_archive.py" />
         <option value="$PROJECT_DIR$/cogs/image.py" />
-        <option value="$PROJECT_DIR$/cogs/info.py" />
         <option value="$PROJECT_DIR$/cogs/nsfw.py" />
+        <option value="$PROJECT_DIR$/cogs/info.py" />
       </list>
     </option>
   </component>
@@ -284,7 +282,7 @@
       <path value="$PROJECT_DIR$/venv/Lib/site-packages/pre_commit/resources/empty_template/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="width" value="1940" />
     <option name="height" value="1100" />
   </component>
@@ -465,7 +463,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1940" height="1100" extended-state="1" />
+    <frame x="0" y="0" width="1940" height="1100" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.83653843" visible="true" weight="0.010106383" />
@@ -705,23 +703,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cogs/info.py">
+    <entry file="file://$PROJECT_DIR$/cogs/nsfw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="916">
-          <caret line="471" column="54" selection-start-line="471" selection-start-column="54" selection-end-line="471" selection-end-column="54" />
+        <state relative-caret-position="-87">
+          <caret line="27" column="42" lean-forward="true" selection-start-line="26" selection-end-line="27" selection-end-column="42" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-            <marker date="1535756516494" expanded="true" signature="16991:16997" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cogs/nsfw.py">
+    <entry file="file://$PROJECT_DIR$/cogs/info.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="32" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="24" selection-end-column="32" />
+        <state relative-caret-position="763">
+          <caret line="471" column="52" selection-start-line="471" selection-start-column="52" selection-end-line="471" selection-end-column="52" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
+            <marker date="1535816566984" expanded="true" signature="16991:16997" ph="..." />
           </folding>
         </state>
       </provider>
