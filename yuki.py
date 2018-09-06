@@ -22,7 +22,10 @@ bot = commands.Bot(
 bot.remove_command("help")
 color = 0xFF033E
 
+# Weird bug happens where the first cog doesn't get loaded and errors.
+# The coins cog is useless anyway.
 initial_extensions = (
+    "cogs.coins",
     "cogs.owner",
     "cogs.image",
     "cogs.text",
@@ -30,7 +33,6 @@ initial_extensions = (
     "cogs.info",
     "cogs.tests",
     "cogs.utils",
-    "cogs.coins",
     "cogs.copypasta",
     "cogs.nsfw"
 )
