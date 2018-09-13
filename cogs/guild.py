@@ -27,60 +27,51 @@ class Guild:
             await msg1.channel.purge(limit = amount)
             logging.info(f"Deleted {amount} messages in #{msg1.channel} from guild: {msg1.guild} with ID {msg1.guild.id}.")
 
-    @commands.command(aliases = [u"\U0001f528"])
-    @commands.has_permissions(ban_members = True)
-    async def ban(self, ctx, member: discord.Member = None):
-        """Bans member. Requires ban permission."""
-
-        mem = member
-        if ctx.guild:
-            embedColor = mem.top_role.color
-        else:
-            embedColor = ykColor
-
-        embed = discord.Embed(title = "Banned Member", description = str(mem), color = embedColor)
-        embed.set_thumbnail(url = mem.avatar_url)
-        # embed.set_author(name = str(mem), icon_url = mem.avatar_url)
-        embed.add_field(name = "ID", value = mem.id, inline = True)
-
-        await ctx.send(embed = embed)
-        await mem.ban(f"{ctx.author} used the ban command.")
-        await ctx.message.delete()
-
-    """@commands.command(pass_context = True)
-    @commands.has_permissions(ban_members = True)
-    async def unban(self, ctx, member: discord.Member = None):
-        Unbans member. Requires ban permission.
-
-        mem = member
-
-        embed = discord.Embed(title = "Unbanned Member", description = str(mem), color = ykColor)
-        embed.set_thumbnail(url = mem.avatar_url)
-        # embed.set_author(name = str(mem), icon_url = mem.avatar_url)
-        embed.add_field(name = "ID", value = mem.id, inline = True)
-
-        await ctx.send(embed = embed)
-        await mem.unban()
-        await ctx.message.delete()"""
-
     @commands.command()
     @commands.has_permissions(kick_members = True)
-    async def kick(self, ctx, member: discord.Member = None):
-        """Kicks member. Requires kick permission."""
+    async def kick(self, ctx, *members: discord.Member):
+        """Kicks member(s). Requires kick permission."""
 
-        mem = member
-        if ctx.guild:
-            embedColor = mem.top_role.color
-        else:
-            embedColor = ykColor
+        output = ""
+        for mem in members:
+            if mem.id == self.bot.user.id:
+                output += u"\U000026d4 **{}:**\n{}\n\n".format(mem, f"Can't kick self.")
+                continue
 
-        embed = discord.Embed(title = "Kicked Member", description = str(mem), color = embedColor)
-        embed.set_thumbnail(url = mem.avatar_url)
-        # embed.set_author(name = str(mem), icon_url = mem.avatar_url)
+            if ctx.guild.owner != mem:
+                try:
+                    await mem.kick(reason = f"{ctx.author} used the kick command.")
+                    output += u"\U00002705 **{}:**\n{}\n\n".format(mem, f"Successfully kicked.")
+                except:
+                    output += u"\U000026a0 **{}:**\n{}\n\n".format(mem, f"Couldn't kick.")
+            else:
+                output += u"\U000026d4 **{}:**\n{}\n\n".format(mem, f"Server owner, can't be kicked.")
 
+        embed = discord.Embed(title = "Attempted to Kick", description = output, color = ykColor)
         await ctx.send(embed = embed)
-        await mem.kick(reason = f"{ctx.author} used the kick command.")
-        await ctx.message.delete()
+
+    @commands.command()
+    @commands.has_permissions(ban_members = True)
+    async def ban(self, ctx, *members: discord.Member):
+        """Bans member(s). Requires ban permission."""
+
+        output = ""
+        for mem in members:
+            if mem.id == self.bot.user.id:
+                output += u"\U000026d4 **{}:**\n{}\n*ID: {}*\n\n".format(mem, f"Can't ban self.", mem.id)
+                continue
+
+            if ctx.guild.owner != mem:
+                try:
+                    await mem.ban(reason = f"{ctx.author} used the ban command.")
+                    output += u"\U00002705 **{}:**\n{}\n*ID: {}*\n\n".format(mem, f"Successfully banned.", mem.id)
+                except:
+                    output += u"\U000026a0 **{}:**\n{}\n*ID: {}*\n\n".format(mem, f"Couldn't ban.", mem.id)
+            else:
+                output += u"\U000026d4 **{}:**\n{}\n*ID: {}*\n\n".format(mem, f"Server owner, can't be banned.", mem.id)
+
+        embed = discord.Embed(title = "Attempted to Ban", description = output, color = ykColor)
+        await ctx.send(embed = embed)
 
     @commands.command(aliases = ["nickname", "changenick", "changenickname"])
     @commands.has_permissions(manage_nicknames = True)
@@ -95,23 +86,26 @@ class Guild:
         """
         mem = member
         oldName = mem.display_name
-        try:
-            await mem.edit(nick = nickname, reason = f"{ctx.author} used the nick command.")
-            embed = discord.Embed(description = "", color = ykColor)
-            embed.set_author(
-                name = f"Successfully changed nickname of {mem}, from {oldName} to {nickname}.",
-                icon_url = "https://cdn.discordapp.com/attachments/447500690932367361/476214759071678474/nickname_icon.png"
-            )
-            await ctx.send(embed = embed)
-        except:
-            embed = discord.Embed(description = u"\U000026a0 **Couldn't change nickname of {}.**".format(mem), color = ykColor)
-            await ctx.send(embed = embed)
+
+        if ctx.guild.owner == mem:
+            await yuki.sendError("Can't change nick of the server owner.", ctx)
+        else:
+            try:
+                await mem.edit(nick = nickname, reason = f"{ctx.author} used the nick command.")
+                embed = discord.Embed(description = "", color = ykColor)
+                embed.set_author(
+                    name = f"Successfully changed nickname of {mem}, from {oldName} to {nickname}.",
+                    icon_url = "https://cdn.discordapp.com/attachments/447500690932367361/476214759071678474/nickname_icon.png"
+                )
+                await ctx.send(embed = embed)
+            except:
+                await yuki.sendError(f"Couldn't change nickname of {mem}.", ctx)
 
     @commands.group()
     async def create(self, ctx):
         pass
 
-    @create.command(aliases = ["cha"])
+    @create.command(aliases = ["cha", "chan"])
     @commands.has_permissions(manage_channels = True)
     async def channel(self, ctx, *name: str):
         """Creates a channel."""
@@ -127,35 +121,29 @@ class Guild:
             )
             await ctx.send(embed = embed)
         except:
-            if len(gld.channels) < 100:
-                errorMessage = f"No space left to create #{name}."
+            if len(gld.channels) <= 100:
+                await yuki.sendError(f"No space left to create #{name}.", ctx)
             else:
-                errorMessage = f"Couldn't create channel #{name}."
-
-            embed = discord.Embed(description = u"\U000026a0 **{}**".format(errorMessage), color = ykColor)
-            await ctx.send(embed = embed)
+                await yuki.sendError(f"Couldn't create channel #{name}.", ctx)
 
     @create.command(aliases = ["emo"])
     @commands.has_permissions(manage_emojis = True)
     async def emoji(self, ctx, name: str, link: str = None):
-        imgBytes = await yuki.getImage(link, ctx)
-        try:
-            emo = await ctx.guild.create_custom_emoji(
-                name = '_'.join(name.split()),
-                image = imgBytes,
-                reason = f"{ctx.author} used the create emoji command."
-            )
+        if len(ctx.guild.emojis) >= 50:
+            await yuki.sendError("No space left to create emoji.", ctx)
+        else:
+            imgBytes = await yuki.getImage(link, ctx)
+            try:
+                emo = await ctx.guild.create_custom_emoji(
+                    name = '_'.join(name.split()),
+                    image = imgBytes,
+                    reason = f"{ctx.author} used the create emoji command."
+                )
 
-            embed = discord.Embed(title = f"Successfully created emoji {emo}.", color = ykColor)
-            await ctx.send(embed = embed)
-        except:
-            if len(ctx.guild.emojis) > 50:
-                errorMessage = "No space left to create emoji."
-            else:
-                errorMessage = "Couldn't create emoji."
-
-            embed = discord.Embed(description = u"\U000026a0 **{}**".format(errorMessage), color = ykColor)
-            await ctx.send(embed = embed)
+                embed = discord.Embed(description = f"Successfully created emoji {emo}.", color = ykColor)
+                await ctx.send(embed = embed)
+            except:
+                await yuki.sendError("Couldn't create emoji.", ctx)
 
 def setup(bot):
     bot.add_cog(Guild(bot))

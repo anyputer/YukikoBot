@@ -66,14 +66,19 @@ class Info:
             embed.set_thumbnail(url = self.bot.user.avatar_url)
 
             for cogName in sorted(self.bot.cogs):
+                # Hide the NSFW category in non-NSFW channels.
+                if cogName == "NSFW" and not ctx.channel.nsfw:
+                    continue
+
                 cmds = ""
                 for cmd in self.bot.get_cog_commands(cogName):
                     # lastAlias = "" if len(command.aliases) == 0 else '|' + command.aliases[-1]
                     if not cmd.hidden:
                         cmds += f"``{prefix}{cmd.name}`` "
 
-                if not cmds == "":
+                if cmds != "":
                     embed.add_field(name = cogDisplayDict.get(cogName, cogName), value = cmds, inline = False)
+
             embed.set_footer(text = f"Type {prefix}help <command> for info on a command.")
 
             await ctx.send(embed = embed)

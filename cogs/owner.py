@@ -25,8 +25,9 @@ class Owner:
 
         allowedUsers = (
             self.bot.owner_id,
-            357641367507435531, # Slick9000#7159
-            314885561552994305  # SimonMKWii#1234
+            357641367507435531,  # Slick9000#7159
+            314885561552994305,  # SimonMKWii#1234
+            99272767060328448,   # Netux#2308
         )
         if ctx.author.id not in allowedUsers:
             await ctx.send("You don't have access to this command.")
@@ -38,7 +39,7 @@ class Owner:
                 sys.stderr = redir_stderr = StringIO()
 
                 try:
-                    exec("".join(code))
+                    exec(code)
 
                     # If the code was successful, it would set exc to "".
                     # If not, it would do except anyway.
