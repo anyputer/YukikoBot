@@ -5,10 +5,7 @@
     <bookmark url="file://$PROJECT_DIR$/cogs/guild.py" line="37" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6407fb93-1db4-423e-a29b-b48c10419958" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/cogs/info.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cogs/owner.py" beforeDir="false" afterPath="$PROJECT_DIR$/cogs/owner.py" afterDir="false" />
-    </list>
+    <list default="true" id="6407fb93-1db4-423e-a29b-b48c10419958" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,10 +143,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cogs/image.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1075">
+            <state relative-caret-position="-1277">
               <caret line="235" column="16" selection-start-line="235" selection-start-column="16" selection-end-line="235" selection-end-column="64" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
@@ -172,10 +169,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cogs/owner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1122">
+            <state relative-caret-position="-2">
               <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
             </state>
           </provider>
@@ -679,17 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cogs/image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1075">
-          <caret line="235" column="16" selection-start-line="235" selection-start-column="16" selection-end-line="235" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <marker date="1535670522010" expanded="true" signature="7678:7683" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cogs/guild.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
@@ -724,8 +710,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cogs/owner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1122">
+        <state relative-caret-position="-2">
           <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cogs/image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1277">
+          <caret line="235" column="16" selection-start-line="235" selection-start-column="16" selection-end-line="235" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1535670522010" expanded="true" signature="7678:7683" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
