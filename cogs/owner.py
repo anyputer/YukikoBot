@@ -20,17 +20,24 @@ class Owner:
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(hidden = True, aliases = ["python", u"\U0001f40d"])
-    async def py(self, ctx, *, code: str = "print(\"Hello, World!\")"):
-        """Executes Python 3 code."""
-
-        allowedUsers = (
+        self.allowedUsers = (
             self.bot.owner_id,
             357641367507435531,  # Slick9000#7159
             314885561552994305,  # SimonMKWii#1234
             99272767060328448,   # Netux#2308
         )
-        if ctx.author.id not in allowedUsers:
+
+    @commands.group(hidden = True, aliases = ["py", u"\U0001f40d"])
+    async def python(self, ctx):
+        """Commands to do with using Python."""
+
+        pass
+
+    @python.command(name = "exec", aliases = ["run"])
+    async def exec_(self, ctx, *, code: str = "print(\"Hello, World!\")"):
+        """Executes Python 3 code."""
+
+        if ctx.author.id not in self.allowedUsers:
             # await ctx.send("You don't have access to this command.")
             await yuki.sendError("You don't have access to this command.", ctx)
         else:
@@ -52,13 +59,13 @@ class Owner:
                 out = redir_stdout.getvalue()
                 err = redir_stderr.getvalue()
 
-                out = f"```{out}```" if out != "" else "No standard output."
-                err = f"```{err}```" if err != "" else "No error output."
-                exc = f"```{exc}```" if exc != "" else "No exception."
+                out = f"```{out}```" if out else "No standard output."
+                err = f"```{err}```" if err else "No error output."
+                exc = f"```{exc}```" if exc else "No exception."
 
                 embed = discord.Embed(title = "", color = ykColor)
-                embed.set_author(name = "Python " + platform.python_version(), icon_url = "https://cdn.discordapp.com/emojis/447523942949715969.png?v=1")
-                embed.add_field(name = "Executed", value = "```py\n" + code + "```", inline = False)
+                embed.set_author(name = f"Python { platform.python_version() }", icon_url = "https://cdn.discordapp.com/emojis/447523942949715969.png?v=1")
+                embed.add_field(name = "Executed", value = f"```py\n{code}```", inline = False)
                 embed.add_field(name = "Standard Output", value = out, inline = False)
                 embed.add_field(name = "Error Output", value = err, inline = False)
                 embed.add_field(name = "Exception", value = exc, inline = False)
@@ -69,6 +76,27 @@ class Owner:
                 sys.stderr = old_stderr
 
                 await ctx.send(embed = embed)
+
+    @python.command(name = "eval")
+    async def eval_(self, ctx, *, code: str):
+        """Evaluates Python 3 code."""
+
+        if ctx.author.id not in self.allowedUsers:
+            # await ctx.send("You don't have access to this command.")
+            await yuki.sendError("You don't have access to this command.", ctx)
+        else:
+            async with ctx.typing():
+                try:
+                    ret = eval(code)
+
+                    # If the code was successful, it would set exc to "".
+                    # If not, it would do except anyway.
+                    exc = ""
+                except:
+                    exc = traceback.format_exc()
+
+                output = f"```{ret}```" if not exc else f"```{exc}```"
+                await ctx.send(output)
 
     @commands.command(hidden = True)
     @commands.is_owner()
@@ -94,15 +122,15 @@ class Owner:
             out = redir_stdout.getvalue()
             err = redir_stderr.getvalue()
 
-            out = f"```{out}```" if out != "" else "No standard output."
-            err = f"```{err}```" if err != "" else "No error output."
-            exc = f"```{exc}```" if exc != "" else "No exception."
+            out = f"```{out}```" if out else "No standard output."
+            err = f"```{err}```" if err else "No error output."
+            exc = f"```{exc}```" if exc else "No exception."
 
             luaLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Lua-logo-nolabel.svg/480px-Lua-logo-nolabel.svg.png"
 
             embed = discord.Embed(title = "", color = 0x000080)
             embed.set_author(name = lua.eval("_VERSION"), icon_url = luaLogo)
-            embed.add_field(name = "Executed", value="```lua\n" + code + "```", inline = False)
+            embed.add_field(name = "Executed", value = f"```lua\n{code}```", inline = False)
             embed.add_field(name = "Standard Output", value = out, inline = False)
             embed.add_field(name = "Error Output", value = err, inline = False)
             embed.add_field(name = "Exception", value = exc, inline = False)
