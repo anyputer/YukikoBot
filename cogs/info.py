@@ -1,3 +1,5 @@
+from typing import List, Any
+
 import discord
 from discord.ext import commands
 from yuki import color as ykColor
@@ -67,14 +69,22 @@ class Info:
 
             for cogName in sorted(self.bot.cogs):
                 # Hide the NSFW category in non-NSFW channels.
-                if cogName == "NSFW" and not ctx.channel.nsfw:
-                    continue
+                if ctx.guild:
+                    if cogName == "NSFW" and not ctx.channel.nsfw:
+                        continue
 
+                """
                 cmds = ""
                 for cmd in self.bot.get_cog_commands(cogName):
                     # lastAlias = "" if len(command.aliases) == 0 else '|' + command.aliases[-1]
                     if not cmd.hidden:
                         cmds += f"``{prefix}{cmd.name}`` "
+                """
+                cmds = []
+                for cmd in self.bot.get_cog_commands(cogName):
+                    if not cmd.hidden:
+                        cmds.append(cmd)
+                cmds = u" \u25CF ".join([f"{cmd}" for cmd in cmds])
 
                 if cmds != "":
                     embed.add_field(name = cogDisplayDict.get(cogName, cogName), value = cmds, inline = False)

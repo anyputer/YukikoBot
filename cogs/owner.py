@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from yuki import color as ykColor
+import yuki
 
 import sys
 from io import StringIO
@@ -30,7 +31,8 @@ class Owner:
             99272767060328448,   # Netux#2308
         )
         if ctx.author.id not in allowedUsers:
-            await ctx.send("You don't have access to this command.")
+            # await ctx.send("You don't have access to this command.")
+            await yuki.sendError("You don't have access to this command.", ctx)
         else:
             async with ctx.typing():
                 old_stdout = sys.stdout
