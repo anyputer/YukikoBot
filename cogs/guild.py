@@ -32,20 +32,24 @@ class Guild:
     async def kick(self, ctx, *members: discord.Member):
         """Kicks member(s). Requires kick permission."""
 
+        if len(members) == 0:
+            await yuki.sendError("No members were passed.", ctx)
+            return
+
         output = ""
         for mem in members:
             if mem.id == self.bot.user.id:
-                output += u"\U000026d4 **{}:**\n{}\n\n".format(mem, f"Can't kick self.")
+                output += u"\u000026d4 **{}:**\n{}\n\n".format(mem, f"Can't kick self.")
                 continue
 
             if ctx.guild.owner != mem:
                 try:
                     await mem.kick(reason = f"{ctx.author} used the kick command.")
-                    output += u"\U00002705 **{}:**\n{}\n\n".format(mem, f"Successfully kicked.")
+                    output += u"\u00002705 **{}:**\n{}\n\n".format(mem, f"Successfully kicked.")
                 except:
-                    output += u"\U000026a0 **{}:**\n{}\n\n".format(mem, f"Couldn't kick.")
+                    output += u"\u000026a0 **{}:**\n{}\n\n".format(mem, f"Couldn't kick.")
             else:
-                output += u"\U000026d4 **{}:**\n{}\n\n".format(mem, f"Server owner, can't be kicked.")
+                output += u"\u000026d4 **{}:**\n{}\n\n".format(mem, f"Server owner, can't be kicked.")
 
         embed = discord.Embed(title = "Attempted to Kick", description = output, color = ykColor)
         await ctx.send(embed = embed)
@@ -55,20 +59,24 @@ class Guild:
     async def ban(self, ctx, *members: discord.Member):
         """Bans member(s). Requires ban permission."""
 
+        if len(members) == 0:
+            await yuki.sendError("No members were passed.", ctx)
+            return
+
         output = ""
         for mem in members:
             if mem.id == self.bot.user.id:
-                output += u"\U000026d4 **{}:**\n{}\n*ID: {}*\n\n".format(mem, f"Can't ban self.", mem.id)
+                output += u"\u000026d4 **{}:**\n{}\n*ID: {}*\n\n".format(mem, f"Can't ban self.", mem.id)
                 continue
 
             if ctx.guild.owner != mem:
                 try:
                     await mem.ban(reason = f"{ctx.author} used the ban command.")
-                    output += u"\U00002705 **{}:**\n{}\n*ID: {}*\n\n".format(mem, f"Successfully banned.", mem.id)
+                    output += u"\u00002705 **{}:**\n{}\n*ID: {}*\n\n".format(mem, f"Successfully banned.", mem.id)
                 except:
-                    output += u"\U000026a0 **{}:**\n{}\n*ID: {}*\n\n".format(mem, f"Couldn't ban.", mem.id)
+                    output += "<:cross_mark:465215264439664650> **{}:**\n{}\n*ID: {}*\n\n".format(mem, f"Couldn't ban.", mem.id)
             else:
-                output += u"\U000026d4 **{}:**\n{}\n*ID: {}*\n\n".format(mem, f"Server owner, can't be banned.", mem.id)
+                output += u"\u000026d4 **{}:**\n{}\n*ID: {}*\n\n".format(mem, f"Server owner, can't be banned.", mem.id)
 
         embed = discord.Embed(title = "Attempted to Ban", description = output, color = ykColor)
         await ctx.send(embed = embed)

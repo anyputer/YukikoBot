@@ -16,14 +16,14 @@ class Text:
     def __init__(self, bot):
         self.bot = bot
     
-    @commands.command(aliases = [u"\U0001f4ac"])
+    @commands.command(aliases = [u"\u0001f4ac"])
     async def say(self, ctx, *, text: str):
         """Outputs text deleting the original message."""
 
         await ctx.send(text)
         await ctx.message.delete()
 
-    @commands.command(aliases = ["talk", "speak", u"\U0001f5e3"])
+    @commands.command(aliases = ["talk", "speak", u"\u0001f5e3"])
     async def tts(self, ctx, *, text: str):
         """Text-to-speech text."""
 
@@ -36,7 +36,7 @@ class Text:
 
         await ctx.send(text)
 
-    @commands.command(aliases = ["upside", "upsidedown", u"\U0001f643"])
+    @commands.command(aliases = ["upside", "upsidedown", u"\u0001f643"])
     async def updown(self, ctx, *, text: str):
         """Outputs text upside down."""
 
@@ -85,9 +85,9 @@ class Text:
 
         await ctx.send(text[::-1])
 
-    @commands.command(aliases = ["\U0001f44f"])
+    @commands.command(aliases = ["\u0001f44f"])
     async def clap(self, ctx, *text: str):
-        u"""Outputs \U0001f44f text \U0001f44f like \U0001f44f this."""
+        u"""Outputs \u0001f44f text \u0001f44f like \u0001f44f this."""
 
         text = ("Meme", "Review") if text == () else text
 
@@ -100,9 +100,9 @@ class Text:
 
         translator = Translator(to_lang = lang)
         # print(lang)
-        # print("".join(text))
+        # print(''.join(text))
 
-        await ctx.send(translator.translate("".join(text)))
+        await ctx.send(translator.translate(''.join(text)))
 
     @commands.command(aliases = ["capsizer", "altcase"])
     async def altcaps(self, ctx, *, text: str):
@@ -125,13 +125,13 @@ class Text:
         Bot outputs text in piglatin.
 
         symbols = []
-        a = list("".join(text))
+        a = list(''.join(text))
 
-        for char in tuple("".join(text)):
+        for char in tuple(''.join(text)):
             if not char.isalpha():
                 symbols.append(char)
 
-        b = re.findall(r"\w+", "".join(text))  # Put only the words in b
+        b = re.findall(r"\w+", ''.join(text))  # Put only the words in b
         # b = [word[0] for word in b]
         # b = [char for char in a if char.isalpha()]  # Put only the letters in b
         c = [word[1:] + word[:1] + "ay" for word in b]
@@ -140,7 +140,7 @@ class Text:
             c.insert(i, symbols[i - 1])
         print(c)
 
-        await ctx.send("".join(c))"""
+        await ctx.send(''.join(c))"""
 
     @commands.command()
     async def figlet(self, ctx, *, text: str):
@@ -214,7 +214,7 @@ class Text:
 
         await ctx.send(a)
 
-    @commands.command(aliases = [u"\U0001f42e", u"\U0001f404"])
+    @commands.command(aliases = [u"\u0001f42e", u"\u0001f404"])
     async def cowsay(self, ctx, *, text: str):
         """Cow says whatever text you give."""
 

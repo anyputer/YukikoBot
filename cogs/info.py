@@ -46,7 +46,7 @@ class Info:
         )
 
 
-    @commands.command(aliases = [u"\U00002753"])
+    @commands.command(aliases = [u"\u00002753"])
     async def help(self, ctx, command = None):
         """Shows the help."""
 
@@ -180,7 +180,7 @@ class Info:
         )
         await ctx.send(embed = embed)
 
-    @commands.command(aliases = ["pfp", u"\U0001f464"])
+    @commands.command(aliases = ["pfp", u"\u0001f464"])
     async def avatar(self, ctx, member: discord.Member = None):
         """Gives the member's avatar."""
 
@@ -201,7 +201,7 @@ class Info:
 
         await ctx.send(embed = embed)
 
-    @commands.command(aliases = ["user", "member", u"\U0001f465"])
+    @commands.command(aliases = ["user", "member", u"\u0001f465"])
     async def userinfo(self, ctx, member: discord.Member = None):
         """Gives info about the member."""
 
@@ -387,7 +387,7 @@ class Info:
 
         await ctx.send(embed = embed)
 
-    @commands.command(aliases = ["emoji", "emote", "emoteinfo", u"\U0001f61c"])
+    @commands.command(aliases = ["emoji", "emote", "emoteinfo", u"\u0001f61c"])
     async def emojiinfo(self, ctx, emoji: discord.Emoji = None):
         """Gives info about the emoji."""
 
@@ -466,7 +466,7 @@ class Info:
 
         await ctx.send(embed = embed)
 
-    @commands.command(aliases = ["bot", "dbs", "dbsinfo", u"\U0001f916"])
+    @commands.command(aliases = ["bot", "dbs", "dbsinfo", u"\u0001f916"])
     async def botinfo(self, ctx, bot: discord.Member = None):
         """Gives info about the bot using DiscordBots."""
 
@@ -480,10 +480,10 @@ class Info:
             await ctx.send(file = file)
 
         else:
-            embed = discord.Embed(description = u"\U000026a0 **User isn't a bot.**", color = ykColor)
+            embed = discord.Embed(description = u"\u000026a0 **User isn't a bot.**", color = ykColor)
             await ctx.send(embed = embed)
 
-    """"@commands.command(aliases = ["urbandict", u"\U0001f916"])
+    """"@commands.command(aliases = ["urbandict", u"\u0001f916"])
     async def urban(self, ctx, word: str = None):"""
 
 def setup(bot):

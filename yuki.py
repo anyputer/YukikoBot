@@ -70,6 +70,42 @@ async def on_message(msg):
 
     await bot.process_commands(msg)
 
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await sendError(f"<{ error.param.name.split(':')[0] }> is a required argument!", ctx)
+
+    elif isinstance(error, commands.NoPrivateMessage):
+        await sendError("Command can't be used in DM.", ctx)
+
+    elif isinstance(error, commands.CommandNotFound):
+        await ctx.message.add_reaction(bot.get_emoji(465215264439664650))
+
+    elif isinstance(error, commands.DisabledCommand):
+        await sendError("Command is disabled.", ctx)
+
+    elif isinstance(error, commands.TooManyArguments):
+        await sendError("Too many arguments were passed!", ctx)
+
+    elif isinstance(error, commands.NotOwner):
+        await sendError("Command may only be used by the bot owner.", ctx)
+
+    elif isinstance(error, commands.MissingPermissions):
+        if len(error.missing_perms) == 1:
+            output = "You are missing the permission: ``{}``".format(
+                error.missing_perms[0].replace('_', ' ').title()
+            )
+
+            await sendError(output, ctx, icon = u"\U000026d4")
+        else:
+            perms = []
+            for perm in error.missing_perms:
+                perms += f"``{ error.missing_perms[0].replace('_', ' ').title() }``"
+            perms = '\n'.join(perms)
+            output = f"You are missing the following perms: {perms}"
+
+            await sendError(output, ctx, icon = u"\U000026d4")
+
 async def getImage(link, ctx):
     if link == None: # If no link is passed
         if len(ctx.message.attachments) >= 1:
@@ -96,8 +132,10 @@ async def getImage(link, ctx):
         async with session.get(usedLink) as response:
             return await response.read()
 
-async def sendError(error, ctx):
-    embed = discord.Embed(description = u"\U000026a0 **{}**".format(error), color = color)
+async def sendError(error, ctx, icon = u"\U000026a0"):
+    """Sends an error message."""
+
+    embed = discord.Embed(description = f"{icon} **{error}**", color = color)
     await ctx.send(embed = embed)
 
 async def startTyping(channelID):

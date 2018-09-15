@@ -16,7 +16,7 @@ class Experimental:
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases = [u"\U0001f50a"])
+    @commands.command(aliases = [u"\u0001f50a"])
     @commands.guild_only()
     @commands.is_owner()
     async def play(self, ctx, *, sound: str = "YOU SUCK"):
@@ -79,7 +79,7 @@ class Experimental:
     async def typewrite(self, ctx, *, text: str):
         Bot typewrites whatever text you give.
 
-        text = "".join(text)
+        text = ''.join(text)
 
         a = text[0]
         msg = await ctx.send(text[0])
@@ -138,7 +138,7 @@ class Experimental:
                 await msg.clear_reactions()
                 return
 
-    @commands.command(aliases = [u"\U0001f4cc"])
+    @commands.command(aliases = [u"\u0001f4cc"])
     @commands.has_permissions(manage_messages = True)
     async def pin(self, ctx, messageid: int = None):
         """Pins a message by either reacting to the message or specifying the id."""
@@ -159,7 +159,7 @@ class Experimental:
                 except:
                     errorMessage = "Couldn't pin message."
 
-            embed = discord.Embed(description = u"\U000026a0 **{}**".format(errorMessage), color = ykColor)
+            embed = discord.Embed(description = u"\u000026a0 **{}**".format(errorMessage), color = ykColor)
             await ctx.send(embed = embed)
         else:
             check = lambda r, u: u == ctx.author and r == "\N{PUSHPIN}"
