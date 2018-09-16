@@ -78,6 +78,9 @@ async def on_command_error(ctx, error):
     elif isinstance(error, commands.NoPrivateMessage):
         await sendError("Command can't be used in DM.", ctx)
 
+    elif isinstance(error, commands.CommandNotFound):
+        await ctx.message.add_reaction(bot.get_emoji(465215264439664650))
+
     elif isinstance(error, commands.DisabledCommand):
         await sendError("Command is disabled.", ctx)
 
