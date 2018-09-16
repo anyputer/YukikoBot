@@ -6,7 +6,7 @@ class Copypasta:
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases = ["interject", u"\u0001f427"])
+    @commands.command(aliases = ["interject", u"\U0001f427"])
     async def linux(self, ctx, a: str = "GNU", b: str = "Linux"):
         """Interjects for a moment, about your favorite thing."""
 

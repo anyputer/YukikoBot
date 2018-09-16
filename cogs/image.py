@@ -113,7 +113,7 @@ class Images:
 
             await ctx.send(file = file)
 
-    @commands.command(aliases = [u"\u0001f914"])
+    @commands.command(aliases = [u"\U0001f914"])
     async def thonk(self, ctx, link: str = None):
         """Thonkifies the image you provide."""
 
@@ -151,7 +151,7 @@ class Images:
 
             await ctx.send(embed = embed, file = file)
 
-    @commands.command(aliases = [u"\u0001f4ad"])
+    @commands.command(aliases = [u"\U0001f4ad"])
     async def thought(self, ctx, link: str = None):
         """Thoughts about the image you provide."""
         # TODO: Blocks a huge amount, fix it.
@@ -185,7 +185,7 @@ class Images:
 
             await ctx.send(file = file)
 
-    @commands.group(aliases = ["f", u"\u0001f578"])
+    @commands.group(aliases = ["f", u"\U0001f578"])
     async def filter(self, ctx):
         pass
 
@@ -299,7 +299,7 @@ class Images:
 
             await ctx.send(file = file)
 
-    @commands.command(aliases = ["qr", u"\u0001f4d3"])
+    @commands.command(aliases = ["qr", u"\U0001f4d3"])
     async def qrcode(self, ctx, *, text: str = None):
         """Gives you a QR Code that includes text."""
 
@@ -322,7 +322,7 @@ class Images:
 
             await ctx.send(embed = embed, file = file)
 
-    @commands.command(aliases = [u"\u0001f47e"])
+    @commands.command(aliases = [u"\U0001f47e"])
     async def rashot(self, ctx):
         """Gives you a random RetroArch screenshot."""
 

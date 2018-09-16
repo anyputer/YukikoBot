@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from yuki import color as ykColor
+import yuki
 
 import time
 import aiohttp
@@ -13,7 +14,7 @@ class Utilities:
     def __init__(self, bot):
         self.bot = bot
 
-        self.pingEmoji = u"\u0001F3D3"
+        self.pingEmoji = u"\U0001F3D3"
         # self.pingEmoji = "\N{TABLE TENNIS PADDLE AND BALL}"
         self.answers = (
             "Very doubtful",
@@ -36,7 +37,7 @@ class Utilities:
             "My sources say yes"
         )
 
-    @commands.command(aliases = [u"\u0001f3d3"])
+    @commands.command(aliases = [u"\U0001f3d3"])
     async def ping(self, ctx):
         """Outputs the bot's ping."""
 
@@ -47,7 +48,7 @@ class Utilities:
 
         await ctx.send(content = f"{self.pingEmoji} Pong! That took **{timeDelta} ms**.")
 
-    """@commands.command(aliases = [u"\u0001f3d3"])
+    """@commands.command(aliases = [u"\U0001f3d3"])
     async def ping(self, ctx):
         Outputs the bot's ping.
 
@@ -65,9 +66,9 @@ class Utilities:
 
         # ABCDEFGHI
         letters = (
-            u"\u0001F1E6", u"\u0001F1E7", u"\u0001F1E8", u"\u0001F1E9",
-            u"\u0001F1EA", u"\u0001F1EB", u"\u0001F1EC", u"\u0001F1ED",
-            u"\u0001F1EE"
+            u"\U0001F1E6", u"\U0001F1E7", u"\U0001F1E8", u"\U0001F1E9",
+            u"\U0001F1EA", u"\U0001F1EB", u"\U0001F1EC", u"\U0001F1ED",
+            u"\U0001F1EE"
         )
 
         mem = ctx.message.author
@@ -101,7 +102,7 @@ class Utilities:
 
                 await ctx.send(embed = embed)"""
 
-    @commands.command(aliases = ["meow", "kitten", "purr", u"\u0001f431", u"\u0001f408"])
+    @commands.command(aliases = ["meow", "kitten", "purr", u"\U0001f431", u"\U0001f408"])
     async def cat(self, ctx):
         """Gives you a random cat."""
 
@@ -110,13 +111,13 @@ class Utilities:
                 async with cs.get("http://aws.random.cat/meow") as r:
                     data = await r.json()
 
-                    embed = discord.Embed(title = "Meow " + u"\u0001F431", color = ykColor)
+                    embed = discord.Embed(title = u"Meow \U0001F431", color = ykColor)
                     embed.set_image(url = data["file"])
                     embed.set_footer(text = "http://random.cat/")
 
                     await ctx.send(embed = embed)
 
-    @commands.command(aliases = ["bark", "puppy", u"\u0001f436", u"\u0001f415"])
+    @commands.command(aliases = ["bark", "puppy", u"\U0001f436", u"\U0001f415"])
     async def dog(self, ctx):
         """Gives you a random dog."""
 
@@ -125,7 +126,7 @@ class Utilities:
                 async with cs.get("https://dog.ceo/api/breeds/image/random") as r:
                     data = await r.json()
 
-                    embed = discord.Embed(title = "Bark " + u"\u0001F436", color = ykColor)
+                    embed = discord.Embed(title = u"Bark \U0001F436", color = ykColor)
                     embed.set_image(url = data["message"])
                     embed.set_footer(text = "https://dog.ceo/dog-api/")
 
@@ -186,7 +187,7 @@ class Utilities:
 
                 await ctx.send(embed = embed)
 
-    @commands.command(aliases = ["die", u"\u0001F3B2"])
+    @commands.command(aliases = ["die", u"\U0001F3B2"])
     async def dice(self, ctx):
         """Roll a dice."""
 
@@ -194,7 +195,7 @@ class Utilities:
         b = '!' if a == 6 else '.'
 
         file = discord.File(f"assets/dice/{a}.png", filename = "dice.png")
-        embed = discord.Embed(title = u"\u0001F3B2" + f" You rolled a {a}{b}", color = discord.Color.blurple())
+        embed = discord.Embed(title = u"\U0001F3B2" + f" You rolled a {a}{b}", color = discord.Color.blurple())
         embed.set_image(url = "attachment://dice.png")
 
         await ctx.send(embed = embed, file = file)
@@ -209,8 +210,7 @@ class Utilities:
                     try:
                         data = await r.json()
                     except:
-                        embed = discord.Embed(description = u"\u000026a0 **Minecraft user doesn't exist!**", color = ykColor)
-                        await ctx.send(embed = embed)
+                        await yuki.sendError("Minecraft user doesn't exist!", ctx)
                         return
 
                     uuid = data["id"]
@@ -249,7 +249,7 @@ class Utilities:
 
         await ctx.send(embed = embed)
 
-    @commands.command(aliases = ["8ball", u"\u0001f3b1"])
+    @commands.command(aliases = ["8ball", u"\U0001f3b1"])
     async def ask(self, ctx, *, text: str):
         """Ask the 8-ball questions."""
 
@@ -261,11 +261,11 @@ class Utilities:
         embed = discord.Embed(color = ykColor)
         embed.set_author(name = "8-ball") # "https://image.ibb.co/drgwj8/8ball.png"
         embed.set_thumbnail(url = "https://image.ibb.co/drgwj8/8ball.png")
-        embed.add_field(name = u"\u00002753 Question", value = ''.join(text), inline = False)
-        embed.add_field(name = u"\u0001f3b1 Answer", value = answer, inline = True)
+        embed.add_field(name = u"\U00002753 Question", value = ''.join(text), inline = False)
+        embed.add_field(name = u"\U0001f3b1 Answer", value = answer, inline = True)
         embed.set_footer(text = "Put a ? for it to count as a question!")
 
-        # await ctx.send(u"\u0001F3B1" + f" The 8-ball said ``{answer}``")
+        # await ctx.send(u"\U0001F3B1" + f" The 8-ball said ``{answer}``")
         await ctx.send(embed = embed)
 
     @commands.command(aliases = ["pm"])
@@ -291,7 +291,7 @@ class Utilities:
         # else:
         #     await ctx.message.add_reaction(self.bot.get_emoji(465215264439664650))
 
-    @commands.command(aliases = ["plus", "\u00002795"])
+    @commands.command(aliases = ["plus", "\U00002795"])
     async def sum(self, ctx, *numbers: float):
         """Adds numbers together."""
 

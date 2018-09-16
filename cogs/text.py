@@ -16,14 +16,14 @@ class Text:
     def __init__(self, bot):
         self.bot = bot
     
-    @commands.command(aliases = [u"\u0001f4ac"])
+    @commands.command(aliases = [u"\U0001f4ac"])
     async def say(self, ctx, *, text: str):
         """Outputs text deleting the original message."""
 
         await ctx.send(text)
         await ctx.message.delete()
 
-    @commands.command(aliases = ["talk", "speak", u"\u0001f5e3"])
+    @commands.command(aliases = ["talk", "speak", u"\U0001f5e3"])
     async def tts(self, ctx, *, text: str):
         """Text-to-speech text."""
 
@@ -36,7 +36,7 @@ class Text:
 
         await ctx.send(text)
 
-    @commands.command(aliases = ["upside", "upsidedown", u"\u0001f643"])
+    @commands.command(aliases = ["upside", "upsidedown", u"\U0001f643"])
     async def updown(self, ctx, *, text: str):
         """Outputs text upside down."""
 
@@ -87,7 +87,7 @@ class Text:
 
     @commands.command(aliases = ["\u0001f44f"])
     async def clap(self, ctx, *text: str):
-        u"""Outputs \u0001f44f text \u0001f44f like \u0001f44f this."""
+        u"""Outputs \U0001f44f text \U0001f44f like \U0001f44f this."""
 
         text = ("Meme", "Review") if text == () else text
 
@@ -214,7 +214,7 @@ class Text:
 
         await ctx.send(a)
 
-    @commands.command(aliases = [u"\u0001f42e", u"\u0001f404"])
+    @commands.command(aliases = [u"\U0001f42e", u"\U0001f404"])
     async def cowsay(self, ctx, *, text: str):
         """Cow says whatever text you give."""
 

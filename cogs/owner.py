@@ -27,7 +27,7 @@ class Owner:
             99272767060328448,   # Netux#2308
         )
 
-    @commands.group(hidden = True, aliases = ["py", u"\u0001f40d"])
+    @commands.group(hidden = True, aliases = ["py", u"\U0001f40d"])
     async def python(self, ctx):
         """Commands to do with using Python."""
 
@@ -39,7 +39,7 @@ class Owner:
 
         if ctx.author.id not in self.allowedUsers:
             # await ctx.send("You don't have access to this command.")
-            await yuki.sendError("You don't have access to this command.", ctx, icon = u"\u000026d4")
+            await yuki.sendError("You don't have access to this command.", ctx, icon = u"\U000026d4")
         else:
             async with ctx.typing():
                 old_stdout = sys.stdout
@@ -83,7 +83,7 @@ class Owner:
 
         if ctx.author.id not in self.allowedUsers:
             # await ctx.send("You don't have access to this command.")
-            await yuki.sendError("You don't have access to this command.", ctx, icon = u"\u000026d4")
+            await yuki.sendError("You don't have access to this command.", ctx, icon = u"\U000026d4")
         else:
             async with ctx.typing():
                 try:

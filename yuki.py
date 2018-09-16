@@ -78,9 +78,6 @@ async def on_command_error(ctx, error):
     elif isinstance(error, commands.NoPrivateMessage):
         await sendError("Command can't be used in DM.", ctx)
 
-    elif isinstance(error, commands.CommandNotFound):
-        await ctx.message.add_reaction(bot.get_emoji(465215264439664650))
-
     elif isinstance(error, commands.DisabledCommand):
         await sendError("Command is disabled.", ctx)
 
@@ -103,7 +100,6 @@ async def on_command_error(ctx, error):
                 perms += f"``{ error.missing_perms[0].replace('_', ' ').title() }``"
             perms = '\n'.join(perms)
             output = f"You are missing the following perms: {perms}"
-
             await sendError(output, ctx, icon = u"\U000026d4")
 
 async def getImage(link, ctx):
