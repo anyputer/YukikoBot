@@ -63,7 +63,7 @@ class Info:
         }
 
         if not command:
-            embed = discord.Embed(title = None, description = self.bot.description, color = ykColor)
+            embed = discord.Embed(title = None, description = f"__{self.bot.description}__", color = ykColor)
             embed.set_author(name = self.bot.user.name, icon_url = self.bot.user.avatar_url)
             embed.set_thumbnail(url = self.bot.user.avatar_url)
 
