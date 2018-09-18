@@ -418,7 +418,7 @@ class Info:
 
         await ctx.send(embed = embed)
 
-    @commands.command(aliases = ("channel", "ct"))
+    @commands.command(aliases = ("channel", "chan", "cha", "ct"))
     async def channelinfo(self, ctx, *, channel: discord.TextChannel = None):
         """Gives info about the channel."""
 

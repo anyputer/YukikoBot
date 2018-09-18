@@ -113,7 +113,7 @@ class Guild:
     async def create(self, ctx):
         pass
 
-    @create.command(aliases = ["cha", "chan"])
+    @create.command(aliases = ["chan", "cha"])
     @commands.has_permissions(manage_channels = True)
     async def channel(self, ctx, *name: str):
         """Creates a channel."""
