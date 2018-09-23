@@ -43,7 +43,7 @@ class AppForm(QWidget):
 
         self.channelTextBox = QLineEdit(self)
         self.channelTextBox.setPlaceholderText("Channel ID")
-        # self.channelTextBox.textChanged.connect(partial(await yuki.startTyping, self.channelTextBox.text()))
+        # self.channelTextBox.textChanged.connect(partial(await yuki.start_typing, self.channelTextBox.text()))
         self.msgTextBox = QLineEdit(self)
         self.msgTextBox.setPlaceholderText("Message Content")
 
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     # app.setStyle("Fusion")
 
     window = AppForm()
-    t = threading.Thread(target = yuki.runBot, name = "Runs the bot")
+    t = threading.Thread(target = yuki.run_bot, name = "Runs the bot")
     t.daemon = True
     t.start()
 

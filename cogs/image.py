@@ -22,14 +22,14 @@ class Images:
         self.bot = bot
 
     @commands.command()
-    async def flip(self, ctx, xy : str, link: str = None):
+    async def flip(self, ctx, xy: str, link: str = None):
         """Flips image horizontally, or vertically."""
 
         # messages = await ctx.message.channel.history().flatten()
 
         async with ctx.typing():
-            imgBytes = await yuki.getImage(link, ctx)
-            with Image.open(BytesIO(imgBytes)) as img:
+            img_bytes = await yuki.get_image(link, ctx)
+            with Image.open(BytesIO(img_bytes)) as img:
                 if xy.lower() in ('x', 'h', 'horizontal', 'horizontally'):
                     img = img.transpose(Image.FLIP_LEFT_RIGHT)
                     flipped = 'X'
@@ -40,52 +40,37 @@ class Images:
                     img = img.transpose(Image.FLIP_LEFT_RIGHT)
                     flipped = 'X'
 
-                outputBuffer = BytesIO()
-                img.save(outputBuffer, "png")
-                outputBuffer.seek(0)
+                output_buf = BytesIO()
+                img.save(output_buf, "png")
+                output_buf.seek(0)
 
-            file = discord.File(filename = "result.png", fp = outputBuffer)
+            file = discord.File(filename = "result.png", fp = output_buf)
 
             embed = discord.Embed(title = f"Flipped {flipped}", color = ykColor)
-            file = discord.File(filename = "result.png", fp = outputBuffer)
+            file = discord.File(filename = "result.png", fp = output_buf)
             embed.set_image(url = "attachment://result.png")
 
             await ctx.send(embed = embed, file = file)
 
     @commands.command(aliases = ["pokefuse"])
-    async def pfuse(self, ctx, body : int, head : int):
+    async def pfuse(self, ctx, body: int, head: int):
         """
         Fuses two Pokémon together.
         This command uses [this website](https://pokemon.alexonsager.net/) to output fused Pokémon.
         """
 
         if False:
-            await yuki.sendError("Only Kanto Pokémon are supported.", ctx)
+            await yuki.send_error("Only Kanto Pokémon are supported.", ctx)
             return
 
         async with ctx.typing():
-            """url = "http://pokemon.alexonsager.net/" + str(head) + "/" + str(body)
-            with urllib.request.urlopen(url) as url:
-                html = url.read()
-            soup = BeautifulSoup(html, "lxml")
-            print(soup.findAll("pk_img"))"""
-            """fusedLink = "http://images.alexonsager.net/pokemon/fused/" + str(body) + "/" + str(body) + "." + str(head) + ".png"
+            fusion_link = f"http://images.alexonsager.net/pokemon/fused/{body}/{body}.{head}.png"
             async with aiohttp.ClientSession() as session:
-                async with session.get(fusedLink) as response:
-                    imgBytes = await response.read()
-
-            with Image.open(BytesIO(imgBytes)) as img:
-                outputBuffer = BytesIO()
-                img.save(outputBuffer, "png")
-                outputBuffer.seek(0)"""
-
-            fusedLink = f"http://images.alexonsager.net/pokemon/fused/{body}/{body}.{head}.png"
-            async with aiohttp.ClientSession() as session:
-                async with session.get(fusedLink) as response:
-                    imgBytes = await response.read()
+                async with session.get(fusion_link) as response:
+                    img_bytes = await response.read()
 
             embed = discord.Embed(title = "Pokémon Fusion", color = ykColor)
-            file = discord.File(filename = "result.png", fp = BytesIO(imgBytes))
+            file = discord.File(filename = "result.png", fp = BytesIO(img_bytes))
             embed.set_image(url = "attachment://result.png")
 
             await ctx.send(embed = embed, file = file)
@@ -97,7 +82,7 @@ class Images:
         if text == None:
             txt = "This emoji doesn't work here because it's from a different server. Discord Nitro can solve all of that, check User Settings > Nitro for details"
         else:
-            txt = text.replace("\n", " ")
+            txt = text.replace('\n', ' ')
 
         async with ctx.typing():
             img = Image.open("assets/clyde.png")
@@ -105,11 +90,11 @@ class Images:
             draw = ImageDraw.Draw(img)
             draw.text((88, 46), txt, font = font, fill = (192, 193, 194))
 
-            outputBuffer = BytesIO()
-            img.save(outputBuffer, "png")
-            outputBuffer.seek(0)
+            output_buf = BytesIO()
+            img.save(output_buf, "png")
+            output_buf.seek(0)
 
-            file = discord.File(filename = "result.png", fp = outputBuffer)
+            file = discord.File(filename = "result.png", fp = output_buf)
 
             await ctx.send(file = file)
 
@@ -118,16 +103,16 @@ class Images:
         """Thonkifies the image you provide."""
 
         async with ctx.typing():
-            imgBytes = await yuki.getImage(link, ctx)
-            with Image.open(BytesIO(imgBytes)) as img:
+            img_bytes = await yuki.get_image(link, ctx)
+            with Image.open(BytesIO(img_bytes)) as img:
                 imgThonk = Image.open("assets/thonk.png")
                 imgThonk = imgThonk.resize(img.size, Image.ANTIALIAS)
                 img.paste(imgThonk, (0, 0), imgThonk)
 
-                outputBuffer = BytesIO()
-                # img.save(outputBuffer, "png", optimize = True, quality = 95)
-                img.save(outputBuffer, "png")
-                outputBuffer.seek(0)
+                output_buf = BytesIO()
+                # img.save(output_buf, "png", optimize = True, quality = 95)
+                img.save(output_buf, "png")
+                output_buf.seek(0)
 
             a = random.choice(("think", "thonk", "thenk", "thank", "thunk", "thuck"))
             b = random.choice(("ing", "eng", "eeng", "ang"))
@@ -146,7 +131,7 @@ class Images:
             )
 
             embed = discord.Embed(title = f"{a}{b} {c}", color = 0xFFCC4D)
-            file = discord.File(filename = "result.png", fp = outputBuffer)
+            file = discord.File(filename = "result.png", fp = output_buf)
             embed.set_image(url = "attachment://result.png")
 
             await ctx.send(embed = embed, file = file)
@@ -157,8 +142,8 @@ class Images:
         # TODO: Blocks a huge amount, fix it.
 
         async with ctx.typing():
-            imgBytes = await yuki.getImage(link, ctx)
-            with Image.open(BytesIO(imgBytes)) as img:
+            img_bytes = await yuki.get_image(link, ctx)
+            with Image.open(BytesIO(img_bytes)) as img:
                 layer1 = Image.open("assets/thonk3.png")
                 layer1 = layer1.resize((int(img.width * 2.5), int(img.width * 2.5)), Image.ANTIALIAS)
 
@@ -167,9 +152,9 @@ class Images:
 
                 layer2 = Image.open("assets/thonk2.png")
                 layer2 = layer2.resize((int(img.width * 1.75), int(img.width * 1.75)), Image.ANTIALIAS)
-                layer2Canvas = Image.new("RGBA", (int(img.width * 2.5), int(img.width * 2.5)), (0, 0, 0, 0))
-                layer2Canvas.paste(layer2, (int((img.width * 2.5) - layer2.width), int((img.width * 2.5) - layer2.height)), layer2)
-                layer2 = layer2Canvas
+                layer2_canvas = Image.new("RGBA", (int(img.width * 2.5), int(img.width * 2.5)), (0, 0, 0, 0))
+                layer2_canvas.paste(layer2, (int((img.width * 2.5) - layer2.width), int((img.width * 2.5) - layer2.height)), layer2)
+                layer2 = layer2_canvas
                 # layer2.paste(layer3, (0, 0), layer3)
                 layer2 = Image.alpha_composite(layer2, layer3)
 
@@ -177,11 +162,11 @@ class Images:
                 layer1 = Image.alpha_composite(layer1, layer2)
                 result = layer1
 
-                outputBuffer = BytesIO()
-                result.save(outputBuffer, "png")
-                outputBuffer.seek(0)
+                output_buf = BytesIO()
+                result.save(output_buf, "png")
+                output_buf.seek(0)
 
-            file = discord.File(filename = "result.png", fp = outputBuffer)
+            file = discord.File(filename = "result.png", fp = output_buf)
 
             await ctx.send(file = file)
 
@@ -196,22 +181,22 @@ class Images:
         # messages = await ctx.message.channel.history().flatten()
 
         async with ctx.typing():
-            imgBytes = await yuki.getImage(link, ctx)
-            with Image.open(BytesIO(imgBytes)) as img:
+            img_bytes = await yuki.get_image(link, ctx)
+            with Image.open(BytesIO(img_bytes)) as img:
                 if img.mode == "RGBA":
                     r, g, b, a = img.split()
-                    imgRGB = Image.merge("RGB", (r, g, b))
-                    imgInverted = PIL.ImageOps.invert(imgRGB)
-                    r2, g2, b2 = imgInverted.split()
+                    img_rgb = Image.merge("RGB", (r, g, b))
+                    img_inv = PIL.ImageOps.invert(img_rgb)
+                    r2, g2, b2 = img_inv.split()
                     img = Image.merge("RGBA", (r2, g2, b2, a))
                 else:
                     img = PIL.ImageOps.invert(img)
 
-                outputBuffer = BytesIO()
-                img.save(outputBuffer, "png")
-                outputBuffer.seek(0)
+                output_buf = BytesIO()
+                img.save(output_buf, "png")
+                output_buf.seek(0)
 
-            file = discord.File(filename = "result.png", fp = outputBuffer)
+            file = discord.File(filename = "result.png", fp = output_buf)
 
             await ctx.send(file = file)
 
@@ -220,19 +205,19 @@ class Images:
         """Blurs image."""
 
         if radius > 100:
-            await yuki.sendError("Radius is limited to 100.", ctx)
+            await yuki.send_error("Radius is limited to 100.", ctx)
         else:
             async with ctx.typing():
-                imgBytes = await yuki.getImage(link, ctx)
-                with Image.open(BytesIO(imgBytes)) as img:
+                img_bytes = await yuki.get_image(link, ctx)
+                with Image.open(BytesIO(img_bytes)) as img:
                     img = img.filter(ImageFilter.GaussianBlur(radius = radius))
 
-                    outputBuffer = BytesIO()
-                    img.save(outputBuffer, "png")
-                    outputBuffer.seek(0)
+                    output_buf = BytesIO()
+                    img.save(output_buf, "png")
+                    output_buf.seek(0)
 
                 embed = discord.Embed(color = 0x36393F)
-                file = discord.File(filename = "result.png", fp = outputBuffer)
+                file = discord.File(filename = "result.png", fp = output_buf)
                 embed.set_image(url = "attachment://result.png")
                 embed.set_footer(text = f"Radius: {radius}")
 
@@ -243,15 +228,15 @@ class Images:
         """Applies emboss filter to image."""
 
         async with ctx.typing():
-            imgBytes = await yuki.getImage(link, ctx)
-            with Image.open(BytesIO(imgBytes)) as img:
+            img_bytes = await yuki.get_image(link, ctx)
+            with Image.open(BytesIO(img_bytes)) as img:
                 img = img.filter(ImageFilter.EMBOSS)
 
-                outputBuffer = BytesIO()
-                img.save(outputBuffer, "png")
-                outputBuffer.seek(0)
+                output_buf = BytesIO()
+                img.save(output_buf, "png")
+                output_buf.seek(0)
 
-            file = discord.File(filename = "result.png", fp = outputBuffer)
+            file = discord.File(filename = "result.png", fp = output_buf)
 
             await ctx.send(file = file)
 
@@ -260,15 +245,15 @@ class Images:
         """Applies contour filter to image."""
 
         async with ctx.typing():
-            imgBytes = await yuki.getImage(link, ctx)
-            with Image.open(BytesIO(imgBytes)) as img:
+            img_bytes = await yuki.get_image(link, ctx)
+            with Image.open(BytesIO(img_bytes)) as img:
                 img = img.filter(ImageFilter.CONTOUR)
 
-                outputBuffer = BytesIO()
-                img.save(outputBuffer, "png")
-                outputBuffer.seek(0)
+                output_buf = BytesIO()
+                img.save(output_buf, "png")
+                output_buf.seek(0)
 
-            file = discord.File(filename = "result.png", fp = outputBuffer)
+            file = discord.File(filename = "result.png", fp = output_buf)
 
             await ctx.send(file = file)
 
@@ -277,10 +262,10 @@ class Images:
         """Applies mosaic filter to image."""
 
         async with ctx.typing():
-            imgBytes = await yuki.getImage(link, ctx)
-            with Image.open(BytesIO(imgBytes)) as img:
+            img_bytes = await yuki.get_image(link, ctx)
+            with Image.open(BytesIO(img_bytes)) as img:
                 output = Image.new("RGBA", img.size, color = (0, 0, 0, 0))
-                quarterImg = img.resize((int(img.width / 2), int(img.height / 2)), resample = Image.BICUBIC)
+                quarter_img = img.resize((int(img.width / 2), int(img.height / 2)), resample = Image.BICUBIC)
                 locations = (
                     (0, 0),
                     (int(img.width / 2), 0),
@@ -289,13 +274,13 @@ class Images:
                 )
 
                 for location in locations:
-                    output.paste(quarterImg, location)
+                    output.paste(quarter_img, location)
 
-                outputBuffer = BytesIO()
-                output.save(outputBuffer, "png")
-                outputBuffer.seek(0)
+                output_buf = BytesIO()
+                output.save(output_buf, "png")
+                output_buf.seek(0)
 
-            file = discord.File(filename = "result.png", fp = outputBuffer)
+            file = discord.File(filename = "result.png", fp = output_buf)
 
             await ctx.send(file = file)
 
@@ -312,12 +297,12 @@ class Images:
             qr.make()
             img = qr.make_image(fill_color = "black", back_color = "white")
 
-            outputBuffer = BytesIO()
-            img.save(outputBuffer, "png")
-            outputBuffer.seek(0)
+            output_buf = BytesIO()
+            img.save(output_buf, "png")
+            output_buf.seek(0)
 
             embed = discord.Embed(title = "Scan it!", color = 0xFFFFFF)
-            file = discord.File(filename = "result.png", fp = outputBuffer)
+            file = discord.File(filename = "result.png", fp = output_buf)
             embed.set_image(url = "attachment://result.png")
 
             await ctx.send(embed = embed, file = file)
@@ -327,10 +312,10 @@ class Images:
         """Gives you a random RetroArch screenshot."""
 
         async with ctx.typing():
-            screenshotsPath = "C:/Users/yarsa/AppData/Roaming/RetroArch/screenshots"
-            imagePath = random.choice(listdir(screenshotsPath))
+            ss_path = "C:/Users/yarsa/AppData/Roaming/RetroArch/screenshots"
+            img_path = random.choice(listdir(ss_path))
 
-            file = discord.File(f"{screenshotsPath}/{imagePath}", filename = "image.png")
+            file = discord.File(f"{ss_path}/{img_path}", filename = "image.png")
             embed = discord.Embed(title = "RetroArch Screenshot", url = "http://retroarch.com/", color = 0x2196f3)
             embed.set_image(url = "attachment://image.png")
             embed.set_thumbnail(url = "https://image.ibb.co/kayTNd/invader.png")

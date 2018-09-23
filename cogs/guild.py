@@ -17,7 +17,7 @@ class Guild:
         purgeLimit = 50
         if amount > purgeLimit:
             # await ctx.send(f"Can't purge more than {purgeLimit} messages at a time. <:cross_mark:465215264439664650>")
-            await ctx.message.add_reaction(self.bot.get_emoji(465215264439664650))
+            await ctx.message.add_reaction(yuki.cross_mark)
 
             return 0
         else:
@@ -33,7 +33,7 @@ class Guild:
         """Kicks member(s). Requires kick permission."""
 
         if len(members) == 0:
-            await yuki.sendError("No members were passed.", ctx)
+            await yuki.send_error("No members were passed.", ctx)
             return
 
         output = ""
@@ -60,7 +60,7 @@ class Guild:
         """Bans member(s). Requires ban permission."""
 
         if len(members) == 0:
-            await yuki.sendError("No members were passed.", ctx)
+            await yuki.send_error("No members were passed.", ctx)
             return
 
         output = ""
@@ -96,7 +96,7 @@ class Guild:
         oldName = mem.display_name
 
         if ctx.guild.owner == mem:
-            await yuki.sendError("Can't change nick of the server owner.", ctx)
+            await yuki.send_error("Can't change nick of the server owner.", ctx)
         else:
             try:
                 await mem.edit(nick = nickname, reason = f"{ctx.author} used the nick command.")
@@ -107,7 +107,7 @@ class Guild:
                 )
                 await ctx.send(embed = embed)
             except:
-                await yuki.sendError(f"Couldn't change nickname of {mem}.", ctx)
+                await yuki.send_error(f"Couldn't change nickname of {mem}.", ctx)
 
     @commands.group()
     async def create(self, ctx):
@@ -130,28 +130,30 @@ class Guild:
             await ctx.send(embed = embed)
         except:
             if len(gld.channels) <= 100:
-                await yuki.sendError(f"No space left to create #{name}.", ctx)
+                await yuki.send_error(f"No space left to create #{name}.", ctx)
             else:
-                await yuki.sendError(f"Couldn't create channel #{name}.", ctx)
+                await yuki.send_error(f"Couldn't create channel #{name}.", ctx)
 
     @create.command(aliases = ["emo"])
     @commands.has_permissions(manage_emojis = True)
     async def emoji(self, ctx, name: str, link: str = None):
+        """Creates an emoji."""
+
         if len(ctx.guild.emojis) >= 50:
-            await yuki.sendError("No space left to create emoji.", ctx)
+            await yuki.send_error("No space left to create emoji.", ctx)
         else:
-            imgBytes = await yuki.getImage(link, ctx)
+            img_bytes = await yuki.get_image(link, ctx)
             try:
                 emo = await ctx.guild.create_custom_emoji(
                     name = '_'.join(name.split()),
-                    image = imgBytes,
+                    image = img_bytes,
                     reason = f"{ctx.author} used the create emoji command."
                 )
 
                 embed = discord.Embed(description = f"Successfully created emoji {emo}.", color = ykColor)
                 await ctx.send(embed = embed)
             except:
-                await yuki.sendError("Couldn't create emoji.", ctx)
+                await yuki.send_error("Couldn't create emoji.", ctx)
 
 def setup(bot):
     bot.add_cog(Guild(bot))

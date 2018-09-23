@@ -6,59 +6,50 @@ import sys, traceback
 
 import webcolors
 from os.path import isfile
+from os import listdir
 from configparser import RawConfigParser
 
 import aiohttp
 import asyncio
 
-description = '''A multi-purpose bot with fun commands'''
+description = """A multi-purpose bot with fun commands"""
 prefix = ".yk "
 
 bot = commands.Bot(
     command_prefix = commands.when_mentioned_or(prefix), # , u"\U0001f916"),
     description = description,
-    owner_id = 393041441301200896
+    owner_id = 393_041_441_301_200_896
 )
-bot.remove_command("help")
+bot.remove_command("help") # Removes the default help command.
 color = 0xFF033E
 
-# Weird bug happens where the first cog doesn't get loaded and errors.
-# The coins cog is useless anyway.
-initial_extensions = (
-    "cogs.coins",
-    "cogs.owner",
-    "cogs.image",
-    "cogs.text",
-    "cogs.guild",
-    "cogs.info",
-    "cogs.tests",
-    "cogs.utils",
-    "cogs.copypasta",
-    "cogs.nsfw"
-)
-for extension in initial_extensions:
-    try:
-        bot.load_extension(extension)
-    except Exception as e:
-        print(f"Failed to load extension {extension}.", file = sys.stderr)
-        traceback.print_exc()
+cross_mark = bot.get_emoji(465_215_264_439_664_650)
 
-@bot.event  
+for file in listdir("cogs"):
+    if file.endswith(".py") and not file.startswith('_'):
+        name = file[:-3]
+        try:
+            bot.load_extension(f"cogs.{name}")
+        except Exception as exc:
+            print(f"Failed to load cog {name}.", file = sys.stderr)
+            traceback.print_exc()
+
+@bot.event
 async def on_ready():
     logging.info("Logged in as")
     logging.info(bot.user)
     logging.info(bot.user.id)
     logging.info("------")
 
-    await bot.change_presence(activity = discord.Game(name = f"on {len(bot.guilds)} servers. | {prefix}help"))
+    await bot.change_presence(activity = discord.Game(name = f"on {len(bot.guilds)} servers | {prefix}help"))
 
 @bot.event
 async def on_guild_join(guild):
-    await bot.change_presence(activity = discord.Game(name = f"on {len(bot.guilds)} servers. | {prefix}help"))
+    await bot.change_presence(activity = discord.Game(name = f"on {len(bot.guilds)} servers | {prefix}help"))
 
 @bot.event
 async def on_guild_remove(guild):
-    await bot.change_presence(activity = discord.Game(name = f"on {len(bot.guilds)} servers. | {prefix}help"))
+    await bot.change_presence(activity = discord.Game(name = f"on {len(bot.guilds)} servers | {prefix}help"))
 
 @bot.event
 async def on_message(msg):
@@ -73,22 +64,22 @@ async def on_message(msg):
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
-        await sendError(f"<{ error.param.name.split(':')[0] }> is a required argument!", ctx)
+        await send_error(f"<{ error.param.name.split(':')[0] }> is a required argument!", ctx)
 
     elif isinstance(error, commands.NoPrivateMessage):
-        await sendError("Command can't be used in DM.", ctx)
+        await send_error("Command can't be used in DM.", ctx)
 
     elif isinstance(error, commands.CommandNotFound):
-        await ctx.message.add_reaction(bot.get_emoji(465215264439664650))
+        await ctx.message.add_reaction(bot.get_emoji(493_196_718_637_318_155))
 
     elif isinstance(error, commands.DisabledCommand):
-        await sendError("Command is disabled.", ctx)
+        await send_error("Command is disabled.", ctx)
 
     elif isinstance(error, commands.TooManyArguments):
-        await sendError("Too many arguments were passed!", ctx)
+        await send_error("Too many arguments were passed!", ctx)
 
     elif isinstance(error, commands.NotOwner):
-        await sendError("Command may only be used by the bot owner.", ctx)
+        await send_error("Command may only be used by the bot owner.", ctx)
 
     elif isinstance(error, commands.MissingPermissions):
         if len(error.missing_perms) == 1:
@@ -96,52 +87,57 @@ async def on_command_error(ctx, error):
                 error.missing_perms[0].replace('_', ' ').title()
             )
 
-            await sendError(output, ctx, icon = u"\U000026d4")
+            await send_error(output, ctx, icon = u"\U000026d4")
         else:
             perms = []
             for perm in error.missing_perms:
                 perms += f"``{ error.missing_perms[0].replace('_', ' ').title() }``"
             perms = '\n'.join(perms)
             output = f"You are missing the following perms: {perms}"
-            await sendError(output, ctx, icon = u"\U000026d4")
+            await send_error(output, ctx, icon = u"\U000026d4")
 
-async def getImage(link, ctx):
+async def get_image(link, ctx):
     if link == None: # If no link is passed
         if len(ctx.message.attachments) >= 1:
             # Attachment
-            usedLink = ctx.message.attachments[0].url
+            used_link = ctx.message.attachments[0].url
         else:
             # Last Attachment
             async for message in ctx.channel.history(limit = 10):
                 # If it has a height value it's an image
                 if len(message.attachments) >= 1 and message.attachments[-1].height:
-                    usedLink = message.attachments[-1].url
+                    used_link = message.attachments[-1].url
                     break
                 elif len(message.embeds) >= 1 and message.embeds[-1].image:
-                    usedLink = message.embeds[-1].image.url
+                    used_link = message.embeds[-1].image.url
                     break
+
     elif link.startswith("<:"): # (Custom) Emoji
         id = link.split(':')[2][:-1]
-        usedLink = bot.get_emoji(id).url
-        print(id, usedLink)
+        used_link = bot.get_emoji(id).url
+        print(id, used_link)
     else:
-        usedLink = link
+        used_link = link
 
     async with aiohttp.ClientSession() as session:  # Link
-        async with session.get(usedLink) as response:
+        async with session.get(used_link) as response:
             return await response.read()
 
-async def sendError(error, ctx, icon = u"\U000026a0"):
+async def send_error(error, ctx, icon = u"\U000026a0"):
     """Sends an error message."""
 
     embed = discord.Embed(description = f"{icon} **{error}**", color = color)
     await ctx.send(embed = embed)
 
-async def startTyping(channelID):
+
+async def start_typing(channelID):
     cha = await bot.get_channel(id = int(channelID))
     await cha.trigger_typing()
 
-def runBot():
+"""def clean_text(text, ctx):
+    return re.sub(r"\<\@(.*?)\>", Squeaky(ctx), text, flags = re)"""
+
+def run_bot():
     config = RawConfigParser()
     config.read("config.ini")
     try:
@@ -173,4 +169,4 @@ def runBot():
     bot.run(token, bot = True, reconnect = True)
 
 if __name__ == "__main__":
-    runBot()
+    run_bot()

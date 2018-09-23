@@ -45,7 +45,7 @@ class NSFW:
 
                 await ctx.send(embed = embed)
             else:
-                await yuki.sendError("No results found.", ctx)
+                await yuki.send_error("No results found.", ctx)
 
     @rule34.group(aliases = ["b"])
     async def bomb(self, ctx, *, tags: str):
@@ -58,10 +58,13 @@ class NSFW:
             results = await r34.getImageURLS(*tags)
 
             if results:
-                output = "\n".join(sample(results, 5))
+                if len(results) > 5:
+                    output = '\n'.join(sample(results, 5))
+                else:
+                    output = '\n'.join(results)
                 await ctx.send(output)
             else:
-                await yuki.sendError("No results found.", ctx)
+                await yuki.send_error("No results found.", ctx)
 
 def setup(bot):
     bot.add_cog(NSFW(bot))

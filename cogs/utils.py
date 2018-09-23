@@ -14,8 +14,8 @@ class Utilities:
     def __init__(self, bot):
         self.bot = bot
 
-        self.pingEmoji = u"\U0001F3D3"
-        # self.pingEmoji = "\N{TABLE TENNIS PADDLE AND BALL}"
+        self.ping_emoji = u"\U0001F3D3"
+        # self.ping_emoji = "\N{TABLE TENNIS PADDLE AND BALL}"
         self.answers = (
             "Very doubtful",
             "Most likely no",
@@ -44,9 +44,9 @@ class Utilities:
         t1 = time.perf_counter()
         await ctx.trigger_typing() # Tell Discord that the bot is typing.
         t2 = time.perf_counter()
-        timeDelta = abs(round((t1 - t2) * 1000, 2)) # Calculate the time.
+        time_delta = abs(round((t1 - t2) * 1000, 2)) # Calculate the time.
 
-        await ctx.send(content = f"{self.pingEmoji} Pong! That took **{timeDelta} ms**.")
+        await ctx.send(content = f"{self.ping_emoji} Pong! That took **{time_delta} ms**.")
 
     """@commands.command(aliases = [u"\U0001f3d3"])
     async def ping(self, ctx):
@@ -73,13 +73,13 @@ class Utilities:
 
         mem = ctx.message.author
         if ctx.guild:
-            embedColor = mem.top_role.color
+            embed_color = mem.top_role.color
         else:
-            embedColor = ykColor
+            embed_color = ykColor
 
         options = ("Fortnite", "PUBG") if options == () else options
 
-        embed = discord.Embed(title = question, color = embedColor)
+        embed = discord.Embed(title = question, color = embed_color)
         embed.set_author(name = str(mem), icon_url = mem.avatar_url)
 
         for i, option in enumerate(options):
@@ -133,44 +133,44 @@ class Utilities:
                     await ctx.send(embed = embed)
 
     @commands.command(aliases = ["choice"])
-    async def choose(self, ctx, *, options: str):
+    async def choose(self, ctx, *, options: commands.clean_content):
         """Chooses an option from a list of options."""
 
-        optionsList = ''.join(options).split(',')
-        optionsList = [option.strip() for option in optionsList]
-        # fOptionsList = [f"**{option}**" for option in optionsList]
+        options_list = ''.join(options).split(',')
+        options_list = [option.strip() for option in options_list]
+        # fOptionsList = [f"**{option}**" for option in options_list]
 
         output = "\N{THINKING FACE} From ``{}`` I choose **{}**".format(
-            ", ".join(optionsList),
-            random.choice(optionsList)
+            ", ".join(options_list),
+            random.choice(options_list)
         )
         await ctx.send(output)
 
     @commands.command()
-    async def shuffle(self, ctx, *, list: str):
+    async def shuffle(self, ctx, *, list: commands.clean_content):
         """Shuffles a list of things."""
 
-        shuffledList = ''.join(list).split(',')
-        shuffledList = [thing.strip() for thing in shuffledList]
-        random.shuffle(shuffledList)
+        shuffled_list = ''.join(list).split(',')
+        shuffled_list = [thing.strip() for thing in shuffled_list]
+        random.shuffle(shuffled_list)
 
         output = "``{}`` \N{BLACK RIGHTWARDS ARROW} ``{}``".format(
             list,
-            ", ".join(shuffledList)
+            ", ".join(shuffled_list)
         )
         await ctx.send(output)
 
     @commands.command()
-    async def sort(self, ctx, *, list: str):
+    async def sort(self, ctx, *, list: commands.clean_content):
         """Sorts a list of things in alphabetic order."""
 
-        sortedList = ''.join(list).split(',')
-        sortedList = [thing.strip() for thing in sortedList]
-        sortedList.sort()
+        sorted_list = ''.join(list).split(',')
+        sorted_list = [thing.strip() for thing in sorted_list]
+        sorted_list.sort()
 
         output = "``{}`` \N{BLACK RIGHTWARDS ARROW} ``{}``".format(
             list,
-            ", ".join(sortedList)
+            ", ".join(sorted_list)
         )
         await ctx.send(output)
 
@@ -210,7 +210,7 @@ class Utilities:
                     try:
                         data = await r.json()
                     except:
-                        await yuki.sendError("Minecraft user doesn't exist!", ctx)
+                        await yuki.send_error("Minecraft user doesn't exist!", ctx)
                         return
 
                     uuid = data["id"]
@@ -236,11 +236,11 @@ class Utilities:
                 data = json.loads(await r.content.read())
         embed = discord.Embed(title = "", color = 0xf7931a)
 
-        bitcoinLogo = "https://raw.githubusercontent.com/roslinpl/bitcoin.it-promotional_graphics/master/bitcoinLogo1000.png"
+        bc_logo = "https://raw.githubusercontent.com/roslinpl/bitcoin.it-promotional_graphics/master/bitcoinLogo1000.png"
         embed.set_author(
             name = "Current Bitcoin Price",
             url = "https://www.coindesk.com/price/",
-            icon_url = bitcoinLogo
+            icon_url = bc_logo
         )
         embed.add_field(name = "United States Dollar", value = "$ {}".format(data["bpi"]["USD"]["rate"]), inline = True)
         embed.add_field(name = "British Pound Sterling", value = "£ {}".format(data["bpi"]["GBP"]["rate"]), inline = True)
@@ -249,7 +249,7 @@ class Utilities:
 
         await ctx.send(embed = embed)
 
-    @commands.command(aliases = ["8ball", u"\U0001f3b1"])
+    @commands.command(name = "8ball", aliases = ["ask", u"\U0001f3b1"])
     async def ask(self, ctx, *, text: str):
         """Ask the 8-ball questions."""
 
@@ -273,7 +273,7 @@ class Utilities:
         """DMs text to the user."""
 
         # await member.send(''.join(text))
-        msgAuthor = ctx.author
+        msg_author = ctx.author
 
         embed = discord.Embed(
             title = "",
@@ -281,10 +281,10 @@ class Utilities:
             color = ykColor
         )
         embed.set_author(
-            name = str(msgAuthor),
-            icon_url = msgAuthor.avatar_url
+            name = str(msg_author),
+            icon_url = msg_author.avatar_url
         )
-        embed.set_footer(text = f"User ID: {msgAuthor.id}")
+        embed.set_footer(text = f"User ID: {msg_author.id}")
 
         await user.send(embed = embed)
         await ctx.message.add_reaction(u"\u2705")
@@ -309,9 +309,9 @@ class Utilities:
         # Get rid of .0
         nums = [int(num) if num % 1 == 0 else num for num in numbers]
         # Make every number a bold string
-        fNumbers = [f"**{num}**" for num in nums]
+        f_numbers = [f"**{num}**" for num in nums]
 
-        output = "{} = __**{}**__".format(" + ".join(fNumbers), sum(nums))
+        output = "{} = __**{}**__".format(" + ".join(f_numbers), sum(nums))
 
         await ctx.send(output)
 

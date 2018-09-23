@@ -1,7 +1,8 @@
 import discord
 from discord.ext import commands
 from yuki import color as ykColor
-from yuki import prefix
+import yuki
+
 """
 import js2py
 import aiohttp
@@ -101,12 +102,12 @@ class Experimental:
     async def floodit(self, ctx):
         game = FloodIt()
 
-        outputBuffer = BytesIO()
-        game.field.save(outputBuffer, "png")
-        outputBuffer.seek(0)
+        output_buf = BytesIO()
+        game.field.save(output_buf, "png")
+        output_buf.seek(0)
 
         embed = discord.Embed(title = "Flood-It", color = ykColor)
-        file = discord.File(filename = "floodit.png", fp = outputBuffer)
+        file = discord.File(filename = "floodit.png", fp = output_buf)
         embed.set_image(url = "attachment://floodit.png")
 
         msg = await ctx.send(embed = embed, file = file)
@@ -122,12 +123,12 @@ class Experimental:
                 reaction, user = await self.bot.wait_for("reaction_add", timeout = 60 * 2, check = check)
                 game.next(str(reaction).split(':')[1])
 
-                outputBuffer = BytesIO()
-                game.field.save(outputBuffer, "png")
-                outputBuffer.seek(0)
+                output_buf = BytesIO()
+                game.field.save(output_buf, "png")
+                output_buf.seek(0)
 
                 embed = msg.embeds[0]
-                file = discord.File(filename = "floodit.png", fp = outputBuffer)
+                file = discord.File(filename = "floodit.png", fp = output_buf)
                 embed.set_image(url = "attachment://floodit.png")
 
                 # await msg.edit(embed = embed, file = file)
@@ -148,26 +149,23 @@ class Experimental:
                 message = await ctx.get_message(id = messageid)
             except:
                 message = None
-                errorMessage = "Message doesn't exist."
+                await yuki.send_error("Message doesn't exist.", ctx)
 
             if message and message.pinned:
-                errorMessage = "Message is already pinned."
+                await yuki.send_error("Message is already pinned.", ctx)
             else:
                 try:
                     await message.pin()
                     return
                 except:
-                    errorMessage = "Couldn't pin message."
-
-            embed = discord.Embed(description = u"\U000026a0 **{}**".format(errorMessage), color = ykColor)
-            await ctx.send(embed = embed)
+                    await yuki.send_error("Couldn't pin message.", ctx)
         else:
-            check = lambda r, u: u == ctx.author and r == "\N{PUSHPIN}"
+            check = lambda r, u: u == ctx.author and r == '\N{PUSHPIN}'
 
             try:
                 reaction, user = await self.bot.wait_for("reaction_add", check = check)
             except asyncio.TimeoutError:
-                await ctx.send("Ran out of time to pin message.")
+                await yuki.send_error("Ran out of time to pin message.", ctx)
 
 def setup(bot):
     bot.add_cog(Experimental(bot))
