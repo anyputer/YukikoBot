@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 from yuki import color as ykColor
-from yuki import prefix
 import yuki
 
 import aiohttp
@@ -54,6 +53,8 @@ class Info:
             "Utilities":    "\N{HAMMER AND WRENCH} Utils",
             "NSFW":         "\N{AUBERGINE} NSFW"
         }
+
+        prefix = self.bot.command_prefix(self.bot, ctx)[-1]
 
         if not command:
             embed = discord.Embed(title = None, description = f"__{self.bot.description}__", color = ykColor)
@@ -460,6 +461,8 @@ class Info:
     @commands.command(aliases = ["bot", "dbs", "dbsinfo", u"\U0001f916"])
     async def botinfo(self, ctx, bot: discord.Member = None):
         """Gives info about the bot using DiscordBots."""
+
+        bot = self.bot.get_user(447_493_600_167_591_936) if bot == None else bot
 
         if bot.bot:
             async with aiohttp.ClientSession() as session:

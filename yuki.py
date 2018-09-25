@@ -15,6 +15,14 @@ import asyncio
 description = """A multi-purpose bot with fun commands"""
 prefix = ".yk "
 
+"""async def get_pre(bot, msg):
+    if msg.content.startswith(prefix) and msg.guild:
+        return prefix
+    elif msg.content.startswith(prefix) and not msg.guild:
+        return prefix
+    elif not msg.guild:
+        return ''"""
+
 bot = commands.Bot(
     command_prefix = commands.when_mentioned_or(prefix), # , u"\U0001f916"),
     description = description,
@@ -22,8 +30,6 @@ bot = commands.Bot(
 )
 bot.remove_command("help") # Removes the default help command.
 color = 0xFF033E
-
-cross_mark = bot.get_emoji(465_215_264_439_664_650)
 
 for file in listdir("cogs"):
     if file.endswith(".py") and not file.startswith('_'):
@@ -42,6 +48,9 @@ async def on_ready():
     logging.info("------")
 
     await bot.change_presence(activity = discord.Game(name = f"on {len(bot.guilds)} servers | {prefix}help"))
+
+    global cross_mark
+    cross_mark = bot.get_emoji(465_215_264_439_664_650)
 
 @bot.event
 async def on_guild_join(guild):
@@ -70,7 +79,7 @@ async def on_command_error(ctx, error):
         await send_error("Command can't be used in DM.", ctx)
 
     elif isinstance(error, commands.CommandNotFound):
-        await ctx.message.add_reaction(bot.get_emoji(493_196_718_637_318_155))
+        await ctx.message.add_reaction(bot.get_emoji(493_196_667_336_654_858))
 
     elif isinstance(error, commands.DisabledCommand):
         await send_error("Command is disabled.", ctx)

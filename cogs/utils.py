@@ -227,24 +227,30 @@ class Utilities:
 
             await ctx.send(embed = embed)
 
-    @commands.command(aliases = ["bitcoinprice"])
+    @commands.command(aliases = ["bc", "bcp", "bitcoinprice"])
     async def bitcoin(self, ctx):
         """Outputs the current Bitcoin price."""
+
+        bc_logo = "https://raw.githubusercontent.com/roslinpl/bitcoin.it-promotional_graphics/master/bitcoinLogo1000.png"
 
         async with aiohttp.ClientSession() as cs:
             async with cs.get("https://api.coindesk.com/v1/bpi/currentprice.json") as r:
                 data = json.loads(await r.content.read())
-        embed = discord.Embed(title = "", color = 0xf7931a)
 
-        bc_logo = "https://raw.githubusercontent.com/roslinpl/bitcoin.it-promotional_graphics/master/bitcoinLogo1000.png"
+        usd = data["bpi"]["USD"]["rate"]
+        gbp = data["bpi"]["GBP"]["rate"]
+        eur = data["bpi"]["EUR"]["rate"]
+
+        embed = discord.Embed(title = "", color = 0xf7931a)
         embed.set_author(
             name = "Current Bitcoin Price",
             url = "https://www.coindesk.com/price/",
             icon_url = bc_logo
         )
-        embed.add_field(name = "United States Dollar", value = "$ {}".format(data["bpi"]["USD"]["rate"]), inline = True)
-        embed.add_field(name = "British Pound Sterling", value = "£ {}".format(data["bpi"]["GBP"]["rate"]), inline = True)
-        embed.add_field(name = "Euro", value = "€ {}".format(data["bpi"]["EUR"]["rate"]), inline = True)
+
+        embed.add_field(name = "United States Dollar", value = f"$ {usd}")
+        embed.add_field(name = "British Pound Sterling", value = f"£ {gbp}")
+        embed.add_field(name = "Euro", value = f"€ {eur}")
         embed.set_footer(text = "Powered by CoinDesk")
 
         await ctx.send(embed = embed)

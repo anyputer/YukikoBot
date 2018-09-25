@@ -312,7 +312,7 @@ class Images:
         """Gives you a random RetroArch screenshot."""
 
         async with ctx.typing():
-            ss_path = "C:/Users/yarsa/AppData/Roaming/RetroArch/screenshots"
+            ss_path = "D:/RetroArch/screenshots/"
             img_path = random.choice(listdir(ss_path))
 
             file = discord.File(f"{ss_path}/{img_path}", filename = "image.png")
