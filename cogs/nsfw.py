@@ -13,7 +13,7 @@ class NSFW:
     def __init__(self, bot):
         self.bot = bot
 
-        self.nsfwEmojis = (
+        self.nsfw_emojis = (
             "<:grip_nsfw:481828361069658147>",
             "<:lenny_nsfw:481828458230579200>",
             "<:fruitsex_nsfw:480755216505896972>",
@@ -37,7 +37,7 @@ class NSFW:
 
             if results:
                 result = choice(results)
-                emoji = choice(self.nsfwEmojis)
+                emoji = choice(self.nsfw_emojis)
 
                 embed = discord.Embed(description = f"{emoji} Rule34", color = ykColor)
                 embed.set_image(url = result)

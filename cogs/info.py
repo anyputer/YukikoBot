@@ -51,7 +51,8 @@ class Info:
             "Guild":        "\N{HOUSE WITH GARDEN} Server",
             "Text":         "\N{KEYBOARD} Text",
             "Utilities":    "\N{HAMMER AND WRENCH} Utils",
-            "NSFW":         "\N{AUBERGINE} NSFW"
+            "NSFW":         "\N{AUBERGINE} NSFW",
+            "Stars":        "\N{WHITE MEDIUM STAR} Stars"
         }
 
         prefix = self.bot.command_prefix(self.bot, ctx)[-1]
@@ -122,7 +123,7 @@ class Info:
 
     @commands.command(aliases = ["support"])
     async def about(self, ctx):
-        """Gives info about the bot."""
+        """Outputs info about the bot."""
 
         """await ctx.send(
               "```"
@@ -164,7 +165,7 @@ class Info:
 
     @commands.command()
     async def invite(self, ctx):
-        """Gives the bot's invite link."""
+        """Outputs the bot's invite link."""
 
         embed = discord.Embed(title = "", color = ykColor)
         embed.set_author(
@@ -176,7 +177,7 @@ class Info:
 
     @commands.command(aliases = ["pfp", u"\U0001f464"])
     async def avatar(self, ctx, member: discord.Member = None):
-        """Gives the member's avatar."""
+        """Outputs the member's avatar."""
 
         if member == None:
             mem = ctx.message.author
@@ -197,7 +198,7 @@ class Info:
 
     @commands.command(aliases = ["user", "member", u"\U0001f465"])
     async def userinfo(self, ctx, member: discord.Member = None):
-        """Gives info about the member."""
+        """Outputs info about the member."""
 
         if member == None:
             mem = ctx.message.author
@@ -255,7 +256,7 @@ class Info:
     @commands.command(aliases = ["guild", "server", "serverinfo"])
     @commands.guild_only()
     async def guildinfo(self, ctx):
-        """Gives info about the guild."""
+        """Outputs info about the guild."""
 
         """if guild == None:
             gld = ctx.message.guild
@@ -381,7 +382,7 @@ class Info:
 
     @commands.command(aliases = ["emoji", "emote", "emoteinfo", u"\U0001f61c"])
     async def emojiinfo(self, ctx, emoji: discord.Emoji = None):
-        """Gives info about the emoji."""
+        """Outputs info about the emoji."""
 
         # emoID = int(emoji.split(":")[2][:-1])
 
@@ -411,8 +412,8 @@ class Info:
         await ctx.send(embed = embed)
 
     @commands.command(aliases = ("channel", "chan", "cha", "ct"))
-    async def channelinfo(self, ctx, *, channel: discord.TextChannel = None):
-        """Gives info about the channel."""
+    async def channelinfo(self, ctx, channel: discord.TextChannel = None):
+        """Outputs info about the channel."""
 
         if ctx.guild:
             if channel == None:
@@ -439,7 +440,7 @@ class Info:
     @commands.command(aliases = ["role"])
     @commands.guild_only()
     async def roleinfo(self, ctx, role: discord.Role):
-        """Gives info about the role."""
+        """Outputs info about the role."""
 
         rol = role
 
@@ -460,7 +461,7 @@ class Info:
 
     @commands.command(aliases = ["bot", "dbs", "dbsinfo", u"\U0001f916"])
     async def botinfo(self, ctx, bot: discord.Member = None):
-        """Gives info about the bot using DiscordBots."""
+        """Outputs the DiscordBots stats of a bot."""
 
         bot = self.bot.get_user(447_493_600_167_591_936) if bot == None else bot
 

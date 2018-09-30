@@ -47,7 +47,7 @@ class Experimental:
         else:
             voice = ctx.guild.voice_client
             await voice.move_to(ctx.message.author.voice.channel)
-        voice.play(discord.FFmpegPCMAudio("./assets/sounds/" + sound.upper() + ".mp3"))
+        voice.play(discord.FFmpegPCMAudio(f"./assets/sounds/{ sound.lower() }.mp3"))
 
     """@commands.command(aliases = ("member", "memberinfo", "user", "pfp"))
     async def userinfo(self, ctx, *, member: str):

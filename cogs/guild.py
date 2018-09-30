@@ -122,6 +122,7 @@ class Guild:
         name = '-'.join(name).lower()
         try:
             await gld.create_text_channel(name = name, reason = f"{ctx.author} used the create channel command.")
+
             embed = discord.Embed(description = "", color = ykColor)
             embed.set_author(
                 name = f"Successfully created channel #{name}.",
@@ -129,7 +130,7 @@ class Guild:
             )
             await ctx.send(embed = embed)
         except:
-            if len(gld.channels) <= 100:
+            if len(gld.channels) <= 500:
                 await yuki.send_error(f"No space left to create #{name}.", ctx)
             else:
                 await yuki.send_error(f"Couldn't create channel #{name}.", ctx)
@@ -154,6 +155,25 @@ class Guild:
                 await ctx.send(embed = embed)
             except:
                 await yuki.send_error("Couldn't create emoji.", ctx)
+
+    @commands.command(aliases = ["slowmode", "slow"])
+    @commands.has_permissions(manage_channels = True)
+    async def setslow(self, ctx, secs: int = 0):
+        """Sets the slowmode delay of the channel you're in."""
+
+        if secs > 120:
+            await yuki.send_error("The delay can't be longer than 120 seconds!", ctx)
+        else:
+            cha = ctx.channel
+
+            try:
+                await cha.edit(slowmode_delay = secs)
+                if secs != 0:
+                    await yuki.send_error(f"Successfully set slowmode delay to {secs}.", ctx, icon = u"\U00002705")
+                else:
+                    await yuki.send_error(f"Successfully reset the slowmode delay.", ctx, icon = u"\U00002705")
+            except:
+                await yuki.send_error(f"Couldn't set slowmode delay for channel {cha.mention}.", ctx)
 
 def setup(bot):
     bot.add_cog(Guild(bot))

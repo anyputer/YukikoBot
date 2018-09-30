@@ -62,7 +62,7 @@ class Utilities:
 
     @commands.command()
     async def poll(self, ctx, question: str = "What game should we play?", *options: str):
-        """Start a simple poll."""
+        """Starts a simple poll."""
 
         # ABCDEFGHI
         letters = (
@@ -104,7 +104,7 @@ class Utilities:
 
     @commands.command(aliases = ["meow", "kitten", "purr", u"\U0001f431", u"\U0001f408"])
     async def cat(self, ctx):
-        """Gives you a random cat."""
+        """Outputs a random cat."""
 
         async with ctx.typing():
             async with aiohttp.ClientSession() as cs:
@@ -119,7 +119,7 @@ class Utilities:
 
     @commands.command(aliases = ["bark", "puppy", u"\U0001f436", u"\U0001f415"])
     async def dog(self, ctx):
-        """Gives you a random dog."""
+        """Outputs a random dog."""
 
         async with ctx.typing():
             async with aiohttp.ClientSession() as cs:
@@ -176,7 +176,7 @@ class Utilities:
 
     @commands.command()
     async def quote(self, ctx):
-        """Gives you a random quote."""
+        """Outputs a random quote."""
 
         async with aiohttp.ClientSession() as cs:
             async with cs.get("https://talaikis.com/api/quotes/random/") as r:
@@ -189,7 +189,7 @@ class Utilities:
 
     @commands.command(aliases = ["die", u"\U0001F3B2"])
     async def dice(self, ctx):
-        """Roll a dice."""
+        """Rolls a dice."""
 
         a = random.randint(1, 6)
         b = '!' if a == 6 else '.'
