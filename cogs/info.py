@@ -62,10 +62,10 @@ class Info:
             embed.set_author(name = self.bot.user.name, icon_url = self.bot.user.avatar_url)
             embed.set_thumbnail(url = self.bot.user.avatar_url)
 
-            for cogName in sorted(self.bot.cogs):
+            for cog_name in sorted(self.bot.cogs):
                 # Hide the NSFW category in non-NSFW channels.
                 if ctx.guild:
-                    if cogName == "NSFW" and not ctx.channel.nsfw:
+                    if cog_name == "NSFW" and not ctx.channel.nsfw:
                         continue
 
                 """
@@ -76,13 +76,13 @@ class Info:
                         cmds += f"``{prefix}{cmd.name}`` "
                 """
                 cmds = []
-                for cmd in self.bot.get_cog_commands(cogName):
+                for cmd in self.bot.get_cog_commands(cog_name):
                     if not cmd.hidden:
                         cmds.append(cmd)
                 cmds = u" \u25CF ".join([f"{cmd}" for cmd in cmds])
 
                 if cmds != "":
-                    embed.add_field(name = cog_display_dict.get(cogName, cogName), value = cmds, inline = False)
+                    embed.add_field(name = cog_display_dict.get(cog_name, cog_name), value = cmds, inline = False)
 
             embed.set_footer(text = f"Type {prefix}help <command> for info on a command.")
 

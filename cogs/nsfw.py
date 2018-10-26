@@ -14,11 +14,14 @@ class NSFW:
         self.bot = bot
 
         self.nsfw_emojis = (
+            "<a:succ_nsfw:480755220926693376>",
+            "<a:milky_nsfw:480755218552848385>",
+
             "<:grip_nsfw:481828361069658147>",
             "<:lenny_nsfw:481828458230579200>",
             "<:fruitsex_nsfw:480755216505896972>",
-            "<a:succ_nsfw:480755220926693376>",
-            "<a:milky_nsfw:480755218552848385>"
+            "<:peachy_nsfw:497799370897489923>",
+            "<:eggblow_nsfw:497799325695475732>"
         )
     @commands.group(aliases = ["r34"])
     @commands.is_nsfw()
@@ -58,7 +61,7 @@ class NSFW:
             results = await r34.getImageURLS(*tags)
 
             if results:
-                if len(results) > 5:
+                if len(results) >= 5:
                     output = '\n'.join(sample(results, 5))
                 else:
                     output = '\n'.join(results)

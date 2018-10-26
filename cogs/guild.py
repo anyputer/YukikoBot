@@ -156,7 +156,7 @@ class Guild:
             except:
                 await yuki.send_error("Couldn't create emoji.", ctx)
 
-    @commands.command(aliases = ["slowmode", "slow"])
+    @commands.command(aliases = ["slowmode", "slow", u"\U0001f40c"])
     @commands.has_permissions(manage_channels = True)
     async def setslow(self, ctx, secs: int = 0):
         """Sets the slowmode delay of the channel you're in."""
