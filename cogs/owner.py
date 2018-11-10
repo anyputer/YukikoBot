@@ -11,8 +11,8 @@ import platform
 import logging
 import asyncio
 
-import lupa
-from lupa import LuaRuntime
+# import lupa
+# from lupa import LuaRuntime
 
 import time
 
