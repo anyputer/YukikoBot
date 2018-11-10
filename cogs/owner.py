@@ -59,9 +59,9 @@ class Owner:
                 out = redir_stdout.getvalue()
                 err = redir_stderr.getvalue()
 
-                out = f"```{out}```" if out else "No standard output."
-                err = f"```{err}```" if err else "No error output."
-                exc = f"```{exc}```" if exc else "No exception."
+                out = f"```\n{out}```" if out else "No standard output."
+                err = f"```\n{err}```" if err else "No error output."
+                exc = f"```\n{exc}```" if exc else "No exception."
 
                 embed = discord.Embed(title = "", color = ykColor)
                 embed.set_author(name = f"Python { platform.python_version() }", icon_url = "https://cdn.discordapp.com/emojis/447523942949715969.png?v=1")
