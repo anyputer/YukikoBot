@@ -21,6 +21,7 @@ class Images:
     def __init__(self, bot):
         self.bot = bot
 
+    #Flip
     @commands.command()
     async def flip(self, ctx, xy: str, link: str = None):
         """Flips image horizontally, or vertically."""
@@ -52,6 +53,7 @@ class Images:
 
             await ctx.send(embed = embed, file = file)
 
+    #Pfuse
     @commands.command(aliases = ["pokefuse"])
     async def pfuse(self, ctx, body: int, head: int):
         """
@@ -75,6 +77,7 @@ class Images:
 
             await ctx.send(embed = embed, file = file)
 
+    #Clyde
     @commands.command()
     async def clyde(self, ctx, *, text: str = None):
         """Gives you an image that mocks clyde."""
@@ -98,6 +101,7 @@ class Images:
 
             await ctx.send(file = file)
 
+    #Thonk
     @commands.command(aliases = [u"\U0001f914"])
     async def thonk(self, ctx, link: str = None):
         """Thonkifies the image you provide."""
@@ -136,6 +140,7 @@ class Images:
 
             await ctx.send(embed = embed, file = file)
 
+    #Thought
     @commands.command(aliases = [u"\U0001f4ad"])
     async def thought(self, ctx, link: str = None):
         """Thoughts about the image you provide."""
@@ -174,6 +179,7 @@ class Images:
     async def filter(self, ctx):
         pass
 
+    #Invert
     @filter.command()
     async def invert(self, ctx, link: str = None):
         """Inverts image."""
@@ -200,6 +206,7 @@ class Images:
 
             await ctx.send(file = file)
 
+    #Blur
     @filter.command(aliases = [u"\u0001f4a7"])
     async def blur(self, ctx, radius: int = 2, link: str = None):
         """Blurs image."""
@@ -223,6 +230,7 @@ class Images:
 
                 await ctx.send(embed = embed, file = file)
 
+    #Emboss
     @filter.command()
     async def emboss(self, ctx, link: str = None):
         """Applies emboss filter to image."""
@@ -240,6 +248,7 @@ class Images:
 
             await ctx.send(file = file)
 
+    #Contour
     @filter.command()
     async def contour(self, ctx, link: str = None):
         """Applies contour filter to image."""
@@ -257,6 +266,7 @@ class Images:
 
             await ctx.send(file = file)
 
+    #Mosaic
     @filter.command()
     async def mosaic(self, ctx, link: str = None):
         """Applies mosaic filter to image."""
@@ -284,6 +294,7 @@ class Images:
 
             await ctx.send(file = file)
 
+    #Qrcode
     @commands.command(aliases = ["qr", u"\U0001f4d3"])
     async def qrcode(self, ctx, *, text: str = None):
         """Gives you a QR Code that includes text."""
@@ -307,6 +318,7 @@ class Images:
 
             await ctx.send(embed = embed, file = file)
 
+    #Rashot
     @commands.command(aliases = [u"\U0001f47e"])
     async def rashot(self, ctx):
         """Gives you a random RetroArch screenshot."""
