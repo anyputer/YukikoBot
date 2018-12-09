@@ -37,6 +37,7 @@ class Utilities:
             "My sources say yes"
         )
 
+    #Ping
     @commands.command(aliases = [u"\U0001f3d3"])
     async def ping(self, ctx):
         """Outputs the bot's ping."""
@@ -60,6 +61,7 @@ class Utilities:
         output = "{} Pong! That took **{:.2f} ms**.".format(self.pingEmoji, duration)
         await message.edit(content = output)"""
 
+    #Poll
     @commands.command()
     async def poll(self, ctx, question: str = "What game should we play?", *options: str):
         """Starts a simple poll."""
@@ -102,6 +104,7 @@ class Utilities:
 
                 await ctx.send(embed = embed)"""
 
+    #Cat
     @commands.command(aliases = ["meow", "kitten", "purr", u"\U0001f431", u"\U0001f408"])
     async def cat(self, ctx):
         """Outputs a random cat."""
@@ -117,6 +120,7 @@ class Utilities:
 
                     await ctx.send(embed = embed)
 
+    #Dog
     @commands.command(aliases = ["bark", "puppy", u"\U0001f436", u"\U0001f415"])
     async def dog(self, ctx):
         """Outputs a random dog."""
@@ -132,6 +136,7 @@ class Utilities:
 
                     await ctx.send(embed = embed)
 
+    #Choose
     @commands.command(aliases = ["choice"])
     async def choose(self, ctx, *, options: commands.clean_content):
         """Chooses an option from a list of options."""
@@ -146,6 +151,7 @@ class Utilities:
         )
         await ctx.send(output)
 
+    #Shuffle
     @commands.command()
     async def shuffle(self, ctx, *, list: commands.clean_content):
         """Shuffles a list of things."""
@@ -160,6 +166,7 @@ class Utilities:
         )
         await ctx.send(output)
 
+    #Sort
     @commands.command()
     async def sort(self, ctx, *, list: commands.clean_content):
         """Sorts a list of things in alphabetic order."""
@@ -174,6 +181,7 @@ class Utilities:
         )
         await ctx.send(output)
 
+    #Quote
     @commands.command()
     async def quote(self, ctx):
         """Outputs a random quote."""
@@ -187,6 +195,7 @@ class Utilities:
 
                 await ctx.send(embed = embed)
 
+    #Dice
     @commands.command(aliases = ["die", u"\U0001F3B2"])
     async def dice(self, ctx):
         """Rolls a dice."""
@@ -200,6 +209,7 @@ class Utilities:
 
         await ctx.send(embed = embed, file = file)
 
+    #McSkin
     @commands.command(aliases = ["skin"])
     async def mcskin(self, ctx, username: str = "Steve"):
         """Gets a Minecraft skin."""
@@ -227,6 +237,7 @@ class Utilities:
 
             await ctx.send(embed = embed)
 
+    #Bitcoin
     @commands.command(aliases = ["bc", "bcp", "bitcoinprice"])
     async def bitcoin(self, ctx):
         """Outputs the current Bitcoin price."""
@@ -255,6 +266,7 @@ class Utilities:
 
         await ctx.send(embed = embed)
 
+    #Ask
     @commands.command(name = "8ball", aliases = ["ask", u"\U0001f3b1"])
     async def ask(self, ctx, *, text: str):
         """Ask the 8-ball questions."""
@@ -274,6 +286,7 @@ class Utilities:
         # await ctx.send(u"\U0001F3B1" + f" The 8-ball said ``{answer}``")
         await ctx.send(embed = embed)
 
+    #Dm
     @commands.command(aliases = ["pm"])
     async def dm(self, ctx, user: discord.User = None, *, text: str):
         """DMs text to the user."""
@@ -297,6 +310,7 @@ class Utilities:
         # else:
         #     await ctx.message.add_reaction(self.bot.get_emoji(465215264439664650))
 
+    #Sum
     @commands.command(aliases = ["plus", "\U00002795"])
     async def sum(self, ctx, *numbers: float):
         """Adds numbers together."""
