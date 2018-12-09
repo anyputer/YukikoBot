@@ -6,6 +6,7 @@ class Copypasta:
     def __init__(self, bot):
         self.bot = bot
 
+    #Linux
     @commands.command(aliases = ["interject", u"\U0001f427"])
     async def linux(self, ctx, a: commands.clean_content = "GNU", b: commands.clean_content = "Linux"):
         """Interjects for a moment, about your favorite thing."""
@@ -34,6 +35,7 @@ distributions of {a}/{b}.
 
         await ctx.send(message)
 
+    #Cemu
     @commands.command(aliases = ["cemu"])
     async def botw(self, ctx, a: commands.clean_content = "Breath of the Dicknut"):
         """Rants about Breath of the Dicknut."""
