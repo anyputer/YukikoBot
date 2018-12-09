@@ -9,6 +9,7 @@ class Guild:
     def __init__(self, bot):
         self.bot = bot
     
+    #Prune
     @commands.command(aliases = ["prune"])
     @commands.has_permissions(manage_messages = True)
     async def purge(self, ctx, amount: int = 1):
@@ -27,6 +28,7 @@ class Guild:
             await msg1.channel.purge(limit = amount)
             logging.info(f"Deleted {amount} messages in #{msg1.channel} from guild: {msg1.guild} with ID {msg1.guild.id}.")
 
+    #Kick
     @commands.command()
     @commands.has_permissions(kick_members = True)
     async def kick(self, ctx, *members: discord.Member):
@@ -54,6 +56,7 @@ class Guild:
         embed = discord.Embed(title = "Attempted to Kick", description = output, color = ykColor)
         await ctx.send(embed = embed)
 
+    #Ban
     @commands.command()
     @commands.has_permissions(ban_members = True)
     async def ban(self, ctx, *members: discord.Member):
@@ -81,6 +84,7 @@ class Guild:
         embed = discord.Embed(title = "Attempted to Ban", description = output, color = ykColor)
         await ctx.send(embed = embed)
 
+    #Nick
     @commands.command(aliases = ["nickname", "changenick", "changenickname"])
     @commands.has_permissions(manage_nicknames = True)
     async def nick(self, ctx, member: discord.Member, nickname: str = None):
@@ -113,6 +117,7 @@ class Guild:
     async def create(self, ctx):
         pass
 
+    #Channel
     @create.command(aliases = ["chan", "cha"])
     @commands.has_permissions(manage_channels = True)
     async def channel(self, ctx, *name: str):
@@ -135,6 +140,7 @@ class Guild:
             else:
                 await yuki.send_error(f"Couldn't create channel #{name}.", ctx)
 
+    #Emoji
     @create.command(aliases = ["emo"])
     @commands.has_permissions(manage_emojis = True)
     async def emoji(self, ctx, name: str, link: str = None):
@@ -156,6 +162,7 @@ class Guild:
             except:
                 await yuki.send_error("Couldn't create emoji.", ctx)
 
+    #Setslow
     @commands.command(aliases = ["slowmode", "slow", u"\U0001f40c"])
     @commands.has_permissions(manage_channels = True)
     async def setslow(self, ctx, secs: int = 0):
