@@ -63,6 +63,7 @@ class Coins:
     def __init__(self, bot):
         self.bot = bot
 
+    #Coin Test (Bot Owner Only)
     @commands.command(hidden = True)
     @commands.is_owner()
     async def cointest(self, ctx, member: discord.Member = None):
