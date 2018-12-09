@@ -40,6 +40,7 @@ for file in listdir("cogs"):
             print(f"Failed to load cog {name}.", file = sys.stderr)
             traceback.print_exc()
 
+#Bot Startup
 @bot.event
 async def on_ready():
     logging.info("Logged in as")
