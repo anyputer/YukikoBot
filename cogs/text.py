@@ -16,6 +16,7 @@ class Text:
     def __init__(self, bot):
         self.bot = bot
     
+    #Say
     @commands.command(aliases = [u"\U0001f4ac"])
     async def say(self, ctx, *, text: str):
         """Outputs text deleting the original message."""
@@ -26,6 +27,7 @@ class Text:
         await ctx.send(text)
         await ctx.message.delete()
 
+    #TTS
     @commands.command(aliases = ["talk", "speak", u"\U0001f5e3"])
     async def tts(self, ctx, *, text: commands.clean_content):
         """Text-to-speech text."""
@@ -33,12 +35,14 @@ class Text:
         await ctx.send(text, tts = True)
         # await ctx.message.delete()
 
+    #Echo
     @commands.command()
     async def echo(self, ctx, *, text: commands.clean_content):
         """Outputs text."""
 
         await ctx.send(text)
 
+    #Updown
     @commands.command(aliases = ["upside", "upsidedown", u"\U0001f643"])
     async def updown(self, ctx, *, text: commands.clean_content):
         """Outputs text upside down."""
@@ -46,6 +50,7 @@ class Text:
         output = await commands.clean_content().convert(ctx, upsidedown.transform(text))
         await ctx.send(output)
 
+    #Dank
     @commands.command()
     async def dank(self, ctx, *, text: commands.clean_content):
         """Outputs text in **``d a n k  l e t t e r s``**."""
@@ -53,6 +58,7 @@ class Text:
         dankText = (' ' * 1).join(text)
         await ctx.send(f"**```{dankText}```**")
 
+    #Upper
     @commands.command(aliases = ["uppercase", "caps"])
     async def upper(self, ctx, *, text: commands.clean_content):
         """Outputs text in uppercase letters."""
@@ -60,6 +66,7 @@ class Text:
         output = await commands.clean_content().convert(ctx, text.upper())
         await ctx.send(output)
 
+    #Lower
     @commands.command(aliases = ["lowercase"])
     async def lower(self, ctx, *, text: commands.clean_content):
         """Outputs text in lowercase letters."""
@@ -67,6 +74,7 @@ class Text:
         output = await commands.clean_content().convert(ctx, text.lower())
         await ctx.send(output)
 
+    #Title
     @commands.command()
     async def title(self, ctx, *, text: commands.clean_content):
         """Outputs text Like A Title."""
@@ -74,6 +82,7 @@ class Text:
         output = await commands.clean_content().convert(ctx, text.title())
         await ctx.send(output)
 
+    #Capitalize
     @commands.command()
     async def capitalize(self, ctx, *, text: commands.clean_content):
         """Outputs text that's Capitalized."""
@@ -81,6 +90,7 @@ class Text:
         output = await commands.clean_content().convert(ctx, text.capitalize())
         await ctx.send(output)
 
+    #Swapcase
     @commands.command()
     async def swapcase(self, ctx, *, text: commands.clean_content):
         """Outputs text iN sWAPCASE."""
@@ -88,6 +98,7 @@ class Text:
         output = await commands.clean_content().convert(ctx, text.swapcase())
         await ctx.send(output)
 
+    #Reverse
     @commands.command()
     async def reverse(self, ctx, *, text: commands.clean_content):
         """Outputs text in reverse."""
@@ -95,6 +106,7 @@ class Text:
         output = await commands.clean_content().convert(ctx, text[::-1])
         await ctx.send(output)
 
+    #Clap
     @commands.command(aliases = ["\U0001f44f"])
     async def clap(self, ctx, *text: commands.clean_content):
         u"""Outputs \U0001f44f text \U0001f44f like \U0001f44f this."""
@@ -104,6 +116,7 @@ class Text:
         seperator = " \N{CLAPPING HANDS SIGN} "
         await ctx.send(seperator.join(text))
 
+    #AltCaps
     @commands.command(aliases = ["capsizer", "altcase"])
     async def altcaps(self, ctx, *, text: commands.clean_content):
         """Outputs text, iN "aLtCaPs"."""
@@ -121,6 +134,7 @@ class Text:
         output = await commands.clean_content().convert(ctx, output)
         await ctx.send(output)
 
+    #FigLet
     @commands.command()
     async def figlet(self, ctx, *, text: commands.clean_content):
         """Outputs text in FIGlet letters."""
@@ -131,6 +145,7 @@ class Text:
 
         await ctx.send(output)
 
+    #MemeSpeak
     @commands.command(aliases = ["meemspeak", "meemspeek", "memespeek"])
     async def memespeak(self, ctx, *, text: commands.clean_content):
         """Outputs text in memespeak."""
@@ -194,6 +209,7 @@ class Text:
         output = await commands.clean_content().convert(ctx, output)
         await ctx.send(output)
 
+    #CowSay
     @commands.command(aliases = [u"\U0001f42e", u"\U0001f404"])
     async def cowsay(self, ctx, *, text: commands.clean_content):
         """Cow says whatever text you give."""
