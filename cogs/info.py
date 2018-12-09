@@ -38,6 +38,7 @@ class Info:
             datetime.second
         )
 
+    #Help
     @commands.command(aliases = [u"\U00002753"])
     async def help(self, ctx, command = None):
         """Shows the help."""
@@ -121,6 +122,7 @@ class Info:
 
                 await ctx.send(embed = embed)
 
+    #About
     @commands.command(aliases = ["support"])
     async def about(self, ctx):
         """Outputs info about the bot."""
@@ -163,6 +165,7 @@ class Info:
 
         await ctx.send(embed = embed)
 
+    #Invite
     @commands.command()
     async def invite(self, ctx):
         """Outputs the bot's invite link."""
@@ -175,6 +178,7 @@ class Info:
         )
         await ctx.send(embed = embed)
 
+    #Avatar
     @commands.command(aliases = ["pfp", u"\U0001f464"])
     async def avatar(self, ctx, member: discord.Member = None):
         """Outputs the member's avatar."""
@@ -196,6 +200,7 @@ class Info:
 
         await ctx.send(embed = embed)
 
+    #Userinfo
     @commands.command(aliases = ["user", "member", u"\U0001f465"])
     async def userinfo(self, ctx, member: discord.Member = None):
         """Outputs info about the member."""
@@ -253,6 +258,7 @@ class Info:
 
         await ctx.send(embed = embed)
 
+    #GuideInfo
     @commands.command(aliases = ["guild", "server", "serverinfo"])
     @commands.guild_only()
     async def guildinfo(self, ctx):
@@ -380,6 +386,7 @@ class Info:
 
         await ctx.send(embed = embed)
 
+    #EmojiInfo
     @commands.command(aliases = ["emoji", "emote", "emoteinfo", u"\U0001f61c"])
     async def emojiinfo(self, ctx, emoji: discord.Emoji = None):
         """Outputs info about the emoji."""
@@ -411,6 +418,7 @@ class Info:
 
         await ctx.send(embed = embed)
 
+    #ChannelInfo
     @commands.command(aliases = ("channel", "chan", "cha", "ct"))
     async def channelinfo(self, ctx, channel: discord.TextChannel = None):
         """Outputs info about the channel."""
@@ -437,6 +445,7 @@ class Info:
 
             await ctx.send(embed = embed)
 
+    #RoleInfo
     @commands.command(aliases = ["role"])
     @commands.guild_only()
     async def roleinfo(self, ctx, role: discord.Role):
@@ -459,6 +468,7 @@ class Info:
 
         await ctx.send(embed = embed)
 
+    #BotInfo
     @commands.command(aliases = ["bot", "dbs", "dbsinfo", u"\U0001f916"])
     async def botinfo(self, ctx, bot: discord.Member = None):
         """Outputs the DiscordBots stats of a bot."""
