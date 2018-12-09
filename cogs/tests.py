@@ -17,6 +17,7 @@ class Experimental:
     def __init__(self, bot):
         self.bot = bot
 
+    #Play (Bot Owner Only)
     @commands.command(aliases = [u"\U0001f50a"])
     @commands.guild_only()
     @commands.is_owner()
@@ -98,6 +99,7 @@ class Experimental:
             async with session.get("https://icanhazdadjoke.com/") as resp:
                 print(await resp.json())"""
 
+    #FloodIt
     @commands.command(aliases = ["flood-it"])
     async def floodit(self, ctx):
         game = FloodIt()
@@ -139,6 +141,7 @@ class Experimental:
                 await msg.clear_reactions()
                 return
 
+    #Pin (Manage Messages Only)
     @commands.command(aliases = [u"\U0001f4cc"])
     @commands.has_permissions(manage_messages = True)
     async def pin(self, ctx, messageid: int = None):
