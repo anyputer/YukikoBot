@@ -52,14 +52,17 @@ async def on_ready():
     global cross_mark
     cross_mark = bot.get_emoji(465_215_264_439_664_650)
 
+#Bot joins server
 @bot.event
 async def on_guild_join(guild):
     await bot.change_presence(activity = discord.Game(name = f"on {len(bot.guilds)} servers | {prefix}help"))
 
+#Bot Removed from server
 @bot.event
 async def on_guild_remove(guild):
     await bot.change_presence(activity = discord.Game(name = f"on {len(bot.guilds)} servers | {prefix}help"))
 
+#Checks if bot
 @bot.event
 async def on_message(msg):
     if msg.author == bot.user:
@@ -70,6 +73,7 @@ async def on_message(msg):
 
     await bot.process_commands(msg)
 
+#Error Handling
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
@@ -146,6 +150,7 @@ async def start_typing(channelID):
 """def clean_text(text, ctx):
     return re.sub(r"\<\@(.*?)\>", Squeaky(ctx), text, flags = re)"""
 
+#Main bot token
 def run_bot():
     config = RawConfigParser()
     config.read("config.ini")
