@@ -33,6 +33,7 @@ class Owner:
 
         pass
 
+    #Exec (Bot Owner Only)
     @python.command(name = "exec", aliases = ["run"])
     async def exec_(self, ctx, *, code: str = "print(\"Hello, World!\")"):
         """Executes Python 3 code."""
@@ -77,6 +78,7 @@ class Owner:
 
                 await ctx.send(embed = embed)
 
+    #Eval (Bot Owner Only)
     @python.command(name = "eval")
     async def eval_(self, ctx, *, code: str):
         """Evaluates Python 3 code."""
@@ -98,6 +100,7 @@ class Owner:
                 output = f"```{ret}```" if not exc else f"```{exc}```"
                 await ctx.send(output)
 
+    #Load (Bot Owner Only)
     @commands.command(name = "load", hidden = True)
     @commands.is_owner()
     async def cog_load(self, ctx, *, cog: str):
@@ -113,6 +116,7 @@ class Owner:
             # await ctx.send('**`SUCCESS`**')
             await ctx.message.add_reaction(u"\u2705")
 
+    #Unload (Bot Owner Only)
     @commands.command(name = "unload", hidden = True)
     @commands.is_owner()
     async def cog_unload(self, ctx, *, cog: str):
@@ -128,6 +132,7 @@ class Owner:
             # await ctx.send('**`SUCCESS`**')
             await ctx.message.add_reaction(u"\u2705")
 
+    #Cog_Reload (Bot Owner Only)
     @commands.command(name = "reload", hidden = True)
     @commands.is_owner()
     async def cog_reload(self, ctx, *, cog: str):
