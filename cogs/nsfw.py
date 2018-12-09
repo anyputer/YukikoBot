@@ -23,11 +23,14 @@ class NSFW:
             "<:peachy_nsfw:497799370897489923>",
             "<:eggblow_nsfw:497799325695475732>"
         )
+     
+    #Rule34
     @commands.group(aliases = ["r34"])
     @commands.is_nsfw()
     async def rule34(self, ctx):
         pass
 
+    #Random
     @rule34.group(aliases = ["rand", "r"])
     async def random(self, ctx, *, tags: str):
         """Outputs a random image from Rule 34."""
@@ -50,6 +53,7 @@ class NSFW:
             else:
                 await yuki.send_error("No results found.", ctx)
 
+    #Bomb
     @rule34.group(aliases = ["b"])
     async def bomb(self, ctx, *, tags: str):
         """Outputs random images from Rule 34."""
