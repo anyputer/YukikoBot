@@ -143,6 +143,7 @@ class Stars:
         self.webhook_name = "Star"
         self.webhook_icon = "https://cdn.discordapp.com/attachments/447786789563006986/494581408661110794/star.png"
 
+    #Star (Server Owner Only)
     @commands.command(hidden = True)
     async def star(self, ctx, messageid: int):
         """Stars a message."""
